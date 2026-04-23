@@ -9,9 +9,9 @@ export function Hero({ lang }: { lang: Lang }) {
       <img
         src="/profile.jpg"
         alt={t.name}
-        width={128}
-        height={128}
-        className="h-32 w-32 flex-none rounded-full border-2 border-accent/40 object-cover shadow-lg"
+        width={160}
+        height={160}
+        className="h-36 w-36 flex-none rounded-full border-2 border-accent/40 object-cover shadow-lg sm:h-40 sm:w-40"
       />
       <div className="min-w-0 flex-1">
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
