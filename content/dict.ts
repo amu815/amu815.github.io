@@ -16,8 +16,6 @@ type Dict = {
   };
   sections: {
     contact: string;
-    stats: string;
-    contribution: string;
     publications: string;
     skills: string;
     ai: string;
@@ -93,10 +91,8 @@ export const dict: Record<Lang, Dict> = {
     },
     sections: {
       contact: "Contact",
-      stats: "Stats",
-      contribution: "Contribution",
       publications: "Publications",
-      skills: "My Skills",
+      skills: "Skills",
       ai: "AI",
       learning: "Learning",
     },
@@ -119,18 +115,16 @@ export const dict: Record<Lang, Dict> = {
     langLabel: "日本語",
     otherLangLabel: "EN",
     otherLangHref: "/",
-    siteTitle: "末元あむ",
+    siteTitle: "末本歩夢",
     hero: {
       greeting: "こんにちは 👋",
-      name: "末元 あむ (Amu Suemoto)",
+      name: "末本 歩夢 (Amu Suemoto)",
       affiliation: "九州大学 修士2年 — 人間共生システム研究室",
       affiliationHref: "https://app.ait.kyushu-u.ac.jp/",
       department: "情報理工学府 (ISEE)",
     },
     sections: {
       contact: "Contact",
-      stats: "Stats",
-      contribution: "Contribution",
       publications: "論文・発表",
       skills: "スキル",
       ai: "AI",
@@ -144,6 +138,6 @@ export const dict: Record<Lang, Dict> = {
     skills: {
       headers: ["AI / ML", "バックエンド", "フロントエンド", "インフラ"],
     },
-    footer: "© 末元あむ",
+    footer: "© 末本歩夢",
   },
 };

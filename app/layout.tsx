@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Amu Suemoto — 末元あむ",
+  title: "Amu Suemoto — 末本歩夢",
   description:
     "Kyushu University M2, Humanophilic Systems Lab. AI/ML, backend, and systems research.",
   openGraph: {
