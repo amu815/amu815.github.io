@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: "https://amu815.github.io/",
     siteName: "Amu Suemoto",
     type: "website",
-    images: [{ url: "/profile.jpg", width: 600, height: 800 }],
+    images: [{ url: "/profile.jpg", width: 1441, height: 1921 }],
   },
   twitter: {
     card: "summary",
