@@ -122,7 +122,7 @@ export const dict: Record<Lang, Dict> = {
     hero: {
       greeting: "こんにちは 👋",
       name: "末本 歩夢 (Amu Suemoto)",
-      affiliation: "九州大学 修士2年 — 人間共生システム研究室",
+      affiliation: "九州大学 修士2年 — 人間情報システム研究グループ",
       affiliationHref: "https://app.ait.kyushu-u.ac.jp/",
       department: "情報理工学府 (ISEE)",
     },
