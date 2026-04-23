@@ -1,0 +1,10 @@
+import { HomePage } from "@/components/HomePage";
+
+export const metadata = {
+  title: "末元あむ — Amu Suemoto",
+  description: "九州大学 修士2年、人間共生システム研究室。AI/ML・バックエンド・システム研究。",
+};
+
+export default function Page() {
+  return <HomePage lang="ja" />;
+}
