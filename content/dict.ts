@@ -55,7 +55,7 @@ const publications = {
     {
       href: "https://icmi.acm.org/",
       title: "ICMI 2026",
-      badges: [UNDER_REVIEW],
+      badges: [CORE_B, UNDER_REVIEW],
     },
     {
       href: "https://rcis-conf.com/rcis2026/",
