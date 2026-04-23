@@ -4,6 +4,8 @@ const badges = [
   { href: "https://gemini.google.com/", label: "Gemini", color: "8E75B2", logo: "googlegemini" },
   { href: "https://chatgpt.com/", label: "ChatGPT", color: "74aa9c", logo: "openai" },
   { href: "https://qwenlm.github.io/", label: "Qwen", color: "6F42C1" },
+  { href: "https://ai.google.dev/gemma", label: "Gemma", color: "4285F4", logo: "google" },
+  { href: "https://github.com/EleutherAI/pythia", label: "Pythia", color: "5F259F" },
   { href: "https://github.com/salesforce/BLIP", label: "BLIP", color: "00A1E0" },
 ];
 
