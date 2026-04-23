@@ -9,8 +9,8 @@ export function Footer({ lang }: { lang: Lang }) {
         {t.footer} · {new Date().getUTCFullYear()}
       </p>
       <p className="mt-1">
-        <a href="https://github.com/amu815/amu815.github.io" target="_blank" rel="noreferrer">
-          source on github
+        <a href="https://github.com/amu815" target="_blank" rel="noreferrer">
+          github.com/amu815
         </a>
       </p>
     </footer>

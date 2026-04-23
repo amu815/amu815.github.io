@@ -1,6 +1,7 @@
 export type Lang = "en" | "ja";
 
-type Pub = { href: string; title: string; badges: { label: string; color: string }[] };
+type Badge = { label: string; labelJa?: string; color: string };
+type Pub = { href: string; title: string; badges: Badge[] };
 
 type Dict = {
   langLabel: string;
@@ -34,44 +35,46 @@ type Dict = {
   footer: string;
 };
 
+const UNDER_REVIEW: Badge = { label: "Under Review", labelJa: "査読中", color: "FFA500" };
+const DOMESTIC: Badge = { label: "Domestic", labelJa: "国内", color: "808080" };
+const CORE_A_STAR: Badge = { label: "CORE A*", color: "4CAF50" };
+const CORE_B: Badge = { label: "CORE B", color: "3178C6" };
+
 const publications = {
   submittedConferences: [
     {
       href: "https://2026.ijcai.org/",
       title: "IJCAI 2026",
-      badges: [
-        { label: "CORE A*", color: "4CAF50" },
-        { label: "Under Review", color: "FFA500" },
-      ],
+      badges: [CORE_A_STAR, UNDER_REVIEW],
     },
     {
       href: "https://2026.ieeeicassp.org/",
       title: "ICASSP 2026",
-      badges: [{ label: "CORE B", color: "3178C6" }],
+      badges: [CORE_B],
     },
     {
       href: "https://rcis-conf.com/rcis2026/",
       title: "RCIS 2026",
-      badges: [{ label: "CORE B", color: "3178C6" }],
+      badges: [CORE_B],
     },
     {
       href: "https://www.dpsws.org/2025/",
       title: "DPSWS 2025",
-      badges: [{ label: "Domestic", color: "808080" }],
+      badges: [DOMESTIC],
     },
   ],
   acceptedConferences: [
     {
       href: "https://www.dpsws.org/2025/",
       title: "DPSWS 2025",
-      badges: [{ label: "Domestic", color: "808080" }],
+      badges: [DOMESTIC],
     },
   ],
   submittedJournals: [
     {
       href: "https://www.jstage.jst.go.jp/browse/transinf/",
       title: "IEICE Trans. 2026",
-      badges: [{ label: "Under Review", color: "FFA500" }],
+      badges: [UNDER_REVIEW],
     },
   ],
 };
@@ -131,7 +134,7 @@ export const dict: Record<Lang, Dict> = {
       learning: "学習中",
     },
     publications: {
-      headers: ["投稿中 (会議)", "採択済 (会議)", "投稿中 (論文誌)", "採択済 (論文誌)"],
+      headers: ["投稿済（会議）", "採択済（会議）", "投稿済（論文誌）", "掲載済（論文誌）"],
       ...publications,
       acceptedJournalsPlaceholder: "—",
     },

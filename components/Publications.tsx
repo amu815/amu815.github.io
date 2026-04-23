@@ -2,9 +2,16 @@
 import type { Lang } from "@/content/dict";
 import { dict } from "@/content/dict";
 
-type Pub = { href: string; title: string; badges: { label: string; color: string }[] };
+type Badge = { label: string; labelJa?: string; color: string };
+type Pub = { href: string; title: string; badges: Badge[] };
 
-function PubList({ items }: { items: Pub[] }) {
+function badgeUrl(text: string, color: string) {
+  return `https://img.shields.io/badge/${encodeURIComponent(
+    text.replace(/ /g, "_"),
+  )}-${color}?style=flat-square`;
+}
+
+function PubList({ items, lang }: { items: Pub[]; lang: Lang }) {
   return (
     <ul className="flex flex-col gap-2">
       {items.map((p) => (
@@ -12,16 +19,17 @@ function PubList({ items }: { items: Pub[] }) {
           <a href={p.href} target="_blank" rel="noreferrer" className="font-medium">
             {p.title}
           </a>
-          {p.badges.map((b) => (
-            <img
-              key={b.label}
-              src={`https://img.shields.io/badge/${encodeURIComponent(
-                b.label.replace(/ /g, "_"),
-              )}-${b.color}?style=flat-square`}
-              alt={b.label}
-              height={18}
-            />
-          ))}
+          {p.badges.map((b) => {
+            const text = lang === "ja" && b.labelJa ? b.labelJa : b.label;
+            return (
+              <img
+                key={b.label}
+                src={badgeUrl(text, b.color)}
+                alt={text}
+                height={18}
+              />
+            );
+          })}
         </li>
       ))}
     </ul>
@@ -45,7 +53,7 @@ export function Publications({ lang }: { lang: Lang }) {
         >
           <h3 className="mb-3 text-sm font-semibold text-muted">{col.header}</h3>
           {col.items ? (
-            <PubList items={col.items} />
+            <PubList items={col.items} lang={lang} />
           ) : (
             <p className="text-sm text-muted">{t.acceptedJournalsPlaceholder}</p>
           )}
