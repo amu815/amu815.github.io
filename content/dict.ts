@@ -213,7 +213,7 @@ export const dict: Record<Lang, Dict> = {
       headers: ["AI / ML", "Backend", "Frontend", "Infrastructure"],
     },
     contact: {
-      intro: "Open to research collaborations, internships, and full-time roles.",
+      intro: "Open to research collaborations, internships, and freelance development engagements.",
       email: "suemoto.amu.815@s.kyushu-u.ac.jp",
     },
     footer: "© Amu Suemoto",
@@ -324,7 +324,7 @@ export const dict: Record<Lang, Dict> = {
       headers: ["AI / ML", "バックエンド", "フロントエンド", "インフラ"],
     },
     contact: {
-      intro: "共同研究・インターン・採用に関するご連絡をお待ちしております。",
+      intro: "共同研究・インターン・開発業務委託に関するご連絡をお待ちしております。",
       email: "suemoto.amu.815@s.kyushu-u.ac.jp",
     },
     footer: "© 末本歩夢",
