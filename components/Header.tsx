@@ -13,10 +13,10 @@ const SECTION_IDS = [
   "education",
   "experience",
   "skills",
-  "projects",
-  "qiita",
   "ai",
   "learning",
+  "projects",
+  "qiita",
   "contact",
 ];
 
@@ -34,10 +34,10 @@ export function Header({ lang }: { lang: Lang }) {
     { id: "education", href: "#education", label: t.sections.education },
     { id: "experience", href: "#experience", label: t.sections.experience },
     { id: "skills", href: "#skills", label: t.sections.skills },
-    { id: "projects", href: "#projects", label: t.sections.projects },
-    { id: "qiita", href: "#qiita", label: t.sections.qiita },
     { id: "ai", href: "#ai", label: t.sections.ai },
     { id: "learning", href: "#learning", label: t.sections.learning },
+    { id: "projects", href: "#projects", label: t.sections.projects },
+    { id: "qiita", href: "#qiita", label: t.sections.qiita },
     { id: "contact", href: "#contact", label: t.sections.contact },
   ];
 

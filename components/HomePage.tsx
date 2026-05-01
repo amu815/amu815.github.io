@@ -46,21 +46,21 @@ export function HomePage({ lang }: { lang: Lang }) {
         <Section id="experience" title={s.experience}>
           <Experience lang={lang} />
         </Section>
-        {/* Technical cluster */}
+        {/* Technical cluster — capabilities first, then output */}
         <Section id="skills" title={s.skills}>
           <Skills lang={lang} />
-        </Section>
-        <Section id="projects" title={s.projects}>
-          <Projects lang={lang} />
-        </Section>
-        <Section id="qiita" title={s.qiita}>
-          <QiitaPosts lang={lang} />
         </Section>
         <Section id="ai" title={s.ai}>
           <AI />
         </Section>
         <Section id="learning" title={s.learning}>
           <Learning />
+        </Section>
+        <Section id="projects" title={s.projects}>
+          <Projects lang={lang} />
+        </Section>
+        <Section id="qiita" title={s.qiita}>
+          <QiitaPosts lang={lang} />
         </Section>
         {/* Contact */}
         <Section id="contact" title={s.contact}>
