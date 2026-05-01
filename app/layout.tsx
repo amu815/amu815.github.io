@@ -69,6 +69,7 @@ const personJsonLd = {
     {
       "@type": "HighSchool",
       name: "Hiroshima Municipal Funairi High School",
+      url: "https://www.funairi-h.edu.city.hiroshima.jp/",
     },
   ],
   sameAs: [

@@ -57,5 +57,6 @@ export const education: EducationEntry[] = [
     graduated: "2021-03-31",
     schoolEn: "Hiroshima Municipal Funairi High School",
     schoolJa: "広島市立舟入高等学校",
+    href: "https://www.funairi-h.edu.city.hiroshima.jp/",
   },
 ];
