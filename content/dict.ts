@@ -25,6 +25,7 @@ type Dict = {
     experience: string;
     skills: string;
     projects: string;
+    qiita: string;
     ai: string;
     learning: string;
     contact: string;
@@ -47,6 +48,14 @@ type Dict = {
     viewOnGitHub: string;
     starsLabel: string;
     thisSiteBadge: string;
+  };
+  qiita: {
+    intro: string;
+    posts: string;
+    likes: string;
+    stocks: string;
+    lastUpdated: string;
+    empty: string;
   };
   stats: {
     submissions: string;
@@ -122,6 +131,7 @@ export const dict: Record<Lang, Dict> = {
       experience: "Experience",
       skills: "Skills",
       projects: "Open Source",
+      qiita: "Qiita Articles",
       ai: "AI Tooling",
       learning: "Learning",
       contact: "Contact",
@@ -144,6 +154,14 @@ export const dict: Record<Lang, Dict> = {
       viewOnGitHub: "View on GitHub",
       starsLabel: "stars",
       thisSiteBadge: "This site",
+    },
+    qiita: {
+      intro: "All posts published on Qiita as",
+      posts: "Posts",
+      likes: "Total likes",
+      stocks: "Total stocks",
+      lastUpdated: "Last updated",
+      empty: "No posts available right now.",
     },
     stats: {
       submissions: "Submissions",
@@ -182,7 +200,7 @@ export const dict: Record<Lang, Dict> = {
     },
     contact: {
       intro: "Open to research collaborations, internships, and full-time roles.",
-      email: "amu20030218@gmail.com",
+      email: "suemoto.amu.815@s.kyushu-u.ac.jp",
     },
     footer: "© Amu Suemoto",
   },
@@ -218,6 +236,7 @@ export const dict: Record<Lang, Dict> = {
       experience: "経歴・インターン",
       skills: "スキル",
       projects: "オープンソース",
+      qiita: "Qiita 記事",
       ai: "AI ツール",
       learning: "学習中",
       contact: "コンタクト",
@@ -240,6 +259,14 @@ export const dict: Record<Lang, Dict> = {
       viewOnGitHub: "GitHub で見る",
       starsLabel: "Stars",
       thisSiteBadge: "このサイト",
+    },
+    qiita: {
+      intro: "Qiita に公開した記事一覧",
+      posts: "記事数",
+      likes: "総 LGTM",
+      stocks: "総ストック",
+      lastUpdated: "最終更新",
+      empty: "記事はまだありません。",
     },
     stats: {
       submissions: "投稿数",
@@ -277,7 +304,7 @@ export const dict: Record<Lang, Dict> = {
     },
     contact: {
       intro: "共同研究・インターン・採用に関するご連絡をお待ちしております。",
-      email: "amu20030218@gmail.com",
+      email: "suemoto.amu.815@s.kyushu-u.ac.jp",
     },
     footer: "© 末本歩夢",
   },

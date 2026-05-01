@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    # Daily refresh so the Qiita post list stays current.
+    - cron: "37 21 * * *"
   workflow_dispatch:
 
 permissions:

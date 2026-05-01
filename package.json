@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "fetch:qiita": "node scripts/fetch-qiita.mjs",
+    "prebuild": "node scripts/fetch-qiita.mjs",
     "build": "next build",
     "start": "next start"
   },
