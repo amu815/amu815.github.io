@@ -24,7 +24,7 @@ export function HomePage({ lang }: { lang: Lang }) {
       <Header lang={lang} />
       <main className="mx-auto w-full max-w-5xl flex-1">
         <Hero lang={lang} />
-        <Section id="news" title={s.news} tight>
+        <Section id="news" title={s.news}>
           <News lang={lang} />
         </Section>
         <Section id="publications" title={s.publications}>

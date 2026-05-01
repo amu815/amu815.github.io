@@ -5,18 +5,15 @@ export function Section({
   title,
   subtitle,
   children,
-  tight,
 }: {
   id?: string;
   title: string;
   subtitle?: string;
   children: ReactNode;
-  tight?: boolean;
 }) {
-  const padding = tight ? "pt-4 pb-12 sm:pt-6 sm:pb-16" : "py-12 sm:py-16";
   return (
-    <section id={id} className={`reveal scroll-mt-20 px-4 ${padding}`}>
-      <div className="mb-8 flex items-end justify-between gap-4">
+    <section id={id} className="reveal scroll-mt-20 px-4 py-6 sm:py-8">
+      <div className="mb-6 flex items-end justify-between gap-4">
         <div className="min-w-0">
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
             <span className="text-gradient-accent">#</span>{" "}
