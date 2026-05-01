@@ -13,46 +13,102 @@ const geistMono = Geist_Mono({
 });
 
 const SITE_URL = "https://amu815.github.io";
-const TITLE = "Amu Suemoto — 末本歩夢";
+const TITLE = "Amu Suemoto / 末本歩夢 — Kyushu University, Humanophilic Systems Lab";
+const SHORT_TITLE = "Amu Suemoto / 末本歩夢";
 const DESCRIPTION =
-  "Kyushu University M2, Humanophilic Systems Lab. Research on trustworthy AI: fairness and robustness of vision-language models, and mechanistic interpretability for safer small language models.";
+  "Amu Suemoto (末本歩夢) — Kyushu University M2, Humanophilic Systems Lab (Arakawa-Mine-Fukushima). Trustworthy AI research: fairness and robustness of vision-language models, and mechanistic interpretability for safer small language models.";
+
+// Replace the empty string with the verification code Google Search Console gives you
+// (e.g. "google-site-verification=abc123..."). Until then, the meta tag is omitted.
+const GOOGLE_SITE_VERIFICATION = "";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: TITLE,
+  title: { default: TITLE, template: "%s — Amu Suemoto" },
   description: DESCRIPTION,
+  applicationName: SHORT_TITLE,
+  authors: [{ name: "Amu Suemoto", url: SITE_URL }],
+  creator: "Amu Suemoto",
+  publisher: "Amu Suemoto",
+  keywords: [
+    "Amu Suemoto",
+    "末本 歩夢",
+    "末本歩夢",
+    "すえもと あむ",
+    "Kyushu University",
+    "九州大学",
+    "Humanophilic Systems Lab",
+    "人間情報システム研究グループ",
+    "荒川豊",
+    "峯恒憲",
+    "福嶋誠",
+    "Vision-Language Models",
+    "VLM",
+    "Fairness",
+    "Robustness",
+    "LoRA",
+    "Mechanistic Interpretability",
+    "Sparse Autoencoders",
+    "AI Safety",
+    "BLIP",
+    "FairFace",
+    "UTKFace",
+    "Pythia",
+    "Qwen",
+    "OLMo",
+    "Trustworthy AI",
+  ],
   alternates: {
     canonical: "/",
     languages: {
       "en-US": "/",
       "ja-JP": "/ja/",
+      "x-default": "/",
     },
   },
   openGraph: {
-    title: "Amu Suemoto",
+    title: SHORT_TITLE,
     description: DESCRIPTION,
     url: SITE_URL,
-    siteName: "Amu Suemoto",
-    type: "website",
+    siteName: SHORT_TITLE,
+    type: "profile",
     locale: "en_US",
     alternateLocale: ["ja_JP"],
-    images: [{ url: "/profile.jpg", width: 1441, height: 1921 }],
+    images: [{ url: "/profile.jpg", width: 1441, height: 1921, alt: "Amu Suemoto" }],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@amu_Humano_Dev",
-    title: "Amu Suemoto",
+    title: SHORT_TITLE,
     description: DESCRIPTION,
     images: ["/profile.jpg"],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  ...(GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${SITE_URL}#person`,
   name: "Amu Suemoto",
-  alternateName: "末本歩夢",
+  givenName: "Amu",
+  familyName: "Suemoto",
+  alternateName: ["末本歩夢", "末本 歩夢", "すえもと あむ"],
+  birthDate: "2003-02-18",
+  nationality: "Japan",
   url: SITE_URL,
   image: `${SITE_URL}/profile.jpg`,
   affiliation: {
@@ -81,7 +137,35 @@ const personJsonLd = {
     "https://www.kaggle.com/amusuemotoarakawalab",
   ],
   jobTitle: "Graduate Researcher (M2)",
+  knowsAbout: [
+    "Vision-Language Models",
+    "Algorithmic Fairness",
+    "Robust Representation Learning",
+    "Parameter-Efficient Fine-Tuning (LoRA)",
+    "Mechanistic Interpretability",
+    "Sparse Autoencoders",
+    "AI Safety and Alignment",
+  ],
   description: DESCRIPTION,
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Amu Suemoto",
+  alternateName: "末本歩夢",
+  url: SITE_URL,
+  inLanguage: ["en", "ja"],
+  author: { "@id": `${SITE_URL}#person` },
+};
+
+const profilePageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  name: "Amu Suemoto",
+  url: SITE_URL,
+  inLanguage: "en",
+  mainEntity: { "@id": `${SITE_URL}#person` },
 };
 
 export default function RootLayout({
@@ -99,6 +183,14 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageJsonLd) }}
         />
       </body>
     </html>
