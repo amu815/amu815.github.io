@@ -20,7 +20,7 @@ const DESCRIPTION =
 
 // Replace the empty string with the verification code Google Search Console gives you
 // (e.g. "google-site-verification=abc123..."). Until then, the meta tag is omitted.
-const GOOGLE_SITE_VERIFICATION = "";
+const GOOGLE_SITE_VERIFICATION = "mS_Kwp1uJb1gFG-7cgUGTqWy3LB16JZkS5RhvthVai8";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
