@@ -63,6 +63,8 @@ type Dict = {
     allHeader: string;
   };
   stats: {
+    heading: string;
+    headingHint: string;
     submissions: string;
     underReview: string;
     accepted: string;
@@ -174,6 +176,8 @@ export const dict: Record<Lang, Dict> = {
       allHeader: "All Articles",
     },
     stats: {
+      heading: "Publications at a glance",
+      headingHint: "Counts across all conference, workshop and journal submissions.",
       submissions: "Submissions",
       underReview: "Under Review",
       accepted: "Accepted",
@@ -284,6 +288,8 @@ export const dict: Record<Lang, Dict> = {
       allHeader: "全ての記事",
     },
     stats: {
+      heading: "論文・発表サマリー",
+      headingHint: "国際会議・ワークショップ・ジャーナル投稿全体の集計です。",
       submissions: "投稿数",
       underReview: "査読中",
       accepted: "採択",
