@@ -85,6 +85,7 @@ const backend: Icon[] = [
     logoColor: "black",
   },
   { kind: "devicon", href: "https://flask.palletsprojects.com/", alt: "Flask", path: "flask/flask-original.svg" },
+  { kind: "devicon", href: "https://www.java.com/", alt: "Java", path: "java/java-original.svg" },
   {
     kind: "shield",
     href: "https://click.palletsprojects.com/",
