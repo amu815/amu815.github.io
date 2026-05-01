@@ -117,7 +117,7 @@ export function Timeline({ lang }: { lang: Lang }) {
         <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted">
           {t.past}
         </h3>
-        <FadeScroll maxHeight="28rem">
+        <FadeScroll maxHeight="20rem">
           <div className="flex flex-col gap-4 pr-1">
             {pastGroups.map((g) => (
               <div key={g.year}>
