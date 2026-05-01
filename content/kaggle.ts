@@ -9,6 +9,7 @@ export type KaggleEntry = {
   type: KaggleCompType;
   href: string;
   status: KaggleStatus;
+  endDate?: string;
   rank?: number;
   teams?: number;
   medal?: KaggleMedal;
@@ -39,6 +40,7 @@ export const kaggleEntries: KaggleEntry[] = [
     type: "Playground",
     href: "https://www.kaggle.com/competitions/playground-series-s6e4",
     status: "completed",
+    endDate: "2026-05-01",
     rank: 554,
     teams: 4315,
   },

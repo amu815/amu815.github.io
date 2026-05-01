@@ -1,7 +1,8 @@
 import { papers, type PaperVenue } from "./papers";
+import { kaggleEntries, percentile, type KaggleEntry } from "./kaggle";
 
 export type PaperEventKind = "submitted" | "accepted" | "rejected" | "presented";
-export type NewsKind = PaperEventKind | "milestone";
+export type NewsKind = PaperEventKind | "milestone" | "kaggle";
 
 export type PaperNewsItem = {
   date: string;
@@ -19,11 +20,19 @@ export type MilestoneNewsItem = {
   highlight?: boolean;
 };
 
-export type NewsItem = PaperNewsItem | MilestoneNewsItem;
+export type KaggleNewsItem = {
+  date: string;
+  kind: "kaggle";
+  entry: KaggleEntry;
+  highlight?: boolean;
+};
+
+export type NewsItem = PaperNewsItem | MilestoneNewsItem | KaggleNewsItem;
 
 const KIND_PRIORITY: Record<NewsKind, number> = {
   presented: 4,
   milestone: 3,
+  kaggle: 3,
   accepted: 2,
   rejected: 2,
   submitted: 1,
@@ -62,6 +71,12 @@ function buildNews(today = new Date().toISOString().slice(0, 10)): NewsItem[] {
 
   for (const m of milestones) {
     if (m.date <= today) items.push(m);
+  }
+
+  for (const k of kaggleEntries) {
+    if (k.status === "completed" && k.endDate && k.endDate <= today) {
+      items.push({ date: k.endDate, kind: "kaggle", entry: k });
+    }
   }
 
   items.sort((a, b) => {
@@ -115,10 +130,24 @@ export function newsText(item: NewsItem, lang: "en" | "ja"): string {
   if (item.kind === "milestone") {
     return lang === "ja" ? item.textJa : item.textEn;
   }
+  if (item.kind === "kaggle") {
+    const e = item.entry;
+    const series = e.series ?? e.title;
+    if (e.rank != null && e.teams != null) {
+      const pct = percentile(e.rank, e.teams).toFixed(1);
+      const teamsStr = e.teams.toLocaleString();
+      if (lang === "ja") {
+        return `Kaggle ${series} で ${e.rank} / ${teamsStr} 位（上位 ${pct}%）で終了。`;
+      }
+      return `Finished Kaggle ${series} at ${e.rank} / ${teamsStr} (top ${pct}%).`;
+    }
+    return lang === "ja" ? `Kaggle ${series} に参加。` : `Entered Kaggle ${series}.`;
+  }
   return paperNewsText(item, lang);
 }
 
 export function newsHref(item: NewsItem): string | undefined {
   if (item.kind === "milestone") return item.href;
+  if (item.kind === "kaggle") return item.entry.href;
   return item.paper.href;
 }
