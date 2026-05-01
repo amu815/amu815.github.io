@@ -21,7 +21,7 @@ const STATUS_ORDER: PaperStatus[] = [
 ];
 
 const tierTone: Record<PaperTier, string> = {
-  core_a_star: "text-purple border-purple/40 bg-purple/10",
+  core_a_star: "text-green border-green/40 bg-green/10",
   core_a: "text-green border-green/40 bg-green/10",
   core_b: "text-accent border-accent/40 bg-accent/10",
   core_c: "text-cyan border-cyan/40 bg-cyan/10",

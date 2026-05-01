@@ -15,7 +15,7 @@ export function Stats({ lang }: { lang: Lang }) {
     { label: t.submissions, value: submissions, color: "text-accent" },
     { label: t.underReview, value: underReview, color: "text-orange" },
     { label: t.accepted, value: accepted, color: "text-green" },
-    { label: t.topTier, value: topTier, color: "text-purple" },
+    { label: t.topTier, value: topTier, color: "text-green" },
   ];
 
   return (
