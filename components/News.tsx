@@ -38,7 +38,7 @@ function toKeyParts(n: (typeof news)[number]): string {
 
 export function News({ lang }: { lang: Lang }) {
   return (
-    <FadeScroll maxHeight="36rem">
+    <FadeScroll maxHeight="20rem">
       <ul className="flex flex-col gap-3 pr-1">
         {news.map((n, i) => {
           const kindLabel = lang === "ja" ? kindLabelJa[n.kind] : kindLabelEn[n.kind];

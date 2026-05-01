@@ -245,7 +245,7 @@ export function QiitaPosts({ lang }: { lang: Lang }) {
           <span className="h-px flex-1 bg-border" />
           <span className="font-mono text-xs">{posts.length}</span>
         </h3>
-        <FadeScroll maxHeight="40rem">
+        <FadeScroll maxHeight="22rem">
           <ul className="flex flex-col gap-3 pr-1">
             {posts.map((p, i) => (
               <li

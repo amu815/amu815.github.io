@@ -222,9 +222,7 @@ a:hover {
   scrollbar-width: thin;
   scrollbar-color: var(--border-strong) transparent;
   scroll-behavior: smooth;
-  /* Wheel scrolling is forwarded to the page in JS; the inner list is
-     still scrollable via scrollbar drag, touch, or keyboard. */
-  overscroll-behavior: auto;
+  overscroll-behavior: contain;
 }
 .fade-scroll::-webkit-scrollbar { width: 6px; }
 .fade-scroll::-webkit-scrollbar-thumb {

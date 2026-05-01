@@ -28,21 +28,8 @@ export function FadeScroll({
     const ro = new ResizeObserver(update);
     ro.observe(el);
     for (const child of Array.from(el.children)) ro.observe(child);
-
-    // Forward wheel events to the page so vertical wheel scrolling never
-    // gets trapped inside the inner list. Trackpad/mouse users scroll the
-    // page; the inner list is still scrollable via the scrollbar, touch
-    // swipe, or arrow keys.
-    const onWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
-      window.scrollBy({ top: e.deltaY });
-      e.preventDefault();
-    };
-    el.addEventListener("wheel", onWheel, { passive: false });
-
     return () => {
       el.removeEventListener("scroll", update);
-      el.removeEventListener("wheel", onWheel);
       ro.disconnect();
     };
   }, []);
