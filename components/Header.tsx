@@ -9,7 +9,10 @@ const SECTION_IDS = [
   "news",
   "publications",
   "timeline",
+  "education",
+  "experience",
   "skills",
+  "projects",
   "ai",
   "learning",
   "contact",
@@ -25,7 +28,10 @@ export function Header({ lang }: { lang: Lang }) {
     { id: "news", href: "#news", label: t.sections.news },
     { id: "publications", href: "#publications", label: t.sections.publications },
     { id: "timeline", href: "#timeline", label: t.sections.timeline },
+    { id: "education", href: "#education", label: t.sections.education },
+    { id: "experience", href: "#experience", label: t.sections.experience },
     { id: "skills", href: "#skills", label: t.sections.skills },
+    { id: "projects", href: "#projects", label: t.sections.projects },
     { id: "ai", href: "#ai", label: t.sections.ai },
     { id: "learning", href: "#learning", label: t.sections.learning },
     { id: "contact", href: "#contact", label: t.sections.contact },
@@ -70,7 +76,7 @@ export function Header({ lang }: { lang: Lang }) {
           <span className="text-accent">amu815</span>
           <span className="text-muted">@github.io</span>
         </Link>
-        <nav className="hidden items-center gap-1 text-xs md:flex">
+        <nav className="hidden items-center gap-1 text-xs lg:flex">
           {navItems.map((n) => (
             <a
               key={n.href}
@@ -106,7 +112,7 @@ export function Header({ lang }: { lang: Lang }) {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-1 md:hidden">
+        <div className="flex items-center gap-1 lg:hidden">
           <Link
             href="/"
             className={`rounded px-2 py-1 text-xs ${
@@ -150,7 +156,7 @@ export function Header({ lang }: { lang: Lang }) {
       </div>
 
       {open && (
-        <nav className="border-t border-border/60 bg-background/95 px-2 pb-3 pt-2 md:hidden">
+        <nav className="border-t border-border/60 bg-background/95 px-2 pb-3 pt-2 lg:hidden">
           <ul className="grid grid-cols-2 gap-1 text-sm">
             {navItems.map((n) => (
               <li key={n.href}>

@@ -6,7 +6,10 @@ import { Section } from "./Section";
 import { News } from "./News";
 import { Papers } from "./Papers";
 import { Timeline } from "./Timeline";
+import { Education } from "./Education";
+import { Experience } from "./Experience";
 import { Skills } from "./Skills";
+import { Projects } from "./Projects";
 import { AI } from "./AI";
 import { Learning } from "./Learning";
 import { Contact } from "./Contact";
@@ -29,8 +32,17 @@ export function HomePage({ lang }: { lang: Lang }) {
         <Section id="timeline" title={s.timeline}>
           <Timeline lang={lang} />
         </Section>
+        <Section id="education" title={s.education}>
+          <Education lang={lang} />
+        </Section>
+        <Section id="experience" title={s.experience}>
+          <Experience lang={lang} />
+        </Section>
         <Section id="skills" title={s.skills}>
           <Skills lang={lang} />
+        </Section>
+        <Section id="projects" title={s.projects}>
+          <Projects lang={lang} />
         </Section>
         <Section id="ai" title={s.ai}>
           <AI />

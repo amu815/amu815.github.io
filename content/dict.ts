@@ -8,6 +8,8 @@ type Dict = {
   hero: {
     greeting: string;
     name: string;
+    nameReading: string;
+    nameReadingRomaji: string;
     affiliation: string;
     affiliationHref: string;
     department: string;
@@ -19,10 +21,32 @@ type Dict = {
     news: string;
     publications: string;
     timeline: string;
+    education: string;
+    experience: string;
     skills: string;
+    projects: string;
     ai: string;
     learning: string;
     contact: string;
+  };
+  education: {
+    intro: string;
+    ongoing: string;
+    kindLabel: { highschool: string; bachelor: string; master: string };
+  };
+  experience: {
+    cyclingTitle: string;
+    cyclingOrg: string;
+    cyclingPeriod: string;
+    cyclingPromotion: string;
+    internshipsTitle: string;
+    durationDay: (n: number) => string;
+  };
+  projects: {
+    intro: string;
+    viewOnGitHub: string;
+    starsLabel: string;
+    thisSiteBadge: string;
   };
   stats: {
     submissions: string;
@@ -74,7 +98,10 @@ export const dict: Record<Lang, Dict> = {
     hero: {
       greeting: "Hi, I'm",
       name: "Amu Suemoto",
-      affiliation: "Kyushu University M2 — Humanophilic Systems Lab",
+      nameReading: "末本 歩夢",
+      nameReadingRomaji: "Suemoto Amu",
+      affiliation:
+        "Kyushu University M2 — Humanophilic Systems Lab (Arakawa, Mine & Fukushima Lab)",
       affiliationHref: "https://app.ait.kyushu-u.ac.jp/",
       department: "Information Science and Electrical Engineering (ISEE)",
       tagline:
@@ -91,10 +118,32 @@ export const dict: Record<Lang, Dict> = {
       news: "News",
       publications: "Publications",
       timeline: "Submission Timeline",
+      education: "Education",
+      experience: "Experience",
       skills: "Skills",
+      projects: "Open Source",
       ai: "AI Tooling",
       learning: "Learning",
       contact: "Contact",
+    },
+    education: {
+      intro: "Schools attended, in chronological order.",
+      ongoing: "Ongoing",
+      kindLabel: { highschool: "High School", bachelor: "B.E.", master: "M.E." },
+    },
+    experience: {
+      cyclingTitle: "Competitive Cycling",
+      cyclingOrg: "Japan Bicycle Club Federation (JBCF)",
+      cyclingPeriod: "2021 – 2023",
+      cyclingPromotion: "Promoted to E2 (Mar 2023)",
+      internshipsTitle: "Internships",
+      durationDay: (n) => (n === 1 ? "1 day" : `${n} days`),
+    },
+    projects: {
+      intro: "Selected public repositories on GitHub.",
+      viewOnGitHub: "View on GitHub",
+      starsLabel: "stars",
+      thisSiteBadge: "This site",
     },
     stats: {
       submissions: "Submissions",
@@ -145,9 +194,12 @@ export const dict: Record<Lang, Dict> = {
     hero: {
       greeting: "こんにちは",
       name: "末本 歩夢",
-      affiliation: "九州大学 修士2年 — 人間情報システム研究グループ",
+      nameReading: "すえもと あむ",
+      nameReadingRomaji: "Suemoto Amu",
+      affiliation:
+        "九州大学 修士2年 — 人間情報システム研究グループ（荒川・峯・福嶋研究室）",
       affiliationHref: "https://app.ait.kyushu-u.ac.jp/",
-      department: "システム情報科学府 (ISEE)",
+      department: "システム情報科学府 情報理工学専攻 (ISEE)",
       tagline:
         "マルチモーダルAI・大規模言語モデル基盤・人間中心の知的インタフェースを研究／開発する大学院生エンジニア。",
       keywords: [
@@ -162,10 +214,32 @@ export const dict: Record<Lang, Dict> = {
       news: "ニュース",
       publications: "論文・発表",
       timeline: "投稿タイムライン",
+      education: "学歴",
+      experience: "経歴・インターン",
       skills: "スキル",
+      projects: "オープンソース",
       ai: "AI ツール",
       learning: "学習中",
       contact: "コンタクト",
+    },
+    education: {
+      intro: "在籍した学校の履歴です。",
+      ongoing: "在籍中",
+      kindLabel: { highschool: "高校", bachelor: "学士", master: "修士" },
+    },
+    experience: {
+      cyclingTitle: "自転車競技",
+      cyclingOrg: "全日本実業団自転車競技連盟（JBCF）",
+      cyclingPeriod: "2021 – 2023",
+      cyclingPromotion: "E2 昇格（2023年3月）",
+      internshipsTitle: "インターンシップ",
+      durationDay: (n) => (n === 1 ? "1日" : `${n}日間`),
+    },
+    projects: {
+      intro: "GitHub 上の主な公開リポジトリ。",
+      viewOnGitHub: "GitHub で見る",
+      starsLabel: "Stars",
+      thisSiteBadge: "このサイト",
     },
     stats: {
       submissions: "投稿数",

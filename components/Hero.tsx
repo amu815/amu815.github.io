@@ -23,8 +23,22 @@ export function Hero({ lang }: { lang: Lang }) {
             {t.greeting}
           </p>
           <h1 className="fade-in-up fade-in-up-2 text-4xl font-bold tracking-tight sm:text-6xl">
-            <span className="text-gradient-accent">{t.name}</span>
+            {lang === "ja" ? (
+              <ruby className="text-gradient-accent">
+                {t.name}
+                <rt className="block text-[0.28em] font-medium tracking-[0.25em] text-muted">
+                  {t.nameReading}
+                </rt>
+              </ruby>
+            ) : (
+              <span className="text-gradient-accent">{t.name}</span>
+            )}
           </h1>
+          {lang === "en" && (
+            <p className="fade-in-up fade-in-up-2 mt-2 font-mono text-xs uppercase tracking-[0.3em] text-muted">
+              {t.nameReadingRomaji} · {t.nameReading}
+            </p>
+          )}
           <p className="fade-in-up fade-in-up-3 mt-5 max-w-2xl text-base text-muted-strong sm:text-lg">
             {t.tagline}
           </p>

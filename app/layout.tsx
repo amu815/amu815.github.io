@@ -57,9 +57,20 @@ const personJsonLd = {
   image: `${SITE_URL}/profile.jpg`,
   affiliation: {
     "@type": "CollegeOrUniversity",
-    name: "Kyushu University — Humanophilic Systems Lab",
+    name: "Kyushu University — Humanophilic Systems Lab (Arakawa, Mine & Fukushima Lab)",
     url: "https://app.ait.kyushu-u.ac.jp/",
   },
+  alumniOf: [
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Yamaguchi University — Faculty of Engineering, Department of Computer Science and Systems Engineering",
+      url: "https://www.yamaguchi-u.ac.jp/",
+    },
+    {
+      "@type": "HighSchool",
+      name: "Hiroshima Municipal Funairi High School",
+    },
+  ],
   sameAs: [
     "https://github.com/amu815",
     "https://orcid.org/0009-0003-9824-837X",
