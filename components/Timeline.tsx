@@ -33,7 +33,7 @@ const kindTone: Record<TimelineEventKind, { dot: string; ring: string; text: str
 };
 
 const tierBadgeTone: Record<PaperTier, string> = {
-  core_a_star: "text-green border-green/40",
+  core_a_star: "text-purple border-purple/40",
   core_a: "text-green border-green/40",
   core_b: "text-accent border-accent/40",
   core_c: "text-cyan border-cyan/40",
