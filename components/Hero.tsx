@@ -6,7 +6,7 @@ import { Stats } from "./Stats";
 export function Hero({ lang }: { lang: Lang }) {
   const t = dict[lang].hero;
   return (
-    <section className="relative px-4 pt-14 pb-12 sm:pt-20 sm:pb-16">
+    <section className="relative px-4 pt-12 pb-4 sm:pt-16 sm:pb-6">
       <div className="grid items-center gap-10 sm:grid-cols-[auto_1fr]">
         <div className="fade-in-up fade-in-up-1 relative">
           <div className="absolute inset-0 -z-10 translate-x-2 translate-y-2 rounded-2xl bg-gradient-to-br from-accent/40 via-purple/30 to-cyan/30 blur-xl" />
