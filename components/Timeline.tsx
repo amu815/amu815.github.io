@@ -3,6 +3,7 @@ import { dict } from "@/content/dict";
 import { timeline, type TimelineEvent, type TimelineEventKind } from "@/content/timeline";
 import { tierLabel, tierLabelJa, type PaperTier } from "@/content/papers";
 import { formatDate, parseIsoDate } from "@/lib/date";
+import { FadeScroll } from "./FadeScroll";
 
 const kindTone: Record<TimelineEventKind, { dot: string; ring: string; text: string }> = {
   submitted: {
@@ -116,17 +117,21 @@ export function Timeline({ lang }: { lang: Lang }) {
         <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted">
           {t.past}
         </h3>
-        <div className="flex flex-col gap-6">
-          {pastGroups.map((g) => (
-            <div key={g.year}>
-              <div className="mb-3 flex items-center gap-3">
-                <span className="font-mono text-2xl font-bold text-foreground">{g.year}</span>
-                <span className="h-px flex-1 bg-border" />
+        <FadeScroll maxHeight="28rem">
+          <div className="flex flex-col gap-4 pr-1">
+            {pastGroups.map((g) => (
+              <div key={g.year}>
+                <div className="mb-2 flex items-center gap-3">
+                  <span className="font-mono text-xl font-bold text-foreground">
+                    {g.year}
+                  </span>
+                  <span className="h-px flex-1 bg-border" />
+                </div>
+                <TimelineList events={g.events} lang={lang} />
               </div>
-              <TimelineList events={g.events} lang={lang} />
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </FadeScroll>
       </div>
     </div>
   );
@@ -149,7 +154,7 @@ function TimelineList({
         return (
           <li
             key={`${e.paper.id}-${e.kind}-${e.date}`}
-            className={`relative pb-6 ${muted ? "opacity-80" : ""}`}
+            className={`relative pb-3 ${muted ? "opacity-80" : ""}`}
           >
             <span
               className={`absolute -left-[33px] top-1.5 inline-flex h-3 w-3 items-center justify-center rounded-full ring-4 ${tone.dot} ${tone.ring}`}
