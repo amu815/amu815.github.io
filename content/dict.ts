@@ -19,6 +19,8 @@ type Dict = {
     facts: {
       bornLabel: string;
       bornValue: string;
+      bornIso: string;
+      ageSuffix: (age: number) => string;
       languageLabel: string;
       languageValue: string;
       aiLabel: string;
@@ -155,6 +157,8 @@ export const dict: Record<Lang, Dict> = {
       facts: {
         bornLabel: "Born",
         bornValue: "2003-02-18",
+        bornIso: "2003-02-18",
+        ageSuffix: (age) => `age ${age}`,
         languageLabel: "Best language",
         languageValue: "Python",
         aiLabel: "Best AI",
@@ -295,6 +299,8 @@ export const dict: Record<Lang, Dict> = {
       facts: {
         bornLabel: "誕生日",
         bornValue: "2003/02/18",
+        bornIso: "2003-02-18",
+        ageSuffix: (age) => `${age}歳`,
         languageLabel: "得意な言語",
         languageValue: "Python",
         aiLabel: "得意な AI",

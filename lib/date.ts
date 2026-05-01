@@ -32,6 +32,15 @@ export function formatDate(iso: string, lang: Lang, opts: { withYear?: boolean }
   return opts.withYear === false ? monthLabel : `${monthLabel} ${year}`;
 }
 
+export function calculateAge(isoBirth: string, today: Date = new Date()): number {
+  const { year: by, month: bm, day: bd = 1 } = parseIsoDate(isoBirth);
+  let age = today.getFullYear() - by;
+  const m = today.getMonth() + 1;
+  const d = today.getDate();
+  if (m < bm || (m === bm && d < bd)) age -= 1;
+  return age;
+}
+
 export function formatDateRange(start: string, end: string | undefined, lang: Lang): string {
   if (!end || end === start) return formatDate(start, lang);
   const s = parseIsoDate(start);

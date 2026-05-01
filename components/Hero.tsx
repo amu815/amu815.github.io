@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Lang } from "@/content/dict";
 import { dict } from "@/content/dict";
+import { calculateAge } from "@/lib/date";
 import { Stats } from "./Stats";
 
 export function Hero({ lang }: { lang: Lang }) {
@@ -111,8 +112,17 @@ function HeartPulseIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
 
 function Facts({ lang }: { lang: Lang }) {
   const f = dict[lang].hero.facts;
+  const age = calculateAge(f.bornIso);
+  const bornDisplay = (
+    <>
+      {f.bornValue}
+      <span className="ml-1.5 rounded-full border border-border-strong bg-card-elev px-1.5 py-0.5 align-middle font-mono text-[10px] tracking-wider text-muted-strong">
+        {f.ageSuffix(age)}
+      </span>
+    </>
+  );
   const items = [
-    { icon: <CakeIcon />, label: f.bornLabel, value: f.bornValue, color: "text-purple" },
+    { icon: <CakeIcon />, label: f.bornLabel, value: bornDisplay, color: "text-purple" },
     { icon: <CodeIcon />, label: f.languageLabel, value: f.languageValue, color: "text-cyan" },
     { icon: <BotIcon />, label: f.aiLabel, value: f.aiValue, color: "text-accent" },
     { icon: <HeartPulseIcon />, label: f.hobbiesLabel, value: f.hobbiesValue, color: "text-orange" },
