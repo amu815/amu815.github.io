@@ -25,21 +25,28 @@ export function HomePage({ lang }: { lang: Lang }) {
       <Header lang={lang} />
       <main className="mx-auto w-full max-w-5xl flex-1">
         <Hero lang={lang} />
+        {/* Latest */}
         <Section id="news" title={s.news}>
           <News lang={lang} />
         </Section>
+        {/* Research cluster */}
         <Section id="publications" title={s.publications}>
           <Papers lang={lang} />
         </Section>
         <Section id="timeline" title={s.timeline}>
           <Timeline lang={lang} />
         </Section>
+        <Section id="kaggle" title={s.kaggle}>
+          <Kaggle lang={lang} />
+        </Section>
+        {/* Background cluster */}
         <Section id="education" title={s.education}>
           <Education lang={lang} />
         </Section>
         <Section id="experience" title={s.experience}>
           <Experience lang={lang} />
         </Section>
+        {/* Technical cluster */}
         <Section id="skills" title={s.skills}>
           <Skills lang={lang} />
         </Section>
@@ -49,15 +56,13 @@ export function HomePage({ lang }: { lang: Lang }) {
         <Section id="qiita" title={s.qiita}>
           <QiitaPosts lang={lang} />
         </Section>
-        <Section id="kaggle" title={s.kaggle}>
-          <Kaggle lang={lang} />
-        </Section>
         <Section id="ai" title={s.ai}>
           <AI />
         </Section>
         <Section id="learning" title={s.learning}>
           <Learning />
         </Section>
+        {/* Contact */}
         <Section id="contact" title={s.contact}>
           <Contact lang={lang} />
         </Section>
