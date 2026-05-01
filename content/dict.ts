@@ -123,10 +123,10 @@ export const dict: Record<Lang, Dict> = {
       tagline:
         "Researcher and engineer working on multimodal AI, large-language-model systems, and human-centered intelligent interfaces.",
       keywords: [
-        "Multimodal AI",
-        "LLM Systems",
-        "Affective Computing",
-        "Edge Inference",
+        "Vision-Language Models",
+        "Fairness & Bias Mitigation",
+        "Robust Representation Learning",
+        "LoRA / PEFT",
       ],
       cv: "Download CV",
     },
@@ -235,10 +235,10 @@ export const dict: Record<Lang, Dict> = {
       tagline:
         "マルチモーダルAI・大規模言語モデル基盤・人間中心の知的インタフェースを研究／開発する大学院生エンジニア。",
       keywords: [
-        "Multimodal AI",
-        "LLM Systems",
-        "Affective Computing",
-        "Edge Inference",
+        "Vision-Language Models",
+        "Fairness & Bias Mitigation",
+        "Robust Representation Learning",
+        "LoRA / PEFT",
       ],
       cv: "CV をダウンロード",
     },
