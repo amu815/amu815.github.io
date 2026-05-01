@@ -1,4 +1,4 @@
-export type EducationKind = "highschool" | "bachelor" | "master";
+export type EducationKind = "highschool" | "bachelor" | "master" | "doctoral";
 
 export type EducationEntry = {
   id: string;
@@ -6,6 +6,7 @@ export type EducationEntry = {
   enrolled: string;
   graduated?: string;
   ongoing?: boolean;
+  planned?: boolean;
   schoolEn: string;
   schoolJa: string;
   departmentEn?: string;
@@ -14,6 +15,18 @@ export type EducationEntry = {
 };
 
 export const education: EducationEntry[] = [
+  {
+    id: "kyushu-doctoral",
+    kind: "doctoral",
+    enrolled: "2027-04-01",
+    planned: true,
+    schoolEn: "Kyushu University, Graduate School (Doctoral Program)",
+    schoolJa: "九州大学 大学院 博士課程",
+    departmentEn:
+      "Department of Advanced Information Technology, Information Science and Electrical Engineering (ISEE)",
+    departmentJa: "システム情報科学府 情報理工学専攻",
+    href: "https://app.ait.kyushu-u.ac.jp/",
+  },
   {
     id: "kyushu-master",
     kind: "master",

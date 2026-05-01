@@ -33,7 +33,8 @@ type Dict = {
   education: {
     intro: string;
     ongoing: string;
-    kindLabel: { highschool: string; bachelor: string; master: string };
+    planned: string;
+    kindLabel: { highschool: string; bachelor: string; master: string; doctoral: string };
   };
   experience: {
     cyclingTitle: string;
@@ -139,7 +140,8 @@ export const dict: Record<Lang, Dict> = {
     education: {
       intro: "Schools attended, in chronological order.",
       ongoing: "Ongoing",
-      kindLabel: { highschool: "High School", bachelor: "B.E.", master: "M.E." },
+      planned: "Planned",
+      kindLabel: { highschool: "High School", bachelor: "B.E.", master: "M.E.", doctoral: "Ph.D." },
     },
     experience: {
       cyclingTitle: "Competitive Cycling",
@@ -244,7 +246,8 @@ export const dict: Record<Lang, Dict> = {
     education: {
       intro: "在籍した学校の履歴です。",
       ongoing: "在籍中",
-      kindLabel: { highschool: "高校", bachelor: "学士", master: "修士" },
+      planned: "進学予定",
+      kindLabel: { highschool: "高校", bachelor: "学士", master: "修士", doctoral: "博士" },
     },
     experience: {
       cyclingTitle: "自転車競技",
@@ -263,8 +266,8 @@ export const dict: Record<Lang, Dict> = {
     qiita: {
       intro: "Qiita に公開した記事一覧",
       posts: "記事数",
-      likes: "総 LGTM",
-      stocks: "総ストック",
+      likes: "いいね",
+      stocks: "ストック",
       lastUpdated: "最終更新",
       empty: "記事はまだありません。",
     },

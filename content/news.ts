@@ -1,20 +1,45 @@
 import { papers, type PaperVenue } from "./papers";
 
-export type NewsKind = "submitted" | "accepted" | "rejected" | "presented";
+export type PaperEventKind = "submitted" | "accepted" | "rejected" | "presented";
+export type NewsKind = PaperEventKind | "milestone";
 
-export type NewsItem = {
+export type PaperNewsItem = {
   date: string;
-  kind: NewsKind;
+  kind: PaperEventKind;
   paper: PaperVenue;
   highlight?: boolean;
 };
 
+export type MilestoneNewsItem = {
+  date: string;
+  kind: "milestone";
+  textEn: string;
+  textJa: string;
+  href?: string;
+  highlight?: boolean;
+};
+
+export type NewsItem = PaperNewsItem | MilestoneNewsItem;
+
 const KIND_PRIORITY: Record<NewsKind, number> = {
-  presented: 3,
+  presented: 4,
+  milestone: 3,
   accepted: 2,
   rejected: 2,
   submitted: 1,
 };
+
+const milestones: MilestoneNewsItem[] = [
+  {
+    date: "2026-02-09",
+    kind: "milestone",
+    textEn:
+      "Selected as a 2026 candidate of the Kyushu University WISE Program for Sustainability in the Dynamic Earth (K2-SPRING), Health-Tech Unit.",
+    textJa:
+      "九州大学未来を拓く博士人財育成プログラム (K2-SPRING) ヘルステックユニット 2026 年度コース候補生に採用されました。",
+    href: "https://k2-spring.kyushu-u.ac.jp/",
+  },
+];
 
 function buildNews(today = new Date().toISOString().slice(0, 10)): NewsItem[] {
   const items: NewsItem[] = [];
@@ -35,6 +60,10 @@ function buildNews(today = new Date().toISOString().slice(0, 10)): NewsItem[] {
     }
   }
 
+  for (const m of milestones) {
+    if (m.date <= today) items.push(m);
+  }
+
   items.sort((a, b) => {
     if (a.date !== b.date) return b.date.localeCompare(a.date);
     return KIND_PRIORITY[b.kind] - KIND_PRIORITY[a.kind];
@@ -47,7 +76,7 @@ function buildNews(today = new Date().toISOString().slice(0, 10)): NewsItem[] {
 
 export const news: NewsItem[] = buildNews();
 
-export function newsText(item: NewsItem, lang: "en" | "ja"): string {
+function paperNewsText(item: PaperNewsItem, lang: "en" | "ja"): string {
   const v = item.paper.shortName;
   const titleJa = item.paper.paperTitleJa ?? item.paper.paperTitle;
   const titleEn = item.paper.paperTitle;
@@ -80,4 +109,16 @@ export function newsText(item: NewsItem, lang: "en" | "ja"): string {
       return `Presented at ${v}${loc}${title}.`;
     }
   }
+}
+
+export function newsText(item: NewsItem, lang: "en" | "ja"): string {
+  if (item.kind === "milestone") {
+    return lang === "ja" ? item.textJa : item.textEn;
+  }
+  return paperNewsText(item, lang);
+}
+
+export function newsHref(item: NewsItem): string | undefined {
+  if (item.kind === "milestone") return item.href;
+  return item.paper.href;
 }

@@ -16,7 +16,7 @@ export const internships: Internship[] = [
     start: "2025-09-01",
     end: "2025-09-05",
     days: 5,
-    href: "https://www.nec.com/",
+    href: "https://jpn.nec.com/",
   },
   {
     id: "sony-global-solutions",
@@ -25,7 +25,7 @@ export const internships: Internship[] = [
     start: "2025-09-09",
     end: "2025-09-09",
     days: 1,
-    href: "https://www.sonyglobalsolutions.com/",
+    href: "https://www.sonyglobalsolutions.co.jp/",
   },
   {
     id: "obic",

@@ -123,9 +123,9 @@ export const papers: PaperVenue[] = [
     href: "https://www.jstage.jst.go.jp/browse/transinf/",
     type: "journal",
     tier: "journal",
-    submissionDeadline: "2026-02-01",
+    submissionDeadline: "2026-03-28",
     status: "under_review",
-    statusDate: "2026-02-01",
+    statusDate: "2026-03-28",
   },
   {
     id: "dpsws-2025",
