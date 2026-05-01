@@ -80,19 +80,19 @@ export function Header({ lang }: { lang: Lang }) {
           <span className="text-accent">amu815</span>
           <span className="text-muted">@github.io</span>
         </Link>
-        <nav className="hidden items-center gap-1 text-xs lg:flex">
+        <nav className="hidden items-center gap-1 text-xs xl:flex">
           {navItems.map((n) => (
             <a
               key={n.href}
               href={n.href}
               aria-current={active === n.id ? "true" : undefined}
-              className={`relative rounded px-2 py-1 transition-colors hover:bg-card hover:text-foreground hover:no-underline ${
+              className={`relative whitespace-nowrap rounded px-1.5 py-1 transition-colors hover:bg-card hover:text-foreground hover:no-underline ${
                 active === n.id ? "text-foreground" : "text-muted"
               }`}
             >
               {n.label}
               {active === n.id && (
-                <span className="absolute -bottom-0.5 left-2 right-2 h-px bg-gradient-to-r from-accent via-purple to-cyan" />
+                <span className="absolute -bottom-0.5 left-1.5 right-1.5 h-px bg-gradient-to-r from-accent via-purple to-cyan" />
               )}
             </a>
           ))}
@@ -116,7 +116,7 @@ export function Header({ lang }: { lang: Lang }) {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-1 lg:hidden">
+        <div className="flex items-center gap-1 xl:hidden">
           <Link
             href="/"
             className={`rounded px-2 py-1 text-xs ${
@@ -160,7 +160,7 @@ export function Header({ lang }: { lang: Lang }) {
       </div>
 
       {open && (
-        <nav className="border-t border-border/60 bg-background/95 px-2 pb-3 pt-2 lg:hidden">
+        <nav className="border-t border-border/60 bg-background/95 px-2 pb-3 pt-2 xl:hidden">
           <ul className="grid grid-cols-2 gap-1 text-sm">
             {navItems.map((n) => (
               <li key={n.href}>
