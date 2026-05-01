@@ -146,7 +146,7 @@ export const dict: Record<Lang, Dict> = {
     sections: {
       news: "News",
       publications: "Publications",
-      timeline: "Submission Timeline",
+      timeline: "Research Timeline",
       education: "Education",
       experience: "Experience",
       skills: "Skills",
@@ -276,7 +276,7 @@ export const dict: Record<Lang, Dict> = {
     sections: {
       news: "ニュース",
       publications: "論文・発表",
-      timeline: "投稿タイムライン",
+      timeline: "研究タイムライン",
       education: "学歴",
       experience: "経歴・インターン",
       skills: "スキル",
