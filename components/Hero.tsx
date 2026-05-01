@@ -65,9 +65,72 @@ export function Hero({ lang }: { lang: Lang }) {
           </div>
         </div>
       </div>
-      <div className="fade-in-up fade-in-up-4 mt-10">
+      <Facts lang={lang} />
+      <div className="fade-in-up fade-in-up-4 mt-6">
         <Stats lang={lang} />
       </div>
     </section>
+  );
+}
+
+function CakeIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 6V3M12 3l1 1M12 3l-1 1" />
+      <path d="M5 11h14v9H5z" />
+      <path d="M5 14c1 1 2 1 3 0s2-1 3 0 2 1 3 0 2-1 3 0 2 1 3 0" />
+    </svg>
+  );
+}
+function CodeIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8 8l-4 4 4 4" />
+      <path d="M16 8l4 4-4 4" />
+      <path d="M14 4l-4 16" />
+    </svg>
+  );
+}
+function BotIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="4" y="7" width="16" height="13" rx="2" />
+      <path d="M12 7V3M9 13h.01M15 13h.01" />
+      <path d="M9 17h6" />
+    </svg>
+  );
+}
+function HeartPulseIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 12h4l2-3 3 6 2-4 2 1h5" />
+      <path d="M20.6 7.6a4 4 0 0 0-6.6-1.4l-2 2-2-2A4 4 0 0 0 3.4 11l1 1" />
+    </svg>
+  );
+}
+
+function Facts({ lang }: { lang: Lang }) {
+  const f = dict[lang].hero.facts;
+  const items = [
+    { icon: <CakeIcon />, label: f.bornLabel, value: f.bornValue, color: "text-purple" },
+    { icon: <CodeIcon />, label: f.languageLabel, value: f.languageValue, color: "text-cyan" },
+    { icon: <BotIcon />, label: f.aiLabel, value: f.aiValue, color: "text-accent" },
+    { icon: <HeartPulseIcon />, label: f.hobbiesLabel, value: f.hobbiesValue, color: "text-orange" },
+  ];
+  return (
+    <dl className="fade-in-up fade-in-up-4 mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+      {items.map((it) => (
+        <div
+          key={it.label}
+          className="surface-card flex items-baseline gap-3 px-4 py-2.5"
+        >
+          <span className={`flex-none ${it.color}`}>{it.icon}</span>
+          <dt className="font-mono text-[11px] uppercase tracking-wider text-muted sm:w-28 sm:flex-none">
+            {it.label}
+          </dt>
+          <dd className="text-sm font-medium text-foreground">{it.value}</dd>
+        </div>
+      ))}
+    </dl>
   );
 }

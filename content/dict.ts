@@ -16,6 +16,16 @@ type Dict = {
     tagline: string;
     keywords: string[];
     cv: string;
+    facts: {
+      bornLabel: string;
+      bornValue: string;
+      languageLabel: string;
+      languageValue: string;
+      aiLabel: string;
+      aiValue: string;
+      hobbiesLabel: string;
+      hobbiesValue: string;
+    };
   };
   sections: {
     news: string;
@@ -142,6 +152,16 @@ export const dict: Record<Lang, Dict> = {
         "AI Safety & Alignment",
       ],
       cv: "Download CV",
+      facts: {
+        bornLabel: "Born",
+        bornValue: "2003-02-18",
+        languageLabel: "Best language",
+        languageValue: "Python",
+        aiLabel: "Best AI",
+        aiValue: "Claude Code",
+        hobbiesLabel: "Hobbies",
+        hobbiesValue: "Research · Development · Strength training · Kaggle",
+      },
     },
     sections: {
       news: "News",
@@ -272,6 +292,16 @@ export const dict: Record<Lang, Dict> = {
         "AI Safety & Alignment",
       ],
       cv: "CV をダウンロード",
+      facts: {
+        bornLabel: "誕生日",
+        bornValue: "2003/02/18",
+        languageLabel: "得意な言語",
+        languageValue: "Python",
+        aiLabel: "得意な AI",
+        aiValue: "Claude Code",
+        hobbiesLabel: "趣味",
+        hobbiesValue: "研究・開発・筋トレ・Kaggle",
+      },
     },
     sections: {
       news: "ニュース",
