@@ -77,6 +77,7 @@ const personJsonLd = {
     "https://www.linkedin.com/in/amu-suemoto-8a5257395/",
     "https://x.com/amu_Humano_Dev",
     "https://qiita.com/Humanophilic_development",
+    "https://www.kaggle.com/amusuemotoarakawalab",
   ],
   jobTitle: "Graduate Researcher (M2)",
   description: DESCRIPTION,

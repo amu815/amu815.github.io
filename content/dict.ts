@@ -26,6 +26,7 @@ type Dict = {
     skills: string;
     projects: string;
     qiita: string;
+    kaggle: string;
     ai: string;
     learning: string;
     contact: string;
@@ -61,6 +62,16 @@ type Dict = {
     pickupBadge: string;
     viewsBadge: (n: number) => string;
     allHeader: string;
+  };
+  kaggle: {
+    intro: string;
+    activeHeader: string;
+    completedHeader: string;
+    rankLabel: string;
+    teamsLabel: string;
+    topPercent: (n: number) => string;
+    typeLabel: { Featured: string; Research: string; Playground: string; Community: string };
+    statusLabel: { active: string; completed: string };
   };
   stats: {
     heading: string;
@@ -141,6 +152,7 @@ export const dict: Record<Lang, Dict> = {
       skills: "Skills",
       projects: "Open Source",
       qiita: "Qiita Articles",
+      kaggle: "Kaggle",
       ai: "AI Tooling",
       learning: "Learning",
       contact: "Contact",
@@ -164,6 +176,21 @@ export const dict: Record<Lang, Dict> = {
       viewOnGitHub: "View on GitHub",
       starsLabel: "stars",
       thisSiteBadge: "This site",
+    },
+    kaggle: {
+      intro: "Kaggle competitions I have entered, with placement and category.",
+      activeHeader: "In Progress",
+      completedHeader: "Completed",
+      rankLabel: "Rank",
+      teamsLabel: "teams",
+      topPercent: (n) => `Top ${n.toFixed(1)}%`,
+      typeLabel: {
+        Featured: "Featured",
+        Research: "Research",
+        Playground: "Playground",
+        Community: "Community",
+      },
+      statusLabel: { active: "In Progress", completed: "Completed" },
     },
     qiita: {
       intro: "All posts published on Qiita as",
@@ -255,6 +282,7 @@ export const dict: Record<Lang, Dict> = {
       skills: "スキル",
       projects: "オープンソース",
       qiita: "Qiita 記事",
+      kaggle: "Kaggle",
       ai: "AI ツール",
       learning: "学習中",
       contact: "コンタクト",
@@ -278,6 +306,21 @@ export const dict: Record<Lang, Dict> = {
       viewOnGitHub: "GitHub で見る",
       starsLabel: "Stars",
       thisSiteBadge: "このサイト",
+    },
+    kaggle: {
+      intro: "Kaggle で参加したコンペティション。順位とカテゴリを掲載。",
+      activeHeader: "進行中",
+      completedHeader: "終了",
+      rankLabel: "順位",
+      teamsLabel: "チーム",
+      topPercent: (n) => `上位 ${n.toFixed(1)}%`,
+      typeLabel: {
+        Featured: "Featured",
+        Research: "Research",
+        Playground: "Playground",
+        Community: "Community",
+      },
+      statusLabel: { active: "進行中", completed: "終了" },
     },
     qiita: {
       intro: "Qiita に公開した記事一覧",

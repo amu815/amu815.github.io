@@ -11,6 +11,7 @@ import { Experience } from "./Experience";
 import { Skills } from "./Skills";
 import { Projects } from "./Projects";
 import { QiitaPosts } from "./QiitaPosts";
+import { Kaggle } from "./Kaggle";
 import { AI } from "./AI";
 import { Learning } from "./Learning";
 import { Contact } from "./Contact";
@@ -47,6 +48,9 @@ export function HomePage({ lang }: { lang: Lang }) {
         </Section>
         <Section id="qiita" title={s.qiita}>
           <QiitaPosts lang={lang} />
+        </Section>
+        <Section id="kaggle" title={s.kaggle}>
+          <Kaggle lang={lang} />
         </Section>
         <Section id="ai" title={s.ai}>
           <AI />

@@ -53,6 +53,16 @@ const links = [
       </svg>
     ),
   },
+  {
+    href: "https://www.kaggle.com/amusuemotoarakawalab",
+    label: "Kaggle",
+    handle: "amusuemotoarakawalab",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden fill="currentColor">
+        <path d="M6 2h2.4v11.5l5.9-6h3l-6 6 6.6 8.5h-3L9.7 14.7l-1.3 1.3V22H6V2Z" />
+      </svg>
+    ),
+  },
 ];
 
 export function Contact({ lang }: { lang: Lang }) {
