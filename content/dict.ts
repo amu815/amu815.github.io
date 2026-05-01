@@ -121,12 +121,14 @@ export const dict: Record<Lang, Dict> = {
       affiliationHref: "https://app.ait.kyushu-u.ac.jp/",
       department: "Information Science and Electrical Engineering (ISEE)",
       tagline:
-        "Researcher and engineer working on multimodal AI, large-language-model systems, and human-centered intelligent interfaces.",
+        "Graduate researcher on trustworthy AI — fairness and robustness of vision-language models, and mechanistic interpretability for safer small language models.",
       keywords: [
         "Vision-Language Models",
         "Fairness & Bias Mitigation",
         "Robust Representation Learning",
         "LoRA / PEFT",
+        "Mechanistic Interpretability (SAEs)",
+        "AI Safety & Alignment",
       ],
       cv: "Download CV",
     },
@@ -233,12 +235,14 @@ export const dict: Record<Lang, Dict> = {
       affiliationHref: "https://app.ait.kyushu-u.ac.jp/",
       department: "システム情報科学府 情報理工学専攻 (ISEE)",
       tagline:
-        "マルチモーダルAI・大規模言語モデル基盤・人間中心の知的インタフェースを研究／開発する大学院生エンジニア。",
+        "視覚言語モデルの公平性・ロバスト性、ならびに小規模言語モデルの機構的解釈可能性に基づく AI 安全性・アライメントを研究する大学院生エンジニア。",
       keywords: [
         "Vision-Language Models",
         "Fairness & Bias Mitigation",
         "Robust Representation Learning",
         "LoRA / PEFT",
+        "Mechanistic Interpretability (SAEs)",
+        "AI Safety & Alignment",
       ],
       cv: "CV をダウンロード",
     },

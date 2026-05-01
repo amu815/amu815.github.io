@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 const SITE_URL = "https://amu815.github.io";
 const TITLE = "Amu Suemoto — 末本歩夢";
 const DESCRIPTION =
-  "Kyushu University M2, Humanophilic Systems Lab. Research on multimodal AI, large language model systems, and human-centered intelligent interfaces.";
+  "Kyushu University M2, Humanophilic Systems Lab. Research on trustworthy AI: fairness and robustness of vision-language models, and mechanistic interpretability for safer small language models.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
