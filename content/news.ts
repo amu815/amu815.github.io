@@ -1,55 +1,83 @@
+import { papers, type PaperVenue } from "./papers";
+
+export type NewsKind = "submitted" | "accepted" | "rejected" | "presented";
+
 export type NewsItem = {
   date: string;
-  textEn: string;
-  textJa: string;
-  href?: string;
+  kind: NewsKind;
+  paper: PaperVenue;
   highlight?: boolean;
 };
 
-export const news: NewsItem[] = [
-  {
-    date: "2026-04-30",
-    textEn: "Submitted a new paper to NeurIPS 2026.",
-    textJa: "NeurIPS 2026 に新規論文を投稿しました。",
-    href: "https://neurips.cc/Conferences/2026",
-    highlight: true,
-  },
-  {
-    date: "2026-04-25",
-    textEn: "IJCAI 2026 — paper not accepted.",
-    textJa: "IJCAI 2026 の査読結果が通知されました(不採択)。",
-    href: "https://2026.ijcai.org/",
-  },
-  {
-    date: "2026-04-15",
-    textEn: "Submitted to ICMI 2026 — currently under review.",
-    textJa: "ICMI 2026 に投稿し、査読中です。",
-    href: "https://icmi.acm.org/",
-  },
-  {
-    date: "2026-03-15",
-    textEn: "RCIS 2026 — paper not accepted.",
-    textJa: "RCIS 2026 の査読結果が通知されました(不採択)。",
-    href: "https://rcis-conf.com/rcis2026/",
-  },
-  {
-    date: "2026-02-01",
-    textEn: "Journal manuscript submitted to IEICE Transactions on Information and Systems.",
-    textJa: "電子情報通信学会論文誌 D に論文を投稿しました。",
-    href: "https://www.jstage.jst.go.jp/browse/transinf/",
-  },
-  {
-    date: "2026-01-22",
-    textEn: "ICASSP 2026 — paper not accepted.",
-    textJa: "ICASSP 2026 の査読結果が通知されました(不採択)。",
-    href: "https://2026.ieeeicassp.org/",
-  },
-  {
-    date: "2025-11-05",
-    textEn:
-      "Presented at DPSWS 2025 (Kochi) — Representation Learning for Reducing Social Bias and Improving Gaussian-Noise Robustness in Large Vision-Language Models.",
-    textJa:
-      "DPSWS 2025 (高知) にて発表「大規模視覚言語モデルの社会的バイアス軽減とガウシアンノイズ耐性向上に向けた表現学習手法」。",
-    href: "https://www.dpsws.org/2025/?Program",
-  },
-];
+const KIND_PRIORITY: Record<NewsKind, number> = {
+  presented: 3,
+  accepted: 2,
+  rejected: 2,
+  submitted: 1,
+};
+
+function buildNews(today = new Date().toISOString().slice(0, 10)): NewsItem[] {
+  const items: NewsItem[] = [];
+
+  for (const p of papers) {
+    if (p.submissionDeadline && p.submissionDeadline <= today) {
+      items.push({ date: p.submissionDeadline, kind: "submitted", paper: p });
+    }
+    if (p.notificationDate && p.notificationDate <= today) {
+      if (p.status === "rejected") {
+        items.push({ date: p.notificationDate, kind: "rejected", paper: p });
+      } else if (p.status === "accepted" || p.status === "presented") {
+        items.push({ date: p.notificationDate, kind: "accepted", paper: p });
+      }
+    }
+    if (p.conferenceStart && p.conferenceStart <= today && p.status === "presented") {
+      items.push({ date: p.conferenceStart, kind: "presented", paper: p });
+    }
+  }
+
+  items.sort((a, b) => {
+    if (a.date !== b.date) return b.date.localeCompare(a.date);
+    return KIND_PRIORITY[b.kind] - KIND_PRIORITY[a.kind];
+  });
+
+  if (items[0]) items[0].highlight = true;
+
+  return items;
+}
+
+export const news: NewsItem[] = buildNews();
+
+export function newsText(item: NewsItem, lang: "en" | "ja"): string {
+  const v = item.paper.shortName;
+  const titleJa = item.paper.paperTitleJa ?? item.paper.paperTitle;
+  const titleEn = item.paper.paperTitle;
+
+  if (lang === "ja") {
+    switch (item.kind) {
+      case "submitted":
+        return `${v} に論文を投稿しました。`;
+      case "accepted":
+        return `${v} に採択されました。`;
+      case "rejected":
+        return `${v} の査読結果が通知されました(不採択)。`;
+      case "presented": {
+        const loc = item.paper.location ? `(${item.paper.location})` : "";
+        const title = titleJa ? `「${titleJa}」` : "";
+        return `${v}${loc} にて発表${title}。`;
+      }
+    }
+  }
+  switch (item.kind) {
+    case "submitted":
+      return `Submitted to ${v}.`;
+    case "accepted":
+      return `${v} — paper accepted.`;
+    case "rejected":
+      return `${v} — paper not accepted.`;
+    case "presented": {
+      const loc = item.paper.location ? ` (${item.paper.location})` : "";
+      const title = titleEn ? ` — ${titleEn}` : "";
+      return `Presented at ${v}${loc}${title}.`;
+    }
+  }
+}
