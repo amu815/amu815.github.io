@@ -25,7 +25,7 @@ export const internships: Internship[] = [
     start: "2025-09-09",
     end: "2025-09-09",
     days: 1,
-    href: "https://www.sonyglobalsolutions.co.jp/",
+    href: "https://www.sonyglobalsolutions.jp/",
   },
   {
     id: "obic",
