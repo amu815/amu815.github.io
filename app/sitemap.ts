@@ -5,7 +5,9 @@ const SITE = "https://amu815.github.io";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  // Use a date-only string so the value validates as W3C datetime
+  // and stays stable within a build day.
+  const lastModified = new Date().toISOString().slice(0, 10);
   return [
     {
       url: `${SITE}/`,
