@@ -57,6 +57,10 @@ type Dict = {
     stocks: string;
     lastUpdated: string;
     empty: string;
+    pickupHeader: string;
+    pickupBadge: string;
+    viewsBadge: (n: number) => string;
+    allHeader: string;
   };
   stats: {
     submissions: string;
@@ -164,6 +168,10 @@ export const dict: Record<Lang, Dict> = {
       stocks: "Total stocks",
       lastUpdated: "Last updated",
       empty: "No posts available right now.",
+      pickupHeader: "Pickup",
+      pickupBadge: "Pickup",
+      viewsBadge: (n) => `${n.toLocaleString("en-US")}+ views`,
+      allHeader: "All Articles",
     },
     stats: {
       submissions: "Submissions",
@@ -270,6 +278,10 @@ export const dict: Record<Lang, Dict> = {
       stocks: "ストック",
       lastUpdated: "最終更新",
       empty: "記事はまだありません。",
+      pickupHeader: "ピックアップ",
+      pickupBadge: "ピックアップ",
+      viewsBadge: (n) => `${n.toLocaleString("ja-JP")}+ views`,
+      allHeader: "全ての記事",
     },
     stats: {
       submissions: "投稿数",
