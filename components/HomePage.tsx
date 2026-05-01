@@ -3,11 +3,13 @@ import { dict } from "@/content/dict";
 import { Header } from "./Header";
 import { Hero } from "./Hero";
 import { Section } from "./Section";
-import { Contact } from "./Contact";
-import { Publications } from "./Publications";
+import { News } from "./News";
+import { Papers } from "./Papers";
+import { Timeline } from "./Timeline";
 import { Skills } from "./Skills";
 import { AI } from "./AI";
 import { Learning } from "./Learning";
+import { Contact } from "./Contact";
 import { Footer } from "./Footer";
 
 export function HomePage({ lang }: { lang: Lang }) {
@@ -15,22 +17,28 @@ export function HomePage({ lang }: { lang: Lang }) {
   return (
     <>
       <Header lang={lang} />
-      <main className="mx-auto w-full max-w-4xl flex-1">
+      <main className="mx-auto w-full max-w-5xl flex-1">
         <Hero lang={lang} />
-        <Section title={s.publications}>
-          <Publications lang={lang} />
+        <Section id="news" title={s.news}>
+          <News lang={lang} />
         </Section>
-        <Section title={s.skills}>
+        <Section id="publications" title={s.publications}>
+          <Papers lang={lang} />
+        </Section>
+        <Section id="timeline" title={s.timeline}>
+          <Timeline lang={lang} />
+        </Section>
+        <Section id="skills" title={s.skills}>
           <Skills lang={lang} />
         </Section>
-        <Section title={s.ai}>
+        <Section id="ai" title={s.ai}>
           <AI />
         </Section>
-        <Section title={s.learning}>
+        <Section id="learning" title={s.learning}>
           <Learning />
         </Section>
-        <Section title={s.contact}>
-          <Contact />
+        <Section id="contact" title={s.contact}>
+          <Contact lang={lang} />
         </Section>
       </main>
       <Footer lang={lang} />

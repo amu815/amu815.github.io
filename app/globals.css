@@ -1,46 +1,151 @@
 @import "tailwindcss";
 
 :root {
-  --background: #1a1b26;
-  --foreground: #c0caf5;
-  --muted: #9aa5ce;
+  --background: #14152a;
+  --background-elev: #181a32;
+  --foreground: #d6dffb;
+  --muted: #8a93b8;
+  --muted-strong: #b3bce0;
   --accent: #7aa2f7;
+  --accent-strong: #6c8eff;
   --green: #9ece6a;
   --purple: #bb9af7;
   --orange: #ff9e64;
-  --border: #24283b;
-  --card: #1f2335;
+  --red: #f7768e;
+  --cyan: #7dcfff;
+  --border: #232542;
+  --border-strong: #2f3257;
+  --card: #1b1d36;
+  --card-elev: #20244a;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-elev: var(--background-elev);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
+  --color-muted-strong: var(--muted-strong);
   --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
   --color-green: var(--green);
   --color-purple: var(--purple);
   --color-orange: var(--orange);
+  --color-red: var(--red);
+  --color-cyan: var(--cyan);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-card: var(--card);
+  --color-card-elev: var(--card-elev);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 html {
   color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
+  background-image:
+    radial-gradient(1200px 600px at 80% -10%, rgba(122, 162, 247, 0.10), transparent 60%),
+    radial-gradient(1000px 500px at -10% 30%, rgba(187, 154, 247, 0.08), transparent 60%),
+    radial-gradient(900px 600px at 50% 110%, rgba(125, 207, 255, 0.06), transparent 60%);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.005em;
 }
 
 a {
   color: var(--accent);
+  text-decoration: none;
+  transition: color 150ms ease, opacity 150ms ease;
 }
 a:hover {
   text-decoration: underline;
+}
+
+::selection {
+  background: rgba(122, 162, 247, 0.35);
+  color: #fff;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.fade-in-up-1 { animation-delay: 0.05s; }
+.fade-in-up-2 { animation-delay: 0.15s; }
+.fade-in-up-3 { animation-delay: 0.25s; }
+.fade-in-up-4 { animation-delay: 0.35s; }
+
+.text-gradient-accent {
+  background: linear-gradient(120deg, #7aa2f7 0%, #bb9af7 55%, #7dcfff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.surface-card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0) 60%),
+    var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+.surface-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px -12px rgba(122, 162, 247, 0.25);
+}
+
+.surface-card-glow {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0) 50%),
+    var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 1rem;
+  box-shadow: 0 0 0 1px rgba(122, 162, 247, 0.18), 0 12px 32px -16px rgba(122, 162, 247, 0.35);
+}
+
+.divider-grad {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-strong) 30%, var(--border-strong) 70%, transparent);
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(176, 188, 224, 0.10) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+.tier-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
