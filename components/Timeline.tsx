@@ -11,9 +11,9 @@ const kindTone: Record<TimelineEventKind, { dot: string; ring: string; text: str
     text: "text-accent",
   },
   accepted: {
-    dot: "bg-green",
-    ring: "ring-green/30",
-    text: "text-green",
+    dot: "bg-cyan",
+    ring: "ring-cyan/30",
+    text: "text-cyan",
   },
   rejected: {
     dot: "bg-red",

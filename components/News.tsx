@@ -5,7 +5,7 @@ import { FadeScroll } from "./FadeScroll";
 
 const kindTone: Record<NewsKind, string> = {
   submitted: "text-accent border-accent/40 bg-accent/10",
-  accepted: "text-green border-green/40 bg-green/10",
+  accepted: "text-cyan border-cyan/40 bg-cyan/10",
   rejected: "text-red border-red/40 bg-red/10",
   presented: "text-purple border-purple/40 bg-purple/10",
   milestone: "text-cyan border-cyan/40 bg-cyan/10",
