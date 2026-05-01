@@ -43,9 +43,14 @@ const CORE_B: Badge = { label: "CORE B", color: "3178C6" };
 const publications = {
   submittedConferences: [
     {
+      href: "https://neurips.cc/Conferences/2026",
+      title: "NeurIPS 2026",
+      badges: [CORE_A_STAR, UNDER_REVIEW],
+    },
+    {
       href: "https://2026.ijcai.org/",
       title: "IJCAI 2026",
-      badges: [CORE_A_STAR, UNDER_REVIEW],
+      badges: [CORE_A_STAR],
     },
     {
       href: "https://2026.ieeeicassp.org/",
