@@ -132,8 +132,9 @@ function StatusGroups({ items, lang }: { items: PaperVenue[]; lang: Lang }) {
 }
 
 export function Papers({ lang }: { lang: Lang }) {
-  const journals = papers.filter((p) => p.type === "journal");
-  const conferences = papers.filter((p) => p.type !== "journal");
+  const visible = papers.filter((p) => !p.hideFromPublications);
+  const journals = visible.filter((p) => p.type === "journal");
+  const conferences = visible.filter((p) => p.type !== "journal");
   const journalHeader = lang === "ja" ? "ジャーナル論文" : "Journal Articles";
   const conferenceHeader =
     lang === "ja" ? "国際・国内会議 / ワークショップ" : "Conferences & Workshops";

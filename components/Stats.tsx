@@ -23,12 +23,13 @@ function PaperIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
 
 export function Stats({ lang }: { lang: Lang }) {
   const t = dict[lang].stats;
-  const submissions = papers.length;
-  const underReview = papers.filter((p) => p.status === "under_review").length;
-  const accepted = papers.filter(
+  const visible = papers.filter((p) => !p.hideFromPublications);
+  const submissions = visible.length;
+  const underReview = visible.filter((p) => p.status === "under_review").length;
+  const accepted = visible.filter(
     (p) => p.status === "accepted" || p.status === "presented",
   ).length;
-  const topTier = papers.filter((p) => p.tier === "core_a_star").length;
+  const topTier = visible.filter((p) => p.tier === "core_a_star").length;
 
   const items = [
     { label: t.submissions, value: submissions, color: "text-accent" },

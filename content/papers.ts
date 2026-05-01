@@ -32,6 +32,7 @@ export type PaperVenue = {
   statusDate?: string;
   paperTitle?: string;
   paperTitleJa?: string;
+  hideFromPublications?: boolean;
 };
 
 export const papers: PaperVenue[] = [
@@ -156,6 +157,7 @@ export const papers: PaperVenue[] = [
     location: "Amami Oshima, Japan",
     status: "presented",
     statusDate: "2025-11-30",
+    hideFromPublications: true,
   },
   {
     id: "wellbeing-ws-8",
@@ -170,6 +172,7 @@ export const papers: PaperVenue[] = [
     location: "Hakodate, Japan",
     status: "presented",
     statusDate: "2025-08-22",
+    hideFromPublications: true,
   },
   {
     id: "dpsws-2025",
