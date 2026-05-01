@@ -62,6 +62,8 @@ const personJsonLd = {
   },
   sameAs: [
     "https://github.com/amu815",
+    "https://orcid.org/0009-0003-9824-837X",
+    "https://www.linkedin.com/in/amu-suemoto-8a5257395/",
     "https://x.com/amu_Humano_Dev",
     "https://qiita.com/Humanophilic_development",
   ],

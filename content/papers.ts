@@ -92,8 +92,8 @@ export const papers: PaperVenue[] = [
     conferenceStart: "2026-05-04",
     conferenceEnd: "2026-05-08",
     location: "Hyderabad, India",
-    status: "submitted",
-    statusDate: "2025-09-17",
+    status: "rejected",
+    statusDate: "2026-01-22",
   },
   {
     id: "rcis-2026",
@@ -108,8 +108,8 @@ export const papers: PaperVenue[] = [
     conferenceStart: "2026-05-19",
     conferenceEnd: "2026-05-22",
     location: "Brussels, Belgium",
-    status: "submitted",
-    statusDate: "2026-01-09",
+    status: "rejected",
+    statusDate: "2026-03-15",
   },
   {
     id: "ieice-2026",
@@ -132,13 +132,15 @@ export const papers: PaperVenue[] = [
     type: "workshop",
     tier: "domestic",
     submissionDeadline: "2025-09-15",
-    conferenceStart: "2025-12-04",
-    conferenceEnd: "2025-12-05",
-    location: "Japan",
+    conferenceStart: "2025-11-05",
+    conferenceEnd: "2025-11-07",
+    location: "Kochi, Japan",
     status: "presented",
-    statusDate: "2025-12-04",
-    paperTitle: "(Paper title — fill in here)",
-    paperTitleJa: "(発表タイトル — ここに記入)",
+    statusDate: "2025-11-05",
+    paperTitle:
+      "Representation Learning for Reducing Social Bias and Improving Gaussian-Noise Robustness in Large Vision-Language Models",
+    paperTitleJa:
+      "大規模視覚言語モデルの社会的バイアス軽減とガウシアンノイズ耐性向上に向けた表現学習手法",
   },
 ];
 

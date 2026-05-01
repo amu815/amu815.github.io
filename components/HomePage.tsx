@@ -11,6 +11,7 @@ import { AI } from "./AI";
 import { Learning } from "./Learning";
 import { Contact } from "./Contact";
 import { Footer } from "./Footer";
+import { BackToTop } from "./BackToTop";
 
 export function HomePage({ lang }: { lang: Lang }) {
   const s = dict[lang].sections;
@@ -42,6 +43,7 @@ export function HomePage({ lang }: { lang: Lang }) {
         </Section>
       </main>
       <Footer lang={lang} />
+      <BackToTop label={lang === "ja" ? "トップへ戻る" : "Back to top"} />
     </>
   );
 }

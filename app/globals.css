@@ -43,21 +43,54 @@
 html {
   color-scheme: dark;
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
   background: var(--background);
-  background-image:
-    radial-gradient(1200px 600px at 80% -10%, rgba(122, 162, 247, 0.10), transparent 60%),
-    radial-gradient(1000px 500px at -10% 30%, rgba(187, 154, 247, 0.08), transparent 60%),
-    radial-gradient(900px 600px at 50% 110%, rgba(125, 207, 255, 0.06), transparent 60%);
-  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.005em;
+  position: relative;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(122, 162, 247, 0.18), transparent 60%),
+    radial-gradient(1000px 500px at -10% 30%, rgba(187, 154, 247, 0.14), transparent 60%),
+    radial-gradient(900px 600px at 50% 110%, rgba(125, 207, 255, 0.10), transparent 60%);
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  z-index: -1;
+  background:
+    radial-gradient(560px 360px at var(--aurora-x, 30%) var(--aurora-y, 20%), rgba(122, 162, 247, 0.18), transparent 60%),
+    radial-gradient(620px 420px at var(--aurora-x2, 70%) var(--aurora-y2, 80%), rgba(187, 154, 247, 0.16), transparent 60%);
+  filter: blur(40px);
+  pointer-events: none;
+  animation: aurora-drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift {
+  0%   { --aurora-x: 18%; --aurora-y: 22%; --aurora-x2: 78%; --aurora-y2: 70%; opacity: 0.85; }
+  50%  { --aurora-x: 60%; --aurora-y: 35%; --aurora-x2: 30%; --aurora-y2: 85%; opacity: 1; }
+  100% { --aurora-x: 80%; --aurora-y: 18%; --aurora-x2: 22%; --aurora-y2: 60%; opacity: 0.9; }
+}
+
+@property --aurora-x { syntax: "<percentage>"; inherits: false; initial-value: 30%; }
+@property --aurora-y { syntax: "<percentage>"; inherits: false; initial-value: 20%; }
+@property --aurora-x2 { syntax: "<percentage>"; inherits: false; initial-value: 70%; }
+@property --aurora-y2 { syntax: "<percentage>"; inherits: false; initial-value: 80%; }
 
 a {
   color: var(--accent);
@@ -93,6 +126,31 @@ a:hover {
 .fade-in-up-3 { animation-delay: 0.25s; }
 .fade-in-up-4 { animation-delay: 0.35s; }
 
+@keyframes blob-pulse {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.55; }
+  50% { transform: scale(1.08) translate(2%, -2%); opacity: 0.85; }
+}
+
+@supports (animation-timeline: view()) {
+  @keyframes reveal-in {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .reveal,
+  body::after {
+    animation: none !important;
+  }
+}
+
 .text-gradient-accent {
   background: linear-gradient(120deg, #7aa2f7 0%, #bb9af7 55%, #7dcfff 100%);
   -webkit-background-clip: text;
@@ -102,18 +160,42 @@ a:hover {
 }
 
 .surface-card {
+  position: relative;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0) 60%),
     var(--card);
   border: 1px solid var(--border);
   border-radius: 1rem;
-  transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.surface-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(122,162,247,0.0), rgba(122,162,247,0.0));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 220ms ease, background 220ms ease;
+  pointer-events: none;
 }
 
 .surface-card:hover {
-  border-color: var(--border-strong);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px -12px rgba(122, 162, 247, 0.25);
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px -16px rgba(122, 162, 247, 0.35);
+}
+
+.surface-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(122,162,247,0.7), rgba(187,154,247,0.6) 50%, rgba(125,207,255,0.6));
 }
 
 .surface-card-glow {

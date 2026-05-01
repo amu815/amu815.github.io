@@ -94,7 +94,7 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
         </dl>
       )}
 
-      {p.paperTitle && p.id === "dpsws-2025" && (
+      {p.paperTitle && (
         <p className="border-t border-border/70 pt-3 text-sm leading-snug text-muted-strong">
           <span className="text-muted">{lang === "ja" ? "発表タイトル: " : "Title: "}</span>
           {lang === "ja" && p.paperTitleJa ? p.paperTitleJa : p.paperTitle}
@@ -104,23 +104,22 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
   );
 }
 
-export function Papers({ lang }: { lang: Lang }) {
+function StatusGroups({ items, lang }: { items: PaperVenue[]; lang: Lang }) {
   const t = dict[lang].publications;
   const groups = STATUS_ORDER.map((status) => ({
     status,
     label: t.statusGroupHeaders[status],
-    items: papers.filter((p) => p.status === status),
+    items: items.filter((p) => p.status === status),
   })).filter((g) => g.items.length > 0);
-
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-6">
       {groups.map((g) => (
         <div key={g.status}>
-          <h3 className="mb-3 flex items-center gap-3 text-sm font-semibold uppercase tracking-wider text-muted">
+          <h4 className="mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-wider text-muted">
             <span>{g.label}</span>
             <span className="h-px flex-1 bg-border" />
             <span className="font-mono text-xs text-muted">{g.items.length}</span>
-          </h3>
+          </h4>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {g.items.map((p) => (
               <PaperCard key={p.id} p={p} lang={lang} />
@@ -128,6 +127,39 @@ export function Papers({ lang }: { lang: Lang }) {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+export function Papers({ lang }: { lang: Lang }) {
+  const journals = papers.filter((p) => p.type === "journal");
+  const conferences = papers.filter((p) => p.type !== "journal");
+  const journalHeader = lang === "ja" ? "ジャーナル論文" : "Journal Articles";
+  const conferenceHeader =
+    lang === "ja" ? "国際・国内会議 / ワークショップ" : "Conferences & Workshops";
+
+  return (
+    <div className="flex flex-col gap-10">
+      {journals.length > 0 && (
+        <div>
+          <h3 className="mb-4 flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-purple">
+            <span className="inline-block h-2 w-2 rounded-full bg-purple shadow-[0_0_12px_rgba(187,154,247,0.7)]" />
+            <span>{journalHeader}</span>
+            <span className="h-px flex-1 bg-gradient-to-r from-purple/40 to-transparent" />
+          </h3>
+          <StatusGroups items={journals} lang={lang} />
+        </div>
+      )}
+      {conferences.length > 0 && (
+        <div>
+          <h3 className="mb-4 flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-accent">
+            <span className="inline-block h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_rgba(122,162,247,0.7)]" />
+            <span>{conferenceHeader}</span>
+            <span className="h-px flex-1 bg-gradient-to-r from-accent/40 to-transparent" />
+          </h3>
+          <StatusGroups items={conferences} lang={lang} />
+        </div>
+      )}
     </div>
   );
 }

@@ -14,6 +14,26 @@ const links = [
     ),
   },
   {
+    href: "https://orcid.org/0009-0003-9824-837X",
+    label: "ORCID",
+    handle: "0009-0003-9824-837X",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden fill="currentColor">
+        <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0Zm-4.62 17.74H5.7V7.16h1.68v10.58Zm-.84-12.06a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1Zm12.78 6.79c0 3.36-2.4 5.27-5.6 5.27H9.27V7.16h4.46c3.42 0 5.59 2.18 5.59 5.31Zm-1.68 0c0-2.45-1.55-3.79-3.92-3.79H10.95v7.6h1.94c2.13 0 3.75-1.36 3.75-3.81Z" />
+      </svg>
+    ),
+  },
+  {
+    href: "https://www.linkedin.com/in/amu-suemoto-8a5257395/",
+    label: "LinkedIn",
+    handle: "amu-suemoto",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden fill="currentColor">
+        <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.27 2.38 4.27 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z" />
+      </svg>
+    ),
+  },
+  {
     href: "https://x.com/amu_Humano_Dev",
     label: "X",
     handle: "@amu_Humano_Dev",
