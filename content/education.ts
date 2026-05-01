@@ -25,7 +25,7 @@ export const education: EducationEntry[] = [
     departmentEn:
       "Department of Advanced Information Technology, Information Science and Electrical Engineering (ISEE)",
     departmentJa: "システム情報科学府 情報理工学専攻",
-    href: "https://app.ait.kyushu-u.ac.jp/",
+    href: "https://www.isee.kyushu-u.ac.jp/",
   },
   {
     id: "kyushu-master",
@@ -37,7 +37,7 @@ export const education: EducationEntry[] = [
     departmentEn:
       "Department of Advanced Information Technology, Information Science and Electrical Engineering (ISEE)",
     departmentJa: "システム情報科学府 情報理工学専攻",
-    href: "https://app.ait.kyushu-u.ac.jp/",
+    href: "https://www.isee.kyushu-u.ac.jp/",
   },
   {
     id: "yamaguchi-bachelor",
@@ -48,7 +48,7 @@ export const education: EducationEntry[] = [
     schoolJa: "山口大学 工学部",
     departmentEn: "Department of Computer Science and Systems Engineering",
     departmentJa: "知能情報工学科",
-    href: "https://www.yamaguchi-u.ac.jp/",
+    href: "https://www.csse.yamaguchi-u.ac.jp/",
   },
   {
     id: "funairi-highschool",

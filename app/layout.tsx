@@ -64,7 +64,7 @@ const personJsonLd = {
     {
       "@type": "CollegeOrUniversity",
       name: "Yamaguchi University — Faculty of Engineering, Department of Computer Science and Systems Engineering",
-      url: "https://www.yamaguchi-u.ac.jp/",
+      url: "https://www.csse.yamaguchi-u.ac.jp/",
     },
     {
       "@type": "HighSchool",
