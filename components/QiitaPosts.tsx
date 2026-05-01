@@ -1,6 +1,7 @@
 import type { Lang } from "@/content/dict";
 import { dict } from "@/content/dict";
 import qiitaData from "@/content/qiita-posts.json";
+import { FadeScroll } from "./FadeScroll";
 
 type QiitaPost = {
   id: string;
@@ -114,7 +115,8 @@ export function QiitaPosts({ lang }: { lang: Lang }) {
         </div>
       </dl>
 
-      <ul className="flex flex-col gap-3">
+      <FadeScroll maxHeight="40rem">
+      <ul className="flex flex-col gap-3 pr-1">
         {posts.map((p, i) => (
           <li
             key={p.id}
@@ -165,6 +167,7 @@ export function QiitaPosts({ lang }: { lang: Lang }) {
           </li>
         ))}
       </ul>
+      </FadeScroll>
     </div>
   );
 }

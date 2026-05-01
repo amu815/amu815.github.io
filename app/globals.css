@@ -218,6 +218,19 @@ a:hover {
   background-size: 22px 22px;
 }
 
+.fade-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+.fade-scroll::-webkit-scrollbar { width: 6px; }
+.fade-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+.fade-scroll::-webkit-scrollbar-track { background: transparent; }
+
 .tier-pill {
   display: inline-flex;
   align-items: center;

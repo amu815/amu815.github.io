@@ -1,6 +1,7 @@
 import type { Lang } from "@/content/dict";
 import { news, newsText, type NewsKind } from "@/content/news";
 import { formatDate } from "@/lib/date";
+import { FadeScroll } from "./FadeScroll";
 
 const kindTone: Record<NewsKind, string> = {
   submitted: "text-accent border-accent/40 bg-accent/10",
@@ -25,7 +26,8 @@ const kindLabelJa: Record<NewsKind, string> = {
 
 export function News({ lang }: { lang: Lang }) {
   return (
-    <ul className="flex flex-col gap-3">
+    <FadeScroll maxHeight="36rem">
+    <ul className="flex flex-col gap-3 pr-1">
       {news.map((n, i) => {
         const kindLabel = lang === "ja" ? kindLabelJa[n.kind] : kindLabelEn[n.kind];
         const text = newsText(n, lang);
@@ -76,5 +78,6 @@ export function News({ lang }: { lang: Lang }) {
         );
       })}
     </ul>
+    </FadeScroll>
   );
 }
