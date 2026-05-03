@@ -46,7 +46,7 @@ const milestones: MilestoneNewsItem[] = [
       "Selected as a 2026 candidate of the Kyushu University WISE Program for Sustainability in the Dynamic Earth (K2-SPRING), Health-Tech Unit.",
     textJa:
       "九州大学未来を拓く博士人財育成プログラム (K2-SPRING) ヘルステックユニット 2026 年度コース候補生に採用されました。",
-    href: "https://k2-spring.kyushu-u.ac.jp/",
+    href: "https://k-spring.kyushu-u.ac.jp/",
   },
 ];
 
