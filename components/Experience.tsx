@@ -62,7 +62,16 @@ export function Experience({ lang }: { lang: Lang }) {
               {t.cyclingPromotion}
             </span>
           </div>
-          <h4 className="text-base font-semibold text-foreground">{t.cyclingOrg}</h4>
+          <h4 className="text-base font-semibold text-foreground">
+            <a
+              href="https://jbcfroad.jp/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-cyan"
+            >
+              {t.cyclingOrg}
+            </a>
+          </h4>
           <p className="text-sm text-muted-strong">
             {lang === "ja"
               ? "学部在学中、JBCFに登録された実業団選手として国内のロードレースに継続的に参戦。2023年3月にE2へ昇格。"
