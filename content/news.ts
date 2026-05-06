@@ -40,7 +40,7 @@ const KIND_PRIORITY: Record<NewsKind, number> = {
 
 const milestones: MilestoneNewsItem[] = [
   {
-    date: "2026-05-07",
+    date: "2026-05-06",
     kind: "milestone",
     textEn:
       "Selected for the Xiaomi MiMo Orbit: 100T Token Grant for Builders — receiving a Pro Monthly Plan (700,000,000 credits) on the MiMo API Platform with access to the MiMo V2.5 model family.",
