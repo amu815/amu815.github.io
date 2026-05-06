@@ -43,9 +43,9 @@ const milestones: MilestoneNewsItem[] = [
     date: "2026-05-06",
     kind: "milestone",
     textEn:
-      "Selected for the Xiaomi MiMo Orbit: 100T Token Grant for Builders — awarded 700,000,000 credits on the MiMo API Platform (≈ ¥85,000 / $540 at MiMo-V2.5 blended API rates).",
+      "Selected for the Xiaomi MiMo Orbit: 100T Token Grant for Builders — awarded 700,000,000 credits on the MiMo API Platform (≈ ¥85,000).",
     textJa:
-      "Xiaomi MiMo Orbit「100T Token Grant for Builders」に採択されました。MiMo API Platform で 700,000,000 クレジット (MiMo-V2.5 のAPI従量課金換算で約 8.5 万円相当) が付与されました。",
+      "Xiaomi MiMo Orbit「100T Token Grant for Builders」に採択されました。MiMo API Platform で 700,000,000 クレジット (約 8.5 万円相当) が付与されました。",
     href: "https://platform.xiaomimimo.com",
   },
   {
