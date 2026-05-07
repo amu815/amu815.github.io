@@ -40,6 +40,15 @@ const KIND_PRIORITY: Record<NewsKind, number> = {
 
 const milestones: MilestoneNewsItem[] = [
   {
+    date: "2026-05-07",
+    kind: "milestone",
+    textEn:
+      "Submitted application for the JSPS Research Fellowship for Young Scientists (DC1).",
+    textJa:
+      "日本学術振興会特別研究員 DC1 に申請しました。",
+    href: "https://www.jsps.go.jp/j-pd/pd_sin.html",
+  },
+  {
     date: "2026-05-06",
     kind: "milestone",
     textEn:
