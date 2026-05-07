@@ -2,7 +2,7 @@ import { papers, type PaperVenue } from "./papers";
 import { kaggleEntries, percentile, type KaggleEntry } from "./kaggle";
 
 export type PaperEventKind = "submitted" | "accepted" | "rejected" | "presented";
-export type NewsKind = PaperEventKind | "milestone" | "kaggle";
+export type NewsKind = PaperEventKind | "milestone" | "kaggle" | "application";
 
 export type PaperNewsItem = {
   date: string;
@@ -20,6 +20,15 @@ export type MilestoneNewsItem = {
   highlight?: boolean;
 };
 
+export type ApplicationNewsItem = {
+  date: string;
+  kind: "application";
+  textEn: string;
+  textJa: string;
+  href?: string;
+  highlight?: boolean;
+};
+
 export type KaggleNewsItem = {
   date: string;
   kind: "kaggle";
@@ -27,7 +36,7 @@ export type KaggleNewsItem = {
   highlight?: boolean;
 };
 
-export type NewsItem = PaperNewsItem | MilestoneNewsItem | KaggleNewsItem;
+export type NewsItem = PaperNewsItem | MilestoneNewsItem | KaggleNewsItem | ApplicationNewsItem;
 
 const KIND_PRIORITY: Record<NewsKind, number> = {
   presented: 4,
@@ -35,19 +44,23 @@ const KIND_PRIORITY: Record<NewsKind, number> = {
   kaggle: 3,
   accepted: 2,
   rejected: 2,
+  application: 1,
   submitted: 1,
 };
 
-const milestones: MilestoneNewsItem[] = [
+const applications: ApplicationNewsItem[] = [
   {
     date: "2026-05-07",
-    kind: "milestone",
+    kind: "application",
     textEn:
       "Submitted application for the JSPS Research Fellowship for Young Scientists (DC1).",
     textJa:
       "日本学術振興会特別研究員 DC1 に申請しました。",
     href: "https://www.jsps.go.jp/j-pd/pd_sin.html",
   },
+];
+
+const milestones: MilestoneNewsItem[] = [
   {
     date: "2026-05-06",
     kind: "milestone",
@@ -89,6 +102,10 @@ function buildNews(today = new Date().toISOString().slice(0, 10)): NewsItem[] {
 
   for (const m of milestones) {
     if (m.date <= today) items.push(m);
+  }
+
+  for (const a of applications) {
+    if (a.date <= today) items.push(a);
   }
 
   for (const k of kaggleEntries) {
@@ -145,7 +162,7 @@ function paperNewsText(item: PaperNewsItem, lang: "en" | "ja"): string {
 }
 
 export function newsText(item: NewsItem, lang: "en" | "ja"): string {
-  if (item.kind === "milestone") {
+  if (item.kind === "milestone" || item.kind === "application") {
     return lang === "ja" ? item.textJa : item.textEn;
   }
   if (item.kind === "kaggle") {
@@ -165,7 +182,7 @@ export function newsText(item: NewsItem, lang: "en" | "ja"): string {
 }
 
 export function newsHref(item: NewsItem): string | undefined {
-  if (item.kind === "milestone") return item.href;
+  if (item.kind === "milestone" || item.kind === "application") return item.href;
   if (item.kind === "kaggle") return item.entry.href;
   return item.paper.href;
 }

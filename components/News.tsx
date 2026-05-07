@@ -10,6 +10,7 @@ const kindTone: Record<NewsKind, string> = {
   presented: "text-purple border-purple/40 bg-purple/10",
   milestone: "text-cyan border-cyan/40 bg-cyan/10",
   kaggle: "text-green border-green/40 bg-green/10",
+  application: "text-accent border-accent/40 bg-accent/10",
 };
 
 const kindLabelEn: Record<NewsKind, string> = {
@@ -19,6 +20,7 @@ const kindLabelEn: Record<NewsKind, string> = {
   presented: "Presented",
   milestone: "Milestone",
   kaggle: "Kaggle",
+  application: "Applied",
 };
 
 const kindLabelJa: Record<NewsKind, string> = {
@@ -28,6 +30,7 @@ const kindLabelJa: Record<NewsKind, string> = {
   presented: "発表",
   milestone: "受賞・採用",
   kaggle: "Kaggle",
+  application: "申請",
 };
 
 function itemKey(n: ReturnType<typeof toKeyParts>): string {
@@ -36,6 +39,7 @@ function itemKey(n: ReturnType<typeof toKeyParts>): string {
 
 function toKeyParts(n: (typeof news)[number]): string {
   if (n.kind === "milestone") return `milestone-${n.date}-${n.textEn.slice(0, 20)}`;
+  if (n.kind === "application") return `application-${n.date}-${n.textEn.slice(0, 20)}`;
   if (n.kind === "kaggle") return `kaggle-${n.entry.id}-${n.date}`;
   return `${n.paper.id}-${n.kind}-${n.date}`;
 }
