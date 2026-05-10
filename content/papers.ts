@@ -15,6 +15,12 @@ export type PaperTier =
 
 export type PaperType = "conference" | "journal" | "workshop";
 
+export type Author = {
+  name: string;
+  nameJa?: string;
+  href?: string;
+};
+
 export type PaperVenue = {
   id: string;
   shortName: string;
@@ -32,6 +38,7 @@ export type PaperVenue = {
   statusDate?: string;
   paperTitle?: string;
   paperTitleJa?: string;
+  authors?: Author[];
   hideFromPublications?: boolean;
 };
 
@@ -143,6 +150,23 @@ export const papers: PaperVenue[] = [
     location: "Fukuoka, Japan",
     status: "accepted",
     statusDate: "2026-04-10",
+    paperTitle:
+      "GRoFA: Learning Fair and Robust Face Image Embeddings via Noise-Gated Adapters",
+    paperTitleJa:
+      "GRoFA: ノイズゲート付きアダプタによる公平でロバストな顔画像埋め込みの学習",
+    authors: [
+      { name: "Amu Suemoto", nameJa: "末本 歩夢" },
+      {
+        name: "Yutaka Arakawa",
+        nameJa: "荒川 豊",
+        href: "https://researchmap.jp/yutaka.arakawa",
+      },
+      {
+        name: "Tsunenori Mine",
+        nameJa: "峯 恒憲",
+        href: "https://researchmap.jp/read0046263/",
+      },
+    ],
   },
   {
     id: "wellbeing-ws-9",
@@ -193,6 +217,19 @@ export const papers: PaperVenue[] = [
       "Representation Learning for Reducing Social Bias and Improving Gaussian-Noise Robustness in Large Vision-Language Models",
     paperTitleJa:
       "大規模視覚言語モデルの社会的バイアス軽減とガウシアンノイズ耐性向上に向けた表現学習手法",
+    authors: [
+      { name: "Amu Suemoto", nameJa: "末本 歩夢" },
+      {
+        name: "Yutaka Arakawa",
+        nameJa: "荒川 豊",
+        href: "https://researchmap.jp/yutaka.arakawa",
+      },
+      {
+        name: "Tsunenori Mine",
+        nameJa: "峯 恒憲",
+        href: "https://researchmap.jp/read0046263/",
+      },
+    ],
   },
 ];
 

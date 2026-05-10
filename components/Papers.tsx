@@ -57,17 +57,21 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
     });
   }
 
+  const authorSep = lang === "ja" ? "、" : ", ";
+
   return (
-    <a
-      href={p.href}
-      target="_blank"
-      rel="noreferrer"
-      className="surface-card group flex flex-col gap-3 p-5 hover:no-underline"
-    >
+    <article className="surface-card flex flex-col gap-3 p-5">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <h3 className="text-base font-semibold text-foreground group-hover:text-accent">
-            {p.shortName}
+          <h3 className="text-base font-semibold">
+            <a
+              href={p.href}
+              target="_blank"
+              rel="noreferrer"
+              className="text-foreground hover:text-accent hover:no-underline"
+            >
+              {p.shortName}
+            </a>
           </h3>
           <p className="mt-0.5 text-xs leading-snug text-muted">{fullName}</p>
         </div>
@@ -100,7 +104,34 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
           {lang === "ja" && p.paperTitleJa ? p.paperTitleJa : p.paperTitle}
         </p>
       )}
-    </a>
+
+      {p.authors && p.authors.length > 0 && (
+        <p className="text-xs leading-snug text-muted-strong">
+          <span className="text-muted">{lang === "ja" ? "著者: " : "Authors: "}</span>
+          {p.authors.map((a, i) => {
+            const name = lang === "ja" && a.nameJa ? a.nameJa : a.name;
+            const isLast = i === p.authors!.length - 1;
+            return (
+              <span key={a.name}>
+                {a.href ? (
+                  <a
+                    href={a.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-muted-strong underline-offset-2 hover:text-accent hover:underline"
+                  >
+                    {name}
+                  </a>
+                ) : (
+                  name
+                )}
+                {!isLast && authorSep}
+              </span>
+            );
+          })}
+        </p>
+      )}
+    </article>
   );
 }
 
