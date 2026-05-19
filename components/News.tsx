@@ -49,7 +49,9 @@ export function News({ lang }: { lang: Lang }) {
     <FadeScroll maxHeight="20rem">
       <ul className="flex flex-col gap-3 pr-1">
         {news.map((n, i) => {
-          const kindLabel = lang === "ja" ? kindLabelJa[n.kind] : kindLabelEn[n.kind];
+          const effectiveKind: NewsKind =
+            n.kind === "milestone" && n.displayKind ? n.displayKind : n.kind;
+          const kindLabel = lang === "ja" ? kindLabelJa[effectiveKind] : kindLabelEn[effectiveKind];
           const text = newsText(n, lang);
           const href = newsHref(n);
           const inner = (
@@ -65,7 +67,7 @@ export function News({ lang }: { lang: Lang }) {
                 {formatDate(n.date, lang)}
               </time>
               <span
-                className={`tier-pill !lowercase sm:flex-none ${kindTone[n.kind]}`}
+                className={`tier-pill !lowercase sm:flex-none ${kindTone[effectiveKind]}`}
               >
                 {kindLabel}
               </span>

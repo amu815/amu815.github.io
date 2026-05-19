@@ -18,6 +18,7 @@ export type MilestoneNewsItem = {
   textJa: string;
   href?: string;
   highlight?: boolean;
+  displayKind?: NewsKind;
 };
 
 export type ApplicationNewsItem = {
@@ -73,6 +74,7 @@ const milestones: MilestoneNewsItem[] = [
   {
     date: "2026-05-10",
     kind: "milestone",
+    displayKind: "accepted",
     textEn:
       "Submitted the camera-ready version of the DICOMO 2026 paper “GRoFA: Learning Fair and Robust Face Image Embeddings via Noise-Gated Adapters”.",
     textJa:
