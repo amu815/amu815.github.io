@@ -50,6 +50,15 @@ const KIND_PRIORITY: Record<NewsKind, number> = {
 
 const applications: ApplicationNewsItem[] = [
   {
+    date: "2026-05-11",
+    kind: "application",
+    textEn:
+      "Submitted application to the MEXT AI for Science Pioneering and Exploratory Research Creation Project (SPReAD).",
+    textJa:
+      "文部科学省「AI for Science 萌芽的挑戦研究創出事業（SPReAD）」に申請しました。",
+    href: "https://www.mext.go.jp/aifors_spread/",
+  },
+  {
     date: "2026-05-07",
     kind: "application",
     textEn:
@@ -61,6 +70,15 @@ const applications: ApplicationNewsItem[] = [
 ];
 
 const milestones: MilestoneNewsItem[] = [
+  {
+    date: "2026-05-10",
+    kind: "milestone",
+    textEn:
+      "Submitted the camera-ready version of the DICOMO 2026 paper “GRoFA: Learning Fair and Robust Face Image Embeddings via Noise-Gated Adapters”.",
+    textJa:
+      "DICOMO 2026 採択論文「GRoFA: ノイズゲート付きアダプタによる公平でロバストな顔画像埋め込みの学習」のカメラレディ版を提出しました。",
+    href: "https://dicomo.org/2026/",
+  },
   {
     date: "2026-05-06",
     kind: "milestone",
