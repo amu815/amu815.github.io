@@ -44,6 +44,22 @@ export type PaperVenue = {
 
 export const papers: PaperVenue[] = [
   {
+    id: "cikm-2026",
+    shortName: "CIKM 2026",
+    fullName: "ACM International Conference on Information and Knowledge Management",
+    fullNameJa: "ACM 情報・知識管理国際会議",
+    href: "https://cikm2026.diag.uniroma1.it/",
+    type: "conference",
+    tier: "core_a",
+    submissionDeadline: "2026-05-23",
+    notificationDate: "2026-08-07",
+    conferenceStart: "2026-11-07",
+    conferenceEnd: "2026-11-11",
+    location: "Rome, Italy",
+    status: "under_review",
+    statusDate: "2026-05-23",
+  },
+  {
     id: "neurips-2026",
     shortName: "NeurIPS 2026",
     fullName: "Conference on Neural Information Processing Systems",
