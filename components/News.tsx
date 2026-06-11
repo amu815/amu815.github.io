@@ -11,6 +11,7 @@ const kindTone: Record<NewsKind, string> = {
   milestone: "text-cyan border-cyan/40 bg-cyan/10",
   kaggle: "text-green border-green/40 bg-green/10",
   application: "text-accent border-accent/40 bg-accent/10",
+  passed: "text-green border-green/40 bg-green/10",
 };
 
 const kindLabelEn: Record<NewsKind, string> = {
@@ -21,6 +22,7 @@ const kindLabelEn: Record<NewsKind, string> = {
   milestone: "Milestone",
   kaggle: "Kaggle",
   application: "Applied",
+  passed: "Passed",
 };
 
 const kindLabelJa: Record<NewsKind, string> = {
@@ -31,6 +33,7 @@ const kindLabelJa: Record<NewsKind, string> = {
   milestone: "受賞・採用",
   kaggle: "Kaggle",
   application: "申請",
+  passed: "通過",
 };
 
 function itemKey(n: ReturnType<typeof toKeyParts>): string {

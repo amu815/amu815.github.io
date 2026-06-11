@@ -2,7 +2,7 @@ import { papers, type PaperVenue } from "./papers";
 import { kaggleEntries, percentile, type KaggleEntry } from "./kaggle";
 
 export type PaperEventKind = "submitted" | "accepted" | "rejected" | "presented";
-export type NewsKind = PaperEventKind | "milestone" | "kaggle" | "application";
+export type NewsKind = PaperEventKind | "milestone" | "kaggle" | "application" | "passed";
 
 export type PaperNewsItem = {
   date: string;
@@ -45,11 +45,21 @@ const KIND_PRIORITY: Record<NewsKind, number> = {
   kaggle: 3,
   accepted: 2,
   rejected: 2,
+  passed: 2,
   application: 1,
   submitted: 1,
 };
 
 const applications: ApplicationNewsItem[] = [
+  {
+    date: "2026-06-05",
+    kind: "application",
+    textEn:
+      "Submitted application to the Fukuoka Mitou 2026 Pro course.",
+    textJa:
+      "福岡未踏 2026 Pro コースに申請しました。",
+    href: "https://mitou-fukuoka.org/",
+  },
   {
     date: "2026-05-11",
     kind: "application",
@@ -71,6 +81,16 @@ const applications: ApplicationNewsItem[] = [
 ];
 
 const milestones: MilestoneNewsItem[] = [
+  {
+    date: "2026-06-10",
+    kind: "milestone",
+    displayKind: "passed",
+    textEn:
+      "Passed the first-stage screening of the Fukuoka Mitou 2026 Pro course.",
+    textJa:
+      "福岡未踏 2026 Pro コースの一次審査を通過しました。",
+    href: "https://mitou-fukuoka.org/",
+  },
   {
     date: "2026-05-10",
     kind: "milestone",
