@@ -1,7 +1,39 @@
 {
   "user": "Humanophilic_development",
-  "fetchedAt": "2026-05-23T09:58:56.330Z",
+  "fetchedAt": "2026-06-11T07:48:56.663Z",
   "posts": [
+    {
+      "id": "a4b042519e29b22778e3",
+      "title": "[mac改造]macOSで通知音(アラート音量)だけをキーボードで増減する！ Karabinerの“音量キーはfromにできない”罠と回避策(fn+F11/F12)",
+      "url": "https://qiita.com/Humanophilic_development/items/a4b042519e29b22778e3",
+      "createdAt": "2026-06-04T22:38:20+09:00",
+      "updatedAt": "2026-06-04T22:38:20+09:00",
+      "likes": 1,
+      "stocks": 0,
+      "tags": [
+        "AppleScript",
+        "macOS",
+        "Keyboard",
+        "通知",
+        "Karabiner-Elements"
+      ]
+    },
+    {
+      "id": "71a580ec0723693d6b42",
+      "title": "【Claude Code】上限、しれっと緩んでた。Opus 4.8 を MAX($100) で全力稼働した2026年5月末の実測レポート",
+      "url": "https://qiita.com/Humanophilic_development/items/71a580ec0723693d6b42",
+      "createdAt": "2026-05-30T12:07:37+09:00",
+      "updatedAt": "2026-05-30T12:10:50+09:00",
+      "likes": 0,
+      "stocks": 0,
+      "tags": [
+        "AI",
+        "生成AI",
+        "Anthropic",
+        "Claude",
+        "ClaudeCode"
+      ]
+    },
     {
       "id": "354f63ae48b9c4f49cd1",
       "title": "Claude CodeをローカルLLMで使い倒す！RTX 4090とGemma4で構築する最強の無料開発環境",
@@ -40,7 +72,7 @@
       "url": "https://qiita.com/Humanophilic_development/items/9687f442afb5b97b1248",
       "createdAt": "2026-04-06T11:15:00+09:00",
       "updatedAt": "2026-04-06T11:15:00+09:00",
-      "likes": 2,
+      "likes": 3,
       "stocks": 3,
       "tags": [
         "初心者",
@@ -152,7 +184,7 @@
       "createdAt": "2026-03-27T22:24:33+09:00",
       "updatedAt": "2026-03-27T22:24:33+09:00",
       "likes": 0,
-      "stocks": 0,
+      "stocks": 1,
       "tags": [
         "GAS",
         "OCR",
