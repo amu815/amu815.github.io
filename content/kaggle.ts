@@ -29,9 +29,10 @@ export const kaggleEntries: KaggleEntry[] = [
     title: "NVIDIA Nemotron Model Reasoning Challenge",
     type: "Featured",
     href: "https://www.kaggle.com/competitions/nvidia-nemotron-model-reasoning-challenge",
-    status: "active",
-    noteEn: "Ongoing — about a month remaining at last check.",
-    noteJa: "進行中。残り約 1 ヶ月（最終確認時点）。",
+    status: "completed",
+    endDate: "2026-06-15",
+    rank: 2903,
+    teams: 4183,
   },
   {
     id: "playground-s6e4",
