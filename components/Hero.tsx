@@ -4,6 +4,17 @@ import { dict } from "@/content/dict";
 import { calculateAge } from "@/lib/date";
 import { Stats } from "./Stats";
 
+const achievementTone = {
+  default:
+    "border-cyan/50 bg-cyan/10 text-cyan shadow-[0_0_24px_-16px_rgba(125,207,255,0.75)] hover:border-cyan hover:bg-cyan/15 hover:text-cyan",
+  mitou:
+    "border-[rgba(255,210,30,0.72)] bg-[rgba(255,210,30,0.14)] text-[#FFD21E] shadow-[0_0_28px_-14px_rgba(255,210,30,0.9)] hover:border-[#FFD21E] hover:bg-[rgba(255,210,30,0.20)] hover:text-[#FFE76A]",
+};
+
+function getAchievementTone(href: string) {
+  return href.includes("mitou-fukuoka.org") ? achievementTone.mitou : achievementTone.default;
+}
+
 export function Hero({ lang }: { lang: Lang }) {
   const t = dict[lang].hero;
   return (
@@ -63,7 +74,7 @@ export function Hero({ lang }: { lang: Lang }) {
                 href={a.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex max-w-full items-center gap-2 rounded-full border border-cyan/50 bg-cyan/10 px-3 py-1.5 text-left text-cyan shadow-[0_0_24px_-16px_rgba(125,207,255,0.75)] hover:border-cyan hover:bg-cyan/15 hover:text-cyan hover:no-underline"
+                className={`group inline-flex max-w-full items-center gap-2 rounded-full border px-3 py-1.5 text-left hover:no-underline ${getAchievementTone(a.href)}`}
               >
                 <AwardIcon className="h-3.5 w-3.5 flex-none" />
                 <span className="min-w-0">
