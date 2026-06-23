@@ -166,11 +166,6 @@ export const dict: Record<Lang, Dict> = {
           detail: "LabAgent / up to ¥1.25M",
           href: "https://mitou-fukuoka.org/",
         },
-        {
-          label: "LabAgent",
-          detail: "Companion local agent framework",
-          href: "https://mitou-fukuoka.org/",
-        },
       ],
       cv: "Download CV",
       facts: {
@@ -319,11 +314,6 @@ export const dict: Record<Lang, Dict> = {
         {
           label: "福岡未踏2026 Pro 採択",
           detail: "LabAgent / 最大125万円",
-          href: "https://mitou-fukuoka.org/",
-        },
-        {
-          label: "LabAgent",
-          detail: "伴走ローカルエージェントフレームワーク",
           href: "https://mitou-fukuoka.org/",
         },
       ],
