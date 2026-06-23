@@ -53,6 +53,30 @@ export function Hero({ lang }: { lang: Lang }) {
               </span>
             ))}
           </div>
+          <div
+            className="fade-in-up fade-in-up-3 mt-4 flex flex-wrap gap-2"
+            aria-label={t.achievementLabel}
+          >
+            {t.achievements.map((a) => (
+              <a
+                key={a.label}
+                href={a.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex max-w-full items-center gap-2 rounded-full border border-cyan/50 bg-cyan/10 px-3 py-1.5 text-left text-cyan shadow-[0_0_24px_-16px_rgba(125,207,255,0.75)] hover:border-cyan hover:bg-cyan/15 hover:text-cyan hover:no-underline"
+              >
+                <AwardIcon className="h-3.5 w-3.5 flex-none" />
+                <span className="min-w-0">
+                  <span className="block truncate text-xs font-bold uppercase tracking-wider">
+                    {a.label}
+                  </span>
+                  <span className="block truncate text-[11px] font-medium text-muted-strong group-hover:text-foreground">
+                    {a.detail}
+                  </span>
+                </span>
+              </a>
+            ))}
+          </div>
           <div className="fade-in-up fade-in-up-4 mt-5 flex flex-col gap-1 text-sm">
             <a
               href={t.affiliationHref}
@@ -71,6 +95,24 @@ export function Hero({ lang }: { lang: Lang }) {
         <Stats lang={lang} />
       </div>
     </section>
+  );
+}
+
+function AwardIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      aria-hidden
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="8" r="5" />
+      <path d="M8.5 12.5 7 21l5-3 5 3-1.5-8.5" />
+    </svg>
   );
 }
 

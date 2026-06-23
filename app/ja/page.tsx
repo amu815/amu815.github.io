@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { HomePage } from "@/components/HomePage";
 
 const DESCRIPTION =
-  "九州大学 修士2年、人間情報システム研究グループ所属。マルチモーダルAI・LLM基盤・人間中心の知的インタフェース研究。";
+  "九州大学 修士2年、人間情報システム研究グループ所属。福岡未踏2026 Pro コース採択プロジェクト LabAgent を開発。マルチモーダルAI・LLM基盤・人間中心の知的インタフェース研究。";
 
 export const metadata: Metadata = {
   title: "末本歩夢 — Amu Suemoto",

@@ -82,6 +82,16 @@ const applications: ApplicationNewsItem[] = [
 
 const milestones: MilestoneNewsItem[] = [
   {
+    date: "2026-06-22",
+    kind: "milestone",
+    displayKind: "accepted",
+    textEn:
+      "Selected for the Fukuoka Mitou 2026 Pro course with “LabAgent — Companion Local Agent Framework” (up to ¥1.25M in development support).",
+    textJa:
+      "福岡未踏2026 Pro コースに「LabAgent — 伴走ローカルエージェントフレームワーク」で採択されました（開発支援金 最大125万円）。",
+    href: "https://mitou-fukuoka.org/",
+  },
+  {
     date: "2026-06-10",
     kind: "milestone",
     displayKind: "passed",

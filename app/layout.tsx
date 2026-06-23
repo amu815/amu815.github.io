@@ -16,7 +16,7 @@ const SITE_URL = "https://amu815.github.io";
 const TITLE = "Amu Suemoto / 末本歩夢 — Kyushu University, Humanophilic Systems Lab";
 const SHORT_TITLE = "Amu Suemoto / 末本歩夢";
 const DESCRIPTION =
-  "Amu Suemoto (末本歩夢) — Kyushu University M2, Humanophilic Systems Lab (Arakawa-Mine-Fukushima). Trustworthy AI research: fairness and robustness of vision-language models, and mechanistic interpretability for safer small language models.";
+  "Amu Suemoto (末本歩夢) — Kyushu University M2, Humanophilic Systems Lab (Arakawa-Mine-Fukushima). Selected for Fukuoka Mitou 2026 Pro with LabAgent. Trustworthy AI research: fairness and robustness of vision-language models, and mechanistic interpretability for safer small language models.";
 
 // Replace the empty string with the verification code Google Search Console gives you
 // (e.g. "google-site-verification=abc123..."). Until then, the meta tag is omitted.
@@ -57,6 +57,9 @@ export const metadata: Metadata = {
     "Qwen",
     "OLMo",
     "Trustworthy AI",
+    "Fukuoka Mitou",
+    "福岡未踏",
+    "LabAgent",
   ],
   alternates: {
     canonical: "/",

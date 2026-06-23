@@ -1,7 +1,39 @@
 {
   "user": "Humanophilic_development",
-  "fetchedAt": "2026-06-11T07:48:56.663Z",
+  "fetchedAt": "2026-06-23T14:14:45.693Z",
   "posts": [
+    {
+      "id": "63f2f28e5ceb753005eb",
+      "title": "[Claude Code] Opus4.8 を“Fable 5 級”に育てる — 公開 system prompt から役立つ原則だけ移植する",
+      "url": "https://qiita.com/Humanophilic_development/items/63f2f28e5ceb753005eb",
+      "createdAt": "2026-06-16T20:40:43+09:00",
+      "updatedAt": "2026-06-16T20:43:59+09:00",
+      "likes": 4,
+      "stocks": 1,
+      "tags": [
+        "Anthropic",
+        "Claude",
+        "ClaudeCode",
+        "Mythos",
+        "Fable"
+      ]
+    },
+    {
+      "id": "6d7f8cb087c5683c1b6f",
+      "title": "LLMの長い回答と深掘り質問をツリー構造で管理する ─ OpenCode向けに「Answer Tree sidebar」を開発した",
+      "url": "https://qiita.com/Humanophilic_development/items/6d7f8cb087c5683c1b6f",
+      "createdAt": "2026-06-15T14:15:21+09:00",
+      "updatedAt": "2026-06-15T14:15:21+09:00",
+      "likes": 4,
+      "stocks": 0,
+      "tags": [
+        "AI",
+        "要約",
+        "LLM",
+        "AIエージェント",
+        "opencode"
+      ]
+    },
     {
       "id": "a4b042519e29b22778e3",
       "title": "[mac改造]macOSで通知音(アラート音量)だけをキーボードで増減する！ Karabinerの“音量キーはfromにできない”罠と回避策(fn+F11/F12)",
@@ -183,8 +215,8 @@
       "url": "https://qiita.com/Humanophilic_development/items/d0a8b4158aa505ab64c9",
       "createdAt": "2026-03-27T22:24:33+09:00",
       "updatedAt": "2026-03-27T22:24:33+09:00",
-      "likes": 0,
-      "stocks": 1,
+      "likes": 1,
+      "stocks": 2,
       "tags": [
         "GAS",
         "OCR",
