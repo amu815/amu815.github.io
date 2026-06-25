@@ -6,6 +6,7 @@ import { Section } from "./Section";
 import { News } from "./News";
 import { Papers } from "./Papers";
 import { Awards } from "./Awards";
+import { FundedProjects } from "./FundedProjects";
 import { Timeline } from "./Timeline";
 import { Education } from "./Education";
 import { Experience } from "./Experience";
@@ -36,6 +37,9 @@ export function HomePage({ lang }: { lang: Lang }) {
         </Section>
         <Section id="awards" title={s.awards}>
           <Awards lang={lang} />
+        </Section>
+        <Section id="funded-projects" title={s.fundedProjects}>
+          <FundedProjects lang={lang} />
         </Section>
         <Section id="timeline" title={s.timeline}>
           <Timeline lang={lang} />

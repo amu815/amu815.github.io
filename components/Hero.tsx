@@ -7,11 +7,14 @@ import { Stats } from "./Stats";
 const achievementTone = {
   default:
     "border-cyan/50 bg-cyan/10 text-cyan shadow-[0_0_24px_-16px_rgba(125,207,255,0.75)] hover:border-cyan hover:bg-cyan/15 hover:text-cyan",
+  funded:
+    "border-[rgba(255,210,30,0.72)] bg-[rgba(255,210,30,0.14)] text-[#FFD21E] shadow-[0_0_28px_-14px_rgba(255,210,30,0.9)] hover:border-[#FFD21E] hover:bg-[rgba(255,210,30,0.20)] hover:text-[#FFE76A]",
   mitou:
     "border-[rgba(255,210,30,0.72)] bg-[rgba(255,210,30,0.14)] text-[#FFD21E] shadow-[0_0_28px_-14px_rgba(255,210,30,0.9)] hover:border-[#FFD21E] hover:bg-[rgba(255,210,30,0.20)] hover:text-[#FFE76A]",
 };
 
 function getAchievementTone(href: string) {
+  if (href.includes("k-spring.kyushu-u.ac.jp")) return achievementTone.funded;
   return href.includes("mitou-fukuoka.org") ? achievementTone.mitou : achievementTone.default;
 }
 

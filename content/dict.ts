@@ -39,6 +39,7 @@ type Dict = {
     news: string;
     publications: string;
     awards: string;
+    fundedProjects: string;
     timeline: string;
     education: string;
     experience: string;
@@ -108,6 +109,10 @@ type Dict = {
     affiliationLabel: string;
     linkLabel: string;
   };
+  fundedProjects: {
+    intro: string;
+    linkLabel: string;
+  };
   publications: {
     statusGroupHeaders: {
       under_review: string;
@@ -171,6 +176,11 @@ export const dict: Record<Lang, Dict> = {
       achievementLabel: "Selected achievements",
       achievements: [
         {
+          label: "K2-SPRING FY2027 Candidate",
+          detail: "¥200k/month + ¥350k/year",
+          href: "https://k-spring.kyushu-u.ac.jp/",
+        },
+        {
           label: "Fukuoka Mitou 2026 Pro Selected",
           detail: "LabAgent / up to ¥1.25M",
           href: "https://mitou-fukuoka.org/",
@@ -194,6 +204,7 @@ export const dict: Record<Lang, Dict> = {
       news: "News",
       publications: "Publications",
       awards: "Awards",
+      fundedProjects: "Funded Projects",
       timeline: "Research Timeline",
       education: "Education",
       experience: "Experience",
@@ -268,6 +279,10 @@ export const dict: Record<Lang, Dict> = {
       affiliationLabel: "Affiliation",
       linkLabel: "View venue",
     },
+    fundedProjects: {
+      intro: "Selected paid research and development programs with explicit funding support.",
+      linkLabel: "View program",
+    },
     publications: {
       statusGroupHeaders: {
         under_review: "Under Review",
@@ -330,6 +345,11 @@ export const dict: Record<Lang, Dict> = {
       achievementLabel: "主な実績",
       achievements: [
         {
+          label: "K2-SPRING 令和9年度 採用候補者",
+          detail: "月20万円 + 年35万円",
+          href: "https://k-spring.kyushu-u.ac.jp/",
+        },
+        {
           label: "福岡未踏2026 Pro 採択",
           detail: "LabAgent / 最大125万円",
           href: "https://mitou-fukuoka.org/",
@@ -353,6 +373,7 @@ export const dict: Record<Lang, Dict> = {
       news: "ニュース",
       publications: "論文・発表",
       awards: "表彰",
+      fundedProjects: "有償プロジェクト",
       timeline: "研究タイムライン",
       education: "学歴",
       experience: "経歴・インターン",
@@ -426,6 +447,10 @@ export const dict: Record<Lang, Dict> = {
       authorsLabel: "著者",
       affiliationLabel: "所属",
       linkLabel: "会場情報を見る",
+    },
+    fundedProjects: {
+      intro: "明示的な資金支援を伴う研究・開発プログラムです。",
+      linkLabel: "プログラムを見る",
     },
     publications: {
       statusGroupHeaders: {
