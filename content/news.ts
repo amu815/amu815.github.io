@@ -176,8 +176,9 @@ function buildNews(today = todayInTokyo()): NewsItem[] {
         items.push({ date: p.notificationDate, kind: "accepted", paper: p });
       }
     }
-    if (p.conferenceStart && p.conferenceStart <= today && p.status === "presented") {
-      items.push({ date: p.conferenceStart, kind: "presented", paper: p });
+    const presentationDate = p.status === "presented" ? p.statusDate ?? p.conferenceStart : undefined;
+    if (presentationDate && presentationDate <= today) {
+      items.push({ date: presentationDate, kind: "presented", paper: p });
     }
   }
 
