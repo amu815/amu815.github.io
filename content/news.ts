@@ -59,11 +59,11 @@ export type NewsItem =
   | AwardNewsItem;
 
 const KIND_PRIORITY: Record<NewsKind, number> = {
+  award: 5,
   presented: 4,
   milestone: 3,
   kaggle: 3,
   accepted: 2,
-  award: 3,
   rejected: 2,
   passed: 2,
   application: 1,
