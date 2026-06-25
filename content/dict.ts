@@ -38,6 +38,7 @@ type Dict = {
   sections: {
     news: string;
     publications: string;
+    awards: string;
     timeline: string;
     education: string;
     experience: string;
@@ -98,6 +99,14 @@ type Dict = {
     underReview: string;
     accepted: string;
     topTier: string;
+    awards: string;
+  };
+  awards: {
+    intro: string;
+    titleLabel: string;
+    authorsLabel: string;
+    affiliationLabel: string;
+    linkLabel: string;
   };
   publications: {
     statusGroupHeaders: {
@@ -184,6 +193,7 @@ export const dict: Record<Lang, Dict> = {
     sections: {
       news: "News",
       publications: "Publications",
+      awards: "Awards",
       timeline: "Research Timeline",
       education: "Education",
       experience: "Experience",
@@ -249,6 +259,14 @@ export const dict: Record<Lang, Dict> = {
       underReview: "Under Review",
       accepted: "Accepted",
       topTier: "CORE A*",
+      awards: "Awards",
+    },
+    awards: {
+      intro: "Awards and recognitions from research presentations and technical sessions.",
+      titleLabel: "Title",
+      authorsLabel: "Authors",
+      affiliationLabel: "Affiliation",
+      linkLabel: "View venue",
     },
     publications: {
       statusGroupHeaders: {
@@ -334,6 +352,7 @@ export const dict: Record<Lang, Dict> = {
     sections: {
       news: "ニュース",
       publications: "論文・発表",
+      awards: "表彰",
       timeline: "研究タイムライン",
       education: "学歴",
       experience: "経歴・インターン",
@@ -399,6 +418,14 @@ export const dict: Record<Lang, Dict> = {
       underReview: "査読中",
       accepted: "採択",
       topTier: "CORE A*",
+      awards: "表彰",
+    },
+    awards: {
+      intro: "研究発表・テクニカルセッション等での表彰を掲載しています。",
+      titleLabel: "発表題目",
+      authorsLabel: "著者",
+      affiliationLabel: "所属",
+      linkLabel: "会場情報を見る",
     },
     publications: {
       statusGroupHeaders: {

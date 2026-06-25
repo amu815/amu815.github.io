@@ -5,6 +5,7 @@ import { Hero } from "./Hero";
 import { Section } from "./Section";
 import { News } from "./News";
 import { Papers } from "./Papers";
+import { Awards } from "./Awards";
 import { Timeline } from "./Timeline";
 import { Education } from "./Education";
 import { Experience } from "./Experience";
@@ -32,6 +33,9 @@ export function HomePage({ lang }: { lang: Lang }) {
         {/* Research cluster */}
         <Section id="publications" title={s.publications}>
           <Papers lang={lang} />
+        </Section>
+        <Section id="awards" title={s.awards}>
+          <Awards lang={lang} />
         </Section>
         <Section id="timeline" title={s.timeline}>
           <Timeline lang={lang} />

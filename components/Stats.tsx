@@ -1,6 +1,7 @@
 import type { Lang } from "@/content/dict";
 import { dict } from "@/content/dict";
 import { papers } from "@/content/papers";
+import { awards } from "@/content/awards";
 
 function PaperIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
   return (
@@ -30,12 +31,14 @@ export function Stats({ lang }: { lang: Lang }) {
     (p) => p.status === "accepted" || p.status === "presented",
   ).length;
   const topTier = visible.filter((p) => p.tier === "core_a_star").length;
+  const awardCount = awards.length;
 
   const items = [
     { label: t.submissions, value: submissions, color: "text-accent" },
     { label: t.underReview, value: underReview, color: "text-orange" },
     { label: t.accepted, value: accepted, color: "text-cyan" },
     { label: t.topTier, value: topTier, color: "text-green" },
+    { label: t.awards, value: awardCount, color: "text-purple" },
   ];
 
   return (
@@ -50,7 +53,7 @@ export function Stats({ lang }: { lang: Lang }) {
         </h3>
         <p className="text-xs text-muted">{t.headingHint}</p>
       </header>
-      <dl className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <dl className="grid grid-cols-2 gap-3 sm:grid-cols-5">
         {items.map((s) => (
           <div
             key={s.label}

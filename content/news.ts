@@ -1,8 +1,15 @@
 import { papers, type PaperVenue } from "./papers";
 import { kaggleEntries, percentile, type KaggleEntry } from "./kaggle";
+import { awards, type Award } from "./awards";
 
 export type PaperEventKind = "submitted" | "accepted" | "rejected" | "presented";
-export type NewsKind = PaperEventKind | "milestone" | "kaggle" | "application" | "passed";
+export type NewsKind =
+  | PaperEventKind
+  | "milestone"
+  | "kaggle"
+  | "application"
+  | "passed"
+  | "award";
 
 export type PaperNewsItem = {
   date: string;
@@ -37,13 +44,26 @@ export type KaggleNewsItem = {
   highlight?: boolean;
 };
 
-export type NewsItem = PaperNewsItem | MilestoneNewsItem | KaggleNewsItem | ApplicationNewsItem;
+export type AwardNewsItem = {
+  date: string;
+  kind: "award";
+  award: Award;
+  highlight?: boolean;
+};
+
+export type NewsItem =
+  | PaperNewsItem
+  | MilestoneNewsItem
+  | KaggleNewsItem
+  | ApplicationNewsItem
+  | AwardNewsItem;
 
 const KIND_PRIORITY: Record<NewsKind, number> = {
   presented: 4,
   milestone: 3,
   kaggle: 3,
   accepted: 2,
+  award: 3,
   rejected: 2,
   passed: 2,
   application: 1,
@@ -158,6 +178,10 @@ function buildNews(today = new Date().toISOString().slice(0, 10)): NewsItem[] {
     if (a.date <= today) items.push(a);
   }
 
+  for (const a of awards) {
+    if (a.date <= today) items.push({ date: a.date, kind: "award", award: a });
+  }
+
   for (const k of kaggleEntries) {
     if (k.status === "completed" && k.endDate && k.endDate <= today) {
       items.push({ date: k.endDate, kind: "kaggle", entry: k });
@@ -228,11 +252,19 @@ export function newsText(item: NewsItem, lang: "en" | "ja"): string {
     }
     return lang === "ja" ? `Kaggle ${series} に参加。` : `Entered Kaggle ${series}.`;
   }
+  if (item.kind === "award") {
+    const a = item.award;
+    if (lang === "ja") {
+      return `${a.venueJa} の ${a.nameJa}。発表題目「${a.title}」。`;
+    }
+    return `${a.name} at ${a.venue} for “${a.title}”.`;
+  }
   return paperNewsText(item, lang);
 }
 
 export function newsHref(item: NewsItem): string | undefined {
   if (item.kind === "milestone" || item.kind === "application") return item.href;
   if (item.kind === "kaggle") return item.entry.href;
+  if (item.kind === "award") return item.award.href;
   return item.paper.href;
 }

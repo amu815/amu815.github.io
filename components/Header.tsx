@@ -8,6 +8,7 @@ import { dict } from "@/content/dict";
 const SECTION_IDS = [
   "news",
   "publications",
+  "awards",
   "timeline",
   "kaggle",
   "education",
@@ -58,6 +59,7 @@ export function Header({ lang }: { lang: Lang }) {
   const navItems: { id: string; href: string; label: string }[] = [
     { id: "news", href: "#news", label: t.sections.news },
     { id: "publications", href: "#publications", label: t.sections.publications },
+    { id: "awards", href: "#awards", label: t.sections.awards },
     { id: "timeline", href: "#timeline", label: t.sections.timeline },
     { id: "kaggle", href: "#kaggle", label: t.sections.kaggle },
     { id: "education", href: "#education", label: t.sections.education },
