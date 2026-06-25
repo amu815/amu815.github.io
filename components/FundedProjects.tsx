@@ -15,8 +15,10 @@ function FundingIcon({ className = "h-4 w-4" }: { className?: string }) {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M12 2v20" />
-      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" />
+      <path d="M6 4l6 8 6-8" />
+      <path d="M12 12v8" />
+      <path d="M8 13h8" />
+      <path d="M8 17h8" />
     </svg>
   );
 }

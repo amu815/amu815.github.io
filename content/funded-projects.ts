@@ -21,7 +21,7 @@ export type FundedProject = {
 export const fundedProjects: FundedProject[] = [
   {
     id: "k2-spring-2027",
-    date: "2026-06-26",
+    date: "2026-02-09",
     status: "Selected",
     statusJa: "採択",
     program:
