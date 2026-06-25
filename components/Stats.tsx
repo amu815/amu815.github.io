@@ -38,7 +38,7 @@ export function Stats({ lang }: { lang: Lang }) {
     { label: t.underReview, value: underReview, color: "text-orange" },
     { label: t.accepted, value: accepted, color: "text-cyan" },
     { label: t.topTier, value: topTier, color: "text-green" },
-    { label: t.awards, value: awardCount, color: "text-purple" },
+    { label: t.awards, value: awardCount, color: "text-[#FFD21E]" },
   ];
 
   return (

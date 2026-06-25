@@ -12,7 +12,7 @@ const kindTone: Record<NewsKind, string> = {
   kaggle: "text-green border-green/40 bg-green/10",
   application: "text-accent border-accent/40 bg-accent/10",
   passed: "text-green border-green/40 bg-green/10",
-  award: "text-orange border-orange/40 bg-orange/10",
+  award: "border-[rgba(255,210,30,0.72)] bg-[rgba(255,210,30,0.14)] text-[#FFD21E]",
 };
 
 const kindLabelEn: Record<NewsKind, string> = {
