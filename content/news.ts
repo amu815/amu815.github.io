@@ -102,16 +102,6 @@ const applications: ApplicationNewsItem[] = [
 
 const milestones: MilestoneNewsItem[] = [
   {
-    date: "2026-06-26",
-    kind: "milestone",
-    displayKind: "accepted",
-    textEn:
-      "Selected as a Reiwa 9 (FY2027) candidate for Kyushu University K2-SPRING, with a ¥200,000/month research grant and ¥350,000/year research budget.",
-    textJa:
-      "九州大学 K2-SPRING 令和9年度採用候補者に採択されました（月20万円の研究助成金、年間35万円の研究費）。",
-    href: "https://k-spring.kyushu-u.ac.jp/",
-  },
-  {
     date: "2026-06-22",
     kind: "milestone",
     displayKind: "accepted",
