@@ -164,8 +164,8 @@ export const papers: PaperVenue[] = [
     conferenceStart: "2026-06-24",
     conferenceEnd: "2026-06-26",
     location: "Fukuoka, Japan",
-    status: "accepted",
-    statusDate: "2026-04-10",
+    status: "presented",
+    statusDate: "2026-06-24",
     paperTitle:
       "GRoFA: Learning Fair and Robust Face Image Embeddings via Noise-Gated Adapters",
     paperTitleJa:
