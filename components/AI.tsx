@@ -19,15 +19,30 @@ export function AI() {
       {badges.map((b) => (
         <a key={b.label} href={b.href} target="_blank" rel="noreferrer" aria-label={b.label}>
           {"localLogo" in b && b.localLogo === "openai" ? (
-            <span
-              className="inline-flex h-7 items-center gap-1.5 px-2.5 font-sans text-[11px] font-bold uppercase leading-none text-white"
-              style={{ backgroundColor: `#${b.color}` }}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="108"
+              height="28"
+              viewBox="0 0 108 28"
+              role="img"
+              aria-label={b.label}
             >
-              <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" aria-hidden="true" fill="currentColor">
-                <path d={OPENAI_ICON_PATH} />
-              </svg>
-              {b.label}
-            </span>
+              <title>{b.label}</title>
+              <rect width="108" height="28" fill={`#${b.color}`} />
+              <g fill="#fff">
+                <path d={OPENAI_ICON_PATH} transform="translate(9 6)" />
+                <text
+                  x="66"
+                  y="17.5"
+                  textAnchor="middle"
+                  fontFamily="Verdana,Geneva,DejaVu Sans,sans-serif"
+                  fontSize="10"
+                  fontWeight="bold"
+                >
+                  {b.label.toUpperCase()}
+                </text>
+              </g>
+            </svg>
           ) : (
             <img
               src={`https://img.shields.io/badge/${encodeURIComponent(b.label)}-${b.color}?style=for-the-badge${
