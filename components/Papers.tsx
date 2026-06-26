@@ -37,6 +37,10 @@ const statusTone: Record<PaperStatus, string> = {
   submitted: "text-muted-strong border-border-strong bg-card-elev",
 };
 
+const badgeTone = {
+  award: "border-[rgba(255,210,30,0.72)] bg-[rgba(255,210,30,0.14)] text-[#FFD21E]",
+} as const;
+
 function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
   const t = dict[lang].publications;
   const tier = lang === "ja" ? tierLabelJa[p.tier] : tierLabel[p.tier];
@@ -85,6 +89,14 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
             {p.location}
           </span>
         )}
+        {p.badges?.map((badge) => (
+          <span
+            key={badge.label}
+            className={`tier-pill !lowercase ${badgeTone[badge.tone ?? "award"]}`}
+          >
+            {lang === "ja" && badge.labelJa ? badge.labelJa : badge.label}
+          </span>
+        ))}
       </div>
 
       {dateRows.length > 0 && (

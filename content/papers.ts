@@ -21,6 +21,12 @@ export type Author = {
   href?: string;
 };
 
+export type PaperBadge = {
+  label: string;
+  labelJa?: string;
+  tone?: "award";
+};
+
 export type PaperVenue = {
   id: string;
   shortName: string;
@@ -39,6 +45,7 @@ export type PaperVenue = {
   paperTitle?: string;
   paperTitleJa?: string;
   authors?: Author[];
+  badges?: PaperBadge[];
   hideFromPublications?: boolean;
 };
 
@@ -181,6 +188,18 @@ export const papers: PaperVenue[] = [
         name: "Tsunenori Mine",
         nameJa: "峯 恒憲",
         href: "https://researchmap.jp/read0046263/",
+      },
+    ],
+    badges: [
+      {
+        label: "1st Place, Night Technical Session",
+        labelJa: "ナイトテクニカルセッション 優勝",
+        tone: "award",
+      },
+      {
+        label: "Excellent Presentation Award",
+        labelJa: "優秀プレゼンテーション賞",
+        tone: "award",
       },
     ],
   },
