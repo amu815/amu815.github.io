@@ -21,22 +21,29 @@ export function AI() {
           {"localLogo" in b && b.localLogo === "openai" ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="108"
+              width="104.75"
               height="28"
-              viewBox="0 0 108 28"
+              viewBox="0 0 104.75 28"
               role="img"
               aria-label={b.label}
             >
               <title>{b.label}</title>
-              <rect width="108" height="28" fill={`#${b.color}`} />
-              <g fill="#fff">
-                <path d={OPENAI_ICON_PATH} transform="translate(9 6)" />
+              <g shapeRendering="crispEdges">
+                <rect width="104.75" height="28" fill={`#${b.color}`} />
+              </g>
+              <g
+                fill="#fff"
+                textAnchor="middle"
+                fontFamily="Verdana,Geneva,DejaVu Sans,sans-serif"
+                textRendering="geometricPrecision"
+                fontSize="100"
+              >
+                <path d={OPENAI_ICON_PATH} transform="translate(9 7) scale(.875)" />
                 <text
-                  x="66"
-                  y="17.5"
-                  textAnchor="middle"
-                  fontFamily="Verdana,Geneva,DejaVu Sans,sans-serif"
-                  fontSize="10"
+                  transform="scale(.1)"
+                  x="623.75"
+                  y="175"
+                  textLength="607.5"
                   fontWeight="bold"
                 >
                   {b.label.toUpperCase()}
