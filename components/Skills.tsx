@@ -5,7 +5,7 @@ import { dict } from "@/content/dict";
 const DEV = "https://raw.githubusercontent.com/devicons/devicon/master/icons";
 
 type Icon =
-  | { kind: "devicon"; href: string; alt: string; path: string }
+  | { kind: "devicon"; href: string; alt: string; path: string; backplate?: boolean }
   | {
       kind: "shield";
       href: string;
@@ -84,7 +84,7 @@ const backend: Icon[] = [
     logo: "bun",
     logoColor: "black",
   },
-  { kind: "devicon", href: "https://flask.palletsprojects.com/", alt: "Flask", path: "flask/flask-original.svg" },
+  { kind: "devicon", href: "https://flask.palletsprojects.com/", alt: "Flask", path: "flask/flask-original.svg", backplate: true },
   { kind: "devicon", href: "https://www.java.com/", alt: "Java", path: "java/java-original.svg" },
   {
     kind: "shield",
@@ -116,7 +116,7 @@ const infra: Icon[] = [
     color: "2088FF",
     logo: "githubactions",
   },
-  { kind: "devicon", href: "https://www.latex-project.org/", alt: "LaTeX", path: "latex/latex-original.svg" },
+  { kind: "devicon", href: "https://www.latex-project.org/", alt: "LaTeX", path: "latex/latex-original.svg", backplate: true },
   { kind: "devicon", href: "https://www.cloudflare.com/", alt: "Cloudflare", path: "cloudflare/cloudflare-original.svg" },
 ];
 
@@ -133,7 +133,13 @@ function IconRow({ items }: { items: Icon[] }) {
           className="transition-transform hover:-translate-y-0.5"
         >
           {i.kind === "devicon" ? (
-            <img src={`${DEV}/${i.path}`} alt={i.alt} width={40} height={40} />
+            i.backplate ? (
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-white/90 p-1 ring-1 ring-white/70">
+                <img src={`${DEV}/${i.path}`} alt={i.alt} width={32} height={32} />
+              </span>
+            ) : (
+              <img src={`${DEV}/${i.path}`} alt={i.alt} width={40} height={40} />
+            )
           ) : (
             <img
               src={`https://img.shields.io/badge/${i.label}-${i.color}?style=for-the-badge${
