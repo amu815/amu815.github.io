@@ -115,8 +115,6 @@ export const papers: PaperVenue[] = [
     statusDate: "2026-07-02",
     paperTitle:
       "GRoFA: Noise-Gated Adapters for Jointly Fair and Robust Face Embeddings",
-    paperTitleJa:
-      "GRoFA: 公平でロバストな顔埋め込みのためのノイズゲート付きアダプタ",
     badges: [
       {
         label: "Long Paper",
