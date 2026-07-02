@@ -1,4 +1,4 @@
-import { papers, type PaperVenue } from "./papers";
+import { papers, tierLabel, type PaperVenue } from "./papers";
 import { kaggleEntries, percentile, type KaggleEntry } from "./kaggle";
 import { awards, type Award } from "./awards";
 
@@ -213,7 +213,10 @@ function buildNews(today = todayInTokyo()): NewsItem[] {
 export const news: NewsItem[] = buildNews();
 
 function paperNewsText(item: PaperNewsItem, lang: "en" | "ja"): string {
-  const v = item.paper.shortName;
+  const coreRank = item.paper.tier.startsWith("core_")
+    ? ` (${tierLabel[item.paper.tier]})`
+    : "";
+  const v = `${item.paper.shortName}${coreRank}`;
   const titleJa = item.paper.paperTitleJa ?? item.paper.paperTitle;
   const titleEn = item.paper.paperTitle;
 
