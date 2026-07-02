@@ -100,9 +100,9 @@ export const papers: PaperVenue[] = [
   },
   {
     id: "icmi-2026",
-    shortName: "ICMI 2026",
-    fullName: "International Conference on Multimodal Interaction",
-    fullNameJa: "マルチモーダルインタラクション国際会議",
+    shortName: "ACM ICMI 2026",
+    fullName: "ACM International Conference on Multimodal Interaction",
+    fullNameJa: "ACM マルチモーダルインタラクション国際会議",
     href: "https://icmi.acm.org/",
     type: "conference",
     tier: "core_b",
