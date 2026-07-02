@@ -222,6 +222,7 @@ function paperNewsText(item: PaperNewsItem, lang: "en" | "ja"): string {
       case "submitted":
         return `${v} に論文を投稿しました。`;
       case "accepted":
+        if (titleJa) return `${v} に論文「${titleJa}」が採択されました。`;
         return `${v} に採択されました。`;
       case "rejected":
         return `${v} の査読結果が通知されました(不採択)。`;
@@ -236,6 +237,7 @@ function paperNewsText(item: PaperNewsItem, lang: "en" | "ja"): string {
     case "submitted":
       return `Submitted to ${v}.`;
     case "accepted":
+      if (titleEn) return `${v} accepted “${titleEn}”.`;
       return `${v} — paper accepted.`;
     case "rejected":
       return `${v} — paper not accepted.`;
