@@ -107,12 +107,22 @@ export const papers: PaperVenue[] = [
     type: "conference",
     tier: "core_b",
     submissionDeadline: "2026-04-22",
-    notificationDate: "2026-08-01",
+    notificationDate: "2026-07-02",
     conferenceStart: "2026-10-05",
     conferenceEnd: "2026-10-09",
     location: "Naples, Italy",
-    status: "under_review",
-    statusDate: "2026-04-22",
+    status: "accepted",
+    statusDate: "2026-07-02",
+    paperTitle:
+      "GRoFA: Noise-Gated Adapters for Jointly Fair and Robust Face Embeddings",
+    paperTitleJa:
+      "GRoFA: 公平でロバストな顔埋め込みのためのノイズゲート付きアダプタ",
+    badges: [
+      {
+        label: "Long Paper",
+        labelJa: "Long Paper",
+      },
+    ],
   },
   {
     id: "icassp-2026",
