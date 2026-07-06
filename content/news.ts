@@ -102,6 +102,16 @@ const applications: ApplicationNewsItem[] = [
 
 const milestones: MilestoneNewsItem[] = [
   {
+    date: "2026-07-06",
+    kind: "milestone",
+    displayKind: "accepted",
+    textEn:
+      "Will present GRoFA at IWCS 2026 (The 2nd International Workshop on Cyber-Synergy).",
+    textJa:
+      "IWCS 2026（The 2nd International Workshop on Cyber-Synergy）で GRoFA を発表します。",
+    href: "https://hyuckjinchoi.github.io/iwcs2026/",
+  },
+  {
     date: "2026-07-04",
     kind: "milestone",
     displayKind: "presented",

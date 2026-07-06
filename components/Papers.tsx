@@ -25,6 +25,7 @@ const tierTone: Record<PaperTier, string> = {
   core_a: "text-green border-green/40 bg-green/10",
   core_b: "text-accent border-accent/40 bg-accent/10",
   core_c: "text-cyan border-cyan/40 bg-cyan/10",
+  workshop: "text-cyan border-cyan/40 bg-cyan/10",
   domestic: "text-muted-strong border-border-strong bg-card-elev",
   journal: "text-purple border-purple/40 bg-purple/10",
 };

@@ -38,6 +38,7 @@ const tierBadgeTone: Record<PaperTier, string> = {
   core_a: "text-green border-green/40",
   core_b: "text-accent border-accent/40",
   core_c: "text-cyan border-cyan/40",
+  workshop: "text-cyan border-cyan/40",
   domestic: "text-muted-strong border-border-strong",
   journal: "text-purple border-purple/40",
 };

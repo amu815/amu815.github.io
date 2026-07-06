@@ -10,6 +10,7 @@ export type PaperTier =
   | "core_a"
   | "core_b"
   | "core_c"
+  | "workshop"
   | "domestic"
   | "journal";
 
@@ -121,6 +122,22 @@ export const papers: PaperVenue[] = [
         labelJa: "Long Paper",
       },
     ],
+  },
+  {
+    id: "iwcs-2026",
+    shortName: "IWCS 2026",
+    fullName: "The 2nd International Workshop on Cyber-Synergy",
+    fullNameJa: "第2回サイバーシナジー国際ワークショップ",
+    href: "https://hyuckjinchoi.github.io/iwcs2026/",
+    type: "workshop",
+    tier: "workshop",
+    conferenceStart: "2026-08-27",
+    conferenceEnd: "2026-08-29",
+    location: "Kuju/Aso, Japan",
+    status: "accepted",
+    statusDate: "2026-07-06",
+    paperTitle:
+      "GRoFA: Noise-Gated Adapters for Learning Fair and Robust Face Embeddings",
   },
   {
     id: "icassp-2026",
@@ -281,6 +298,7 @@ export const tierLabel: Record<PaperTier, string> = {
   core_a: "CORE A",
   core_b: "CORE B",
   core_c: "CORE C",
+  workshop: "Workshop",
   domestic: "Domestic",
   journal: "Journal",
 };
@@ -290,6 +308,7 @@ export const tierLabelJa: Record<PaperTier, string> = {
   core_a: "CORE A",
   core_b: "CORE B",
   core_c: "CORE C",
+  workshop: "ワークショップ",
   domestic: "国内",
   journal: "論文誌",
 };
