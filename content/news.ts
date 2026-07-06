@@ -1,4 +1,4 @@
-import { papers, tierLabel, type PaperVenue } from "./papers";
+import { paperDisplayTitle, papers, tierLabel, type PaperVenue } from "./papers";
 import { kaggleEntries, percentile, type KaggleEntry } from "./kaggle";
 import { awards, type Award } from "./awards";
 
@@ -146,7 +146,7 @@ const milestones: MilestoneNewsItem[] = [
     kind: "milestone",
     displayKind: "accepted",
     textEn:
-      "Submitted the camera-ready version of the DICOMO 2026 paper “GRoFA: Learning Fair and Robust Face Image Embeddings via Noise-Gated Adapters”.",
+      "Submitted the camera-ready version of the DICOMO 2026 paper “GRoFA: ノイズゲート付きアダプタによる公平でロバストな顔画像埋め込みの学習”.",
     textJa:
       "DICOMO 2026 採択論文「GRoFA: ノイズゲート付きアダプタによる公平でロバストな顔画像埋め込みの学習」のカメラレディ版を提出しました。",
     href: "https://dicomo.org/2026/",
@@ -237,8 +237,8 @@ function paperNewsText(item: PaperNewsItem, lang: "en" | "ja"): string {
     ? ` (${tierLabel[item.paper.tier]})`
     : "";
   const v = `${item.paper.shortName}${coreRank}`;
-  const titleJa = item.paper.paperTitleJa ?? item.paper.paperTitle;
-  const titleEn = item.paper.paperTitle;
+  const titleJa = paperDisplayTitle(item.paper, "ja");
+  const titleEn = paperDisplayTitle(item.paper, "en");
 
   if (lang === "ja") {
     switch (item.kind) {

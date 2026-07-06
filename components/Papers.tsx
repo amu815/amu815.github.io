@@ -1,6 +1,7 @@
 import type { Lang } from "@/content/dict";
 import { dict } from "@/content/dict";
 import {
+  paperDisplayTitle,
   papers,
   statusLabel,
   statusLabelJa,
@@ -47,6 +48,7 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
   const tier = lang === "ja" ? tierLabelJa[p.tier] : tierLabel[p.tier];
   const status = lang === "ja" ? statusLabelJa[p.status] : statusLabel[p.status];
   const fullName = lang === "ja" && p.fullNameJa ? p.fullNameJa : p.fullName;
+  const paperTitle = paperDisplayTitle(p, lang);
 
   const dateRows: { label: string; value: string }[] = [];
   if (p.submissionDeadline) {
@@ -111,10 +113,10 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
         </dl>
       )}
 
-      {p.paperTitle && (
+      {paperTitle && (
         <p className="border-t border-border/70 pt-3 text-sm leading-snug text-muted-strong">
           <span className="text-muted">{lang === "ja" ? "発表タイトル: " : "Title: "}</span>
-          {lang === "ja" && p.paperTitleJa ? p.paperTitleJa : p.paperTitle}
+          {paperTitle}
         </p>
       )}
 

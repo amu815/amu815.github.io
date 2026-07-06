@@ -293,6 +293,15 @@ export const papers: PaperVenue[] = [
   },
 ];
 
+export function paperDisplayTitle(
+  paper: PaperVenue,
+  lang: "en" | "ja",
+): string | undefined {
+  if (lang === "ja") return paper.paperTitleJa ?? paper.paperTitle;
+  if (paper.tier === "domestic" && paper.paperTitleJa) return paper.paperTitleJa;
+  return paper.paperTitle;
+}
+
 export const tierLabel: Record<PaperTier, string> = {
   core_a_star: "CORE A*",
   core_a: "CORE A",
