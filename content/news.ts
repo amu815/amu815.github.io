@@ -102,6 +102,16 @@ const applications: ApplicationNewsItem[] = [
 
 const milestones: MilestoneNewsItem[] = [
   {
+    date: "2026-07-04",
+    kind: "milestone",
+    displayKind: "presented",
+    textEn:
+      "Reported research progress at the 61st SI Workshop, co-hosted with the ERATO Information Well-being Project.",
+    textJa:
+      "社会情報システム学研究会 第61回SI研究会（ERATO情報ウェルビーイングプロジェクト共催）で研究進捗を報告しました。",
+    href: "https://sig-iss.work/si61.html",
+  },
+  {
     date: "2026-06-22",
     kind: "milestone",
     displayKind: "accepted",
