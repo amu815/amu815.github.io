@@ -10,7 +10,7 @@ export function Footer({ lang }: { lang: Lang }) {
           <p className="site-footer__name">
             {lang === "ja" ? "末本 歩夢" : "Amu Suemoto"}
           </p>
-          <p className="mt-2 text-xs text-[#8fa09b]">
+          <p className="site-footer__meta mt-2 text-xs">
             {t.footer} · {new Date().getUTCFullYear()}
           </p>
         </div>
@@ -18,7 +18,7 @@ export function Footer({ lang }: { lang: Lang }) {
           <a href="https://github.com/amu815" target="_blank" rel="noreferrer">
             github.com/amu815
           </a>
-          <span className="mx-2 text-[#526560]">·</span>
+          <span className="site-footer__divider mx-2">·</span>
           <a href="https://github.com/amu815/amu815.github.io" target="_blank" rel="noreferrer">
             source
           </a>

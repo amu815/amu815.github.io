@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { Lang } from "@/content/dict";
 import { dict } from "@/content/dict";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 const SECTION_IDS = [
   "news",
@@ -256,6 +257,7 @@ export function Header({ lang }: { lang: Lang }) {
             >
               JP
             </Link>
+            <ThemeSwitcher lang={lang} />
             <button
               type="button"
               aria-label={qrText.title}
@@ -269,17 +271,13 @@ export function Header({ lang }: { lang: Lang }) {
 
           <div className="mobile-header-controls flex items-center gap-1 lg:hidden">
             <Link
-              href="/"
-              className={`header-control ${lang === "en" ? "is-active" : ""}`}
+              href={lang === "en" ? "/ja/" : "/"}
+              className="header-control"
+              aria-label={lang === "en" ? "日本語版へ移動" : "Switch to English"}
             >
-              EN
+              {lang === "en" ? "JP" : "EN"}
             </Link>
-            <Link
-              href="/ja/"
-              className={`header-control ${lang === "ja" ? "is-active" : ""}`}
-            >
-              JP
-            </Link>
+            <ThemeSwitcher lang={lang} compact />
             <button
               type="button"
               aria-label={qrText.title}
@@ -348,7 +346,7 @@ export function Header({ lang }: { lang: Lang }) {
           aria-modal="true"
           aria-labelledby="site-qr-title"
           tabIndex={-1}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/55 px-4"
+          className="theme-dialog-backdrop fixed inset-0 z-50 flex items-center justify-center px-4"
           onClick={() => setQrOpen(false)}
         >
           <div

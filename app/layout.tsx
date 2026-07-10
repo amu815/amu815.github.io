@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Newsreader, Noto_Serif_JP } from "next/font/google";
+import { THEME_STORAGE_KEY } from "@/lib/theme";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,6 +25,16 @@ const notoSerifJp = Noto_Serif_JP({
   display: "swap",
   preload: false,
 });
+
+const themeBootstrap = `
+(function () {
+  var theme = "system";
+  try {
+    var saved = localStorage.getItem(${JSON.stringify(THEME_STORAGE_KEY)});
+    if (saved === "light" || saved === "dark" || saved === "system") theme = saved;
+  } catch (_) {}
+  document.documentElement.dataset.theme = theme;
+})();`;
 
 const SITE_URL = "https://amu815.github.io";
 const TITLE = "Amu Suemoto / 末本歩夢 — Kyushu University, Humanophilic Systems Lab";
@@ -192,8 +203,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="system"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} ${notoSerifJp.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          id="theme-bootstrap"
+          dangerouslySetInnerHTML={{ __html: themeBootstrap }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
         <script

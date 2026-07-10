@@ -68,33 +68,47 @@ const links = [
 export function Contact({ lang }: { lang: Lang }) {
   const t = dict[lang].contact;
   return (
-    <div className="flex flex-col gap-5">
-      <p className="text-sm text-muted-strong">{t.intro}</p>
-      <div className="flex flex-wrap gap-2">
+    <div className="contact-layout">
+      <div className="contact-lead">
+        <p>{t.intro}</p>
         <a
           href={`mailto:${t.email}`}
-          className="surface-card inline-flex items-center gap-2 px-4 py-2 text-sm font-medium hover:no-underline"
+          className="contact-email hover:no-underline"
         >
-          <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden fill="currentColor">
-            <path d="M2 6.4A2.4 2.4 0 0 1 4.4 4h15.2A2.4 2.4 0 0 1 22 6.4v11.2a2.4 2.4 0 0 1-2.4 2.4H4.4A2.4 2.4 0 0 1 2 17.6V6.4Zm2.6.1 7.4 5.55 7.4-5.55H4.6Z" />
-          </svg>
-          <span className="font-mono text-xs">{t.email}</span>
+          <span className="contact-email__label">
+            {lang === "ja" ? "メールで相談する" : "Start a conversation"}
+          </span>
+          <strong>{t.email}</strong>
+          <ArrowIcon />
         </a>
+      </div>
+      <div className="contact-directory">
         {links.map((l) => (
           <a
             key={l.label}
             href={l.href}
             target="_blank"
             rel="noreferrer"
-            className="surface-card inline-flex items-center gap-2 px-4 py-2 text-sm font-medium hover:no-underline"
+            className="contact-directory__item hover:no-underline"
           >
-            {l.icon}
-            <span className="text-foreground">{l.label}</span>
-            <span className="text-muted">·</span>
-            <span className="font-mono text-xs text-muted">{l.handle}</span>
+            <span className="contact-directory__icon">{l.icon}</span>
+            <span className="contact-directory__copy">
+              <strong>{l.label}</strong>
+              <small>{l.handle}</small>
+            </span>
+            <ArrowIcon />
           </a>
         ))}
       </div>
     </div>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="contact-arrow" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 17 17 7" />
+      <path d="M8 7h9v9" />
+    </svg>
   );
 }

@@ -14,16 +14,22 @@ export function Hero({ lang }: { lang: Lang }) {
       </div>
 
       <div className="hero-grid">
-        <div className="min-w-0">
+        <div className="hero-identity min-w-0">
           <p className="hero-kicker fade-in-up fade-in-up-1">{t.greeting}</p>
-          <h1 className="hero-name fade-in-up fade-in-up-2">
+          {lang === "ja" && (
+            <p className="hero-reading fade-in-up fade-in-up-2" aria-hidden>
+              <span>Reading</span>
+              {t.nameReading}
+            </p>
+          )}
+          <h1
+            className="hero-name fade-in-up fade-in-up-2"
+            aria-label={lang === "ja" ? `${t.name}（${t.nameReading}）` : undefined}
+          >
             {lang === "ja" ? (
-              <ruby>
-                {t.name}
-                <rt>{t.nameReading}</rt>
-              </ruby>
+              <span className="hero-name-primary" aria-hidden>{t.name}</span>
             ) : (
-              t.name
+              <span className="hero-name-primary">{t.name}</span>
             )}
           </h1>
           {lang === "en" && (
@@ -32,7 +38,9 @@ export function Hero({ lang }: { lang: Lang }) {
             </p>
           )}
           <p className="hero-tagline fade-in-up fade-in-up-3">{t.tagline}</p>
+        </div>
 
+        <div className="hero-details min-w-0 fade-in-up fade-in-up-3">
           <div className="hero-affiliation fade-in-up fade-in-up-3">
             <a href={t.affiliationHref} target="_blank" rel="noreferrer">
               {t.affiliation}
