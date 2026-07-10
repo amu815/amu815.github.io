@@ -51,7 +51,7 @@ export function Experience({ lang }: { lang: Lang }) {
         <h3 className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-cyan">
           <BikeIcon className="h-4 w-4" />
           <span>{t.cyclingTitle}</span>
-          <span className="h-px flex-1 bg-gradient-to-r from-cyan/40 to-transparent" />
+          <span className="h-px flex-1 bg-border" />
         </h3>
         <div className="surface-card surface-card-glow flex flex-col gap-3 p-5">
           <div className="flex flex-wrap items-baseline gap-3">
@@ -84,7 +84,7 @@ export function Experience({ lang }: { lang: Lang }) {
         <h3 className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-accent">
           <BuildingIcon className="h-4 w-4" />
           <span>{t.internshipsTitle}</span>
-          <span className="h-px flex-1 bg-gradient-to-r from-accent/40 to-transparent" />
+          <span className="h-px flex-1 bg-border" />
         </h3>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           {internships.map((it, i) => (

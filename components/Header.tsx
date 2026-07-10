@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Lang } from "@/content/dict";
 import { dict } from "@/content/dict";
 
@@ -21,6 +21,33 @@ const SECTION_IDS = [
   "qiita",
   "contact",
 ];
+
+const PRIMARY_SECTION_IDS = new Set([
+  "news",
+  "publications",
+  "funded-projects",
+  "education",
+  "skills",
+  "projects",
+  "contact",
+]);
+
+const ACTIVE_PRIMARY_ID: Record<string, string> = {
+  news: "news",
+  publications: "publications",
+  awards: "publications",
+  "funded-projects": "funded-projects",
+  timeline: "publications",
+  kaggle: "publications",
+  education: "education",
+  experience: "education",
+  skills: "skills",
+  ai: "skills",
+  learning: "skills",
+  projects: "projects",
+  qiita: "projects",
+  contact: "contact",
+};
 
 const SITE_URLS: Record<Lang, string> = {
   en: "https://amu815.github.io/",
@@ -53,6 +80,8 @@ export function Header({ lang }: { lang: Lang }) {
   const [qrOpen, setQrOpen] = useState(false);
   const [active, setActive] = useState<string>("news");
   const [progress, setProgress] = useState(0);
+  const qrDialogRef = useRef<HTMLDivElement>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
   const siteUrl = SITE_URLS[lang];
   const qrText = QR_LABELS[lang];
   const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=16&data=${encodeURIComponent(siteUrl)}`;
@@ -74,6 +103,8 @@ export function Header({ lang }: { lang: Lang }) {
     { id: "contact", href: "#contact", label: t.sections.contact },
   ];
 
+  const primaryNavItems = navItems.filter((item) => PRIMARY_SECTION_IDS.has(item.id));
+
   useEffect(() => {
     const targets = SECTION_IDS.map((id) => document.getElementById(id)).filter(
       (el): el is HTMLElement => Boolean(el),
@@ -81,6 +112,11 @@ export function Header({ lang }: { lang: Lang }) {
     if (targets.length === 0) return;
     const observer = new IntersectionObserver(
       (entries) => {
+        const page = document.documentElement;
+        if (page.scrollTop + page.clientHeight >= page.scrollHeight - 8) {
+          setActive("contact");
+          return;
+        }
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
@@ -94,6 +130,8 @@ export function Header({ lang }: { lang: Lang }) {
       const h = document.documentElement;
       const total = h.scrollHeight - h.clientHeight;
       setProgress(total > 0 ? (h.scrollTop / total) * 100 : 0);
+      if (h.scrollTop < 120) setActive("news");
+      if (h.scrollTop + h.clientHeight >= h.scrollHeight - 8) setActive("contact");
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -105,101 +143,157 @@ export function Header({ lang }: { lang: Lang }) {
 
   useEffect(() => {
     if (!qrOpen) return;
+
+    const dialog = qrDialogRef.current;
+    returnFocusRef.current =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const siblings = dialog?.parentElement
+      ? Array.from(dialog.parentElement.children).filter(
+          (element): element is HTMLElement =>
+            element instanceof HTMLElement && element !== dialog && element.tagName !== "SCRIPT",
+        )
+      : [];
+    const inertStates = siblings.map((element) => [element, element.inert] as const);
+    siblings.forEach((element) => {
+      element.inert = true;
+    });
+
+    const focusableElements = () =>
+      dialog
+        ? Array.from(
+            dialog.querySelectorAll<HTMLElement>(
+              'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+            ),
+          )
+        : [];
+
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setQrOpen(false);
+      if (event.key !== "Tab") return;
+
+      const focusable = focusableElements();
+      if (focusable.length === 0) {
+        event.preventDefault();
+        dialog?.focus();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
+
+    const focusFrame = requestAnimationFrame(() => focusableElements()[0]?.focus());
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      cancelAnimationFrame(focusFrame);
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+      inertStates.forEach(([element, wasInert]) => {
+        element.inert = wasInert;
+      });
+      returnFocusRef.current?.focus();
+      returnFocusRef.current = null;
+    };
   }, [qrOpen]);
+
+  useEffect(() => {
+    if (!open) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [open]);
 
   return (
     <>
-      <header className="sticky top-0 z-30 border-b border-border/60 bg-background/75 backdrop-blur-md">
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
+      <header className="site-header">
+        <div className="site-header__inner">
           <Link
             href={lang === "en" ? "/" : "/ja/"}
-            className="font-mono text-sm text-muted hover:no-underline"
+            className="site-wordmark"
           >
-            <span className="text-accent">amu815</span>
-            <span className="text-muted">@github.io</span>
+            <span className="site-wordmark__monogram" aria-hidden>AS</span>
+            <span className="site-wordmark__copy">
+              <strong>{lang === "ja" ? "末本 歩夢" : "Amu Suemoto"}</strong>
+              <small>Research · Engineering</small>
+            </span>
           </Link>
-          <nav className="hidden items-center gap-1 text-xs xl:flex">
-            {navItems.map((n) => (
+          <nav
+            className="site-nav"
+            aria-label={lang === "ja" ? "主要ナビゲーション" : "Primary navigation"}
+          >
+            {primaryNavItems.map((n) => (
               <a
                 key={n.href}
                 href={n.href}
-                aria-current={active === n.id ? "true" : undefined}
-                className={`relative whitespace-nowrap rounded px-1.5 py-1 transition-colors hover:bg-card hover:text-foreground hover:no-underline ${
-                  active === n.id ? "text-foreground" : "text-muted"
-                }`}
+                aria-current={ACTIVE_PRIMARY_ID[active] === n.id ? "true" : undefined}
+                className="site-nav__link"
               >
                 {n.label}
-                {active === n.id && (
-                  <span className="absolute -bottom-0.5 left-1.5 right-1.5 h-px bg-gradient-to-r from-accent via-purple to-cyan" />
-                )}
               </a>
             ))}
             <span className="mx-2 h-4 w-px bg-border" />
             <Link
               href="/"
-              className={`rounded px-2 py-1 ${
-                lang === "en" ? "bg-card text-foreground" : "text-muted hover:text-foreground"
-              }`}
+              className={`header-control ${lang === "en" ? "is-active" : ""}`}
             >
               EN
             </Link>
-            <span className="text-border">|</span>
             <Link
               href="/ja/"
-              className={`rounded px-2 py-1 ${
-                lang === "ja" ? "bg-card text-foreground" : "text-muted hover:text-foreground"
-              }`}
+              className={`header-control ${lang === "ja" ? "is-active" : ""}`}
             >
-              日本語
+              JP
             </Link>
             <button
               type="button"
               aria-label={qrText.title}
               onClick={() => setQrOpen(true)}
-              className="ml-1 inline-flex h-7 items-center gap-1 rounded border border-border bg-card/60 px-2 font-mono text-[11px] text-muted transition-colors hover:border-border-strong hover:bg-card hover:text-foreground"
+              className="header-control ml-1 gap-1"
             >
               <QrIcon />
               <span>{qrText.button}</span>
             </button>
           </nav>
 
-          <div className="flex items-center gap-1 xl:hidden">
+          <div className="mobile-header-controls flex items-center gap-1 lg:hidden">
             <Link
               href="/"
-              className={`rounded px-2 py-1 text-xs ${
-                lang === "en" ? "bg-card text-foreground" : "text-muted"
-              }`}
+              className={`header-control ${lang === "en" ? "is-active" : ""}`}
             >
               EN
             </Link>
-            <span className="text-border">|</span>
             <Link
               href="/ja/"
-              className={`rounded px-2 py-1 text-xs ${
-                lang === "ja" ? "bg-card text-foreground" : "text-muted"
-              }`}
+              className={`header-control ${lang === "ja" ? "is-active" : ""}`}
             >
-              日本語
+              JP
             </Link>
             <button
               type="button"
               aria-label={qrText.title}
               onClick={() => setQrOpen(true)}
-              className="ml-1 inline-flex h-8 w-8 items-center justify-center rounded border border-border bg-card/60 text-foreground"
+              className="header-control ml-1 h-10 w-10 !px-0"
             >
               <QrIcon className="h-4 w-4" />
             </button>
             <button
               type="button"
-              aria-label="Toggle navigation"
+              aria-label={lang === "ja" ? "ナビゲーションを開閉" : "Toggle navigation"}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
-              className="ml-1 inline-flex h-8 w-8 items-center justify-center rounded border border-border bg-card/60 text-foreground"
+              className="header-control ml-1 h-10 w-10 !px-0"
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 {open ? (
@@ -220,18 +314,17 @@ export function Header({ lang }: { lang: Lang }) {
         </div>
 
         {open && (
-          <nav className="border-t border-border/60 bg-background/95 px-2 pb-3 pt-2 xl:hidden">
+          <nav
+            className="mobile-nav lg:hidden"
+            aria-label={lang === "ja" ? "全セクション" : "All sections"}
+          >
             <ul className="grid grid-cols-2 gap-1 text-sm">
               {navItems.map((n) => (
                 <li key={n.href}>
                   <a
                     href={n.href}
                     onClick={() => setOpen(false)}
-                    className={`block rounded px-3 py-2 ${
-                      active === n.id
-                        ? "bg-card text-foreground"
-                        : "text-muted hover:bg-card hover:text-foreground"
-                    } hover:no-underline`}
+                    aria-current={active === n.id ? "true" : undefined}
                   >
                     {n.label}
                   </a>
@@ -243,21 +336,23 @@ export function Header({ lang }: { lang: Lang }) {
 
         <div
           aria-hidden
-          className="h-px w-full bg-gradient-to-r from-accent via-purple to-cyan"
+          className="reading-progress"
           style={{ width: `${progress}%`, transition: "width 120ms linear" }}
         />
       </header>
 
       {qrOpen && (
         <div
+          ref={qrDialogRef}
           role="dialog"
           aria-modal="true"
           aria-labelledby="site-qr-title"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background/70 px-4 backdrop-blur-sm"
+          tabIndex={-1}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/55 px-4"
           onClick={() => setQrOpen(false)}
         >
           <div
-            className="w-full max-w-xs rounded-2xl border border-border-strong bg-card-elev p-5 shadow-2xl"
+            className="w-full max-w-xs rounded-sm border border-border-strong bg-card p-5 shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="mb-4 flex items-center justify-between gap-3">
@@ -268,7 +363,7 @@ export function Header({ lang }: { lang: Lang }) {
                 type="button"
                 aria-label={qrText.close}
                 onClick={() => setQrOpen(false)}
-                className="inline-flex h-8 w-8 items-center justify-center rounded border border-border bg-card/80 text-muted transition-colors hover:text-foreground"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-border bg-card text-muted transition-colors hover:text-foreground"
               >
                 <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M6 6l12 12" />
@@ -276,7 +371,7 @@ export function Header({ lang }: { lang: Lang }) {
                 </svg>
               </button>
             </div>
-            <div className="rounded-xl border border-border bg-white p-3">
+            <div className="rounded-sm border border-border bg-white p-3">
               <img
                 src={qrImageUrl}
                 alt={qrText.alt}

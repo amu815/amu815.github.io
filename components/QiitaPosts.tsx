@@ -103,20 +103,12 @@ function PickupCard({
       className="surface-card surface-card-glow group relative flex flex-col gap-3 overflow-hidden p-5 hover:no-underline fade-in-up"
       style={{ animationDelay: `${index * 80}ms` }}
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 opacity-70"
-        style={{
-          background:
-            "radial-gradient(420px 220px at 110% -10%, rgba(122,162,247,0.20), transparent 60%), radial-gradient(380px 220px at -10% 110%, rgba(187,154,247,0.18), transparent 60%)",
-        }}
-      />
       <div className="flex flex-wrap items-center gap-2">
-        <span className="inline-flex items-center gap-1 rounded-full border border-accent/60 bg-accent/15 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
+        <span className="inline-flex items-center gap-1 rounded-sm border border-accent/60 bg-accent/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
           <PinIcon className="h-3 w-3" />
           {t.pickupBadge}
         </span>
-        <span className="inline-flex items-center gap-1 rounded-full border border-orange/60 bg-orange/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.18em] text-orange">
+        <span className="inline-flex items-center gap-1 rounded-sm border border-orange/60 bg-orange/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.18em] text-orange">
           <EyeIcon className="h-3 w-3" />
           {t.viewsBadge(minViews)}
         </span>
@@ -138,7 +130,7 @@ function PickupCard({
           {post.tags.slice(0, 5).map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-border bg-card-elev px-2 py-0.5 text-[10px] font-medium text-muted-strong"
+              className="rounded-sm border border-border bg-card-elev px-2 py-0.5 text-[10px] font-medium text-muted-strong"
             >
               {tag}
             </span>
@@ -223,7 +215,7 @@ export function QiitaPosts({ lang }: { lang: Lang }) {
           <h3 className="mb-3 flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-accent">
             <PinIcon className="h-3.5 w-3.5" />
             <span>{t.pickupHeader}</span>
-            <span className="h-px flex-1 bg-gradient-to-r from-accent/40 via-purple/30 to-transparent" />
+            <span className="h-px flex-1 bg-border" />
           </h3>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {pickup.map(({ post, minViews }, i) => (
@@ -275,7 +267,7 @@ export function QiitaPosts({ lang }: { lang: Lang }) {
                         {p.tags.slice(0, 5).map((tag) => (
                           <span
                             key={tag}
-                            className="rounded-full border border-border bg-card-elev px-2 py-0.5 text-[10px] font-medium text-muted-strong"
+                            className="rounded-sm border border-border bg-card-elev px-2 py-0.5 text-[10px] font-medium text-muted-strong"
                           >
                             {tag}
                           </span>

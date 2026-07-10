@@ -38,33 +38,25 @@ export function Stats({ lang }: { lang: Lang }) {
     { label: t.underReview, value: underReview, color: "text-orange" },
     { label: t.accepted, value: accepted, color: "text-cyan" },
     { label: t.topTier, value: topTier, color: "text-green" },
-    { label: t.awards, value: awardCount, color: "text-[#FFD21E]" },
+    { label: t.awards, value: awardCount, color: "text-gold" },
   ];
 
   return (
-    <section aria-labelledby="paper-stats-heading" className="flex flex-col gap-3">
-      <header className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <h3
+    <section aria-labelledby="paper-stats-heading">
+      <header className="stats-heading">
+        <h2
           id="paper-stats-heading"
-          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-strong"
         >
           <PaperIcon className="h-3.5 w-3.5 text-accent" />
           <span>{t.heading}</span>
-        </h3>
-        <p className="text-xs text-muted">{t.headingHint}</p>
+        </h2>
+        <p>{t.headingHint}</p>
       </header>
-      <dl className="grid grid-cols-2 gap-3 sm:grid-cols-5">
+      <dl className="stats-grid">
         {items.map((s) => (
-          <div
-            key={s.label}
-            className="surface-card flex flex-col gap-1 px-4 py-3"
-          >
-            <dt className="text-[11px] font-medium uppercase tracking-wider text-muted">
-              {s.label}
-            </dt>
-            <dd className={`text-2xl font-bold tabular-nums ${s.color}`}>
-              {s.value}
-            </dd>
+          <div key={s.label} className="stat-cell">
+            <dt>{s.label}</dt>
+            <dd className={`tabular-nums ${s.color}`}>{s.value}</dd>
           </div>
         ))}
       </dl>

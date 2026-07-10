@@ -120,7 +120,7 @@ export function Kaggle({ lang }: { lang: Lang }) {
         <div>
           <h3 className="mb-3 flex items-center gap-3 text-xs font-semibold uppercase tracking-wider text-orange">
             <span>{t.activeHeader}</span>
-            <span className="h-px flex-1 bg-gradient-to-r from-orange/40 to-transparent" />
+            <span className="h-px flex-1 bg-border" />
             <span className="font-mono text-xs text-muted">{active.length}</span>
           </h3>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">

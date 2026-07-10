@@ -17,7 +17,14 @@ export function AI() {
   return (
     <div className="flex flex-wrap justify-center gap-3">
       {badges.map((b) => (
-        <a key={b.label} href={b.href} target="_blank" rel="noreferrer" aria-label={b.label}>
+        <a
+          key={b.label}
+          href={b.href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={b.label}
+          className="brand-badge"
+        >
           {"localLogo" in b && b.localLogo === "openai" ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -35,7 +35,7 @@ function FundedProjectCard({ project, lang }: { project: FundedProject; lang: La
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
           <div className="mb-2 flex flex-wrap items-center gap-2">
-            <span className="tier-pill border-[rgba(255,210,30,0.72)] bg-[rgba(255,210,30,0.14)] text-[#FFD21E]">
+            <span className="tier-pill border-gold/50 bg-gold/10 text-gold">
               {status}
             </span>
             <time
@@ -46,7 +46,7 @@ function FundedProjectCard({ project, lang }: { project: FundedProject; lang: La
             </time>
           </div>
           <h3 className="flex items-center gap-2 text-base font-semibold text-foreground">
-            <FundingIcon className="h-4 w-4 flex-none text-[#FFD21E]" />
+            <FundingIcon className="h-4 w-4 flex-none text-gold" />
             <span>{title}</span>
           </h3>
           <p className="mt-1 text-xs leading-snug text-muted">{program}</p>
@@ -61,7 +61,7 @@ function FundedProjectCard({ project, lang }: { project: FundedProject; lang: La
             <dt className="font-mono text-[10px] uppercase tracking-wider text-muted">
               {lang === "ja" ? item.labelJa : item.label}
             </dt>
-            <dd className="mt-1 text-lg font-bold tabular-nums text-[#FFD21E]">
+            <dd className="mt-1 text-lg font-bold tabular-nums text-gold">
               {lang === "ja" ? item.valueJa : item.value}
             </dd>
           </div>

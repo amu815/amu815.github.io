@@ -130,7 +130,7 @@ function IconRow({ items }: { items: Icon[] }) {
           target="_blank"
           rel="noreferrer"
           title={i.alt}
-          className="transition-transform hover:-translate-y-0.5"
+          className="tech-mark"
         >
           {i.kind === "devicon" ? (
             i.backplate ? (
@@ -164,9 +164,9 @@ export function Skills({ lang }: { lang: Lang }) {
     { header: t.headers[3], items: infra },
   ];
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {cols.map((c) => (
-        <div key={c.header} className="rounded-2xl border border-border bg-card p-4">
+        <div key={c.header} className="skill-panel border border-border p-4">
           <h3 className="mb-4 text-center text-sm font-semibold text-muted">{c.header}</h3>
           <IconRow items={c.items} />
         </div>

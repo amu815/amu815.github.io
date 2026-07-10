@@ -60,7 +60,7 @@ export function Projects({ lang }: { lang: Lang }) {
             </p>
 
             <div className="mt-auto flex flex-wrap items-center gap-2 text-xs text-muted">
-              <span className="inline-flex items-center gap-1 rounded-full border border-border-strong bg-card-elev px-2 py-0.5">
+              <span className="inline-flex items-center gap-1 rounded-sm border border-border-strong bg-card-elev px-2 py-0.5">
                 <StarIcon className="h-3 w-3 text-orange" />
                 <span className="tabular-nums">{p.stars}</span>
                 <span className="sr-only">{t.starsLabel}</span>

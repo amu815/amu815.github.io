@@ -4,108 +4,86 @@ import { dict } from "@/content/dict";
 import { calculateAge } from "@/lib/date";
 import { Stats } from "./Stats";
 
-const achievementTone = {
-  default:
-    "border-cyan/50 bg-cyan/10 text-cyan shadow-[0_0_24px_-16px_rgba(125,207,255,0.75)] hover:border-cyan hover:bg-cyan/15 hover:text-cyan",
-  funded:
-    "border-[rgba(255,210,30,0.72)] bg-[rgba(255,210,30,0.14)] text-[#FFD21E] shadow-[0_0_28px_-14px_rgba(255,210,30,0.9)] hover:border-[#FFD21E] hover:bg-[rgba(255,210,30,0.20)] hover:text-[#FFE76A]",
-  mitou:
-    "border-[rgba(255,210,30,0.72)] bg-[rgba(255,210,30,0.14)] text-[#FFD21E] shadow-[0_0_28px_-14px_rgba(255,210,30,0.9)] hover:border-[#FFD21E] hover:bg-[rgba(255,210,30,0.20)] hover:text-[#FFE76A]",
-};
-
-function getAchievementTone(href: string) {
-  if (href.includes("k-spring.kyushu-u.ac.jp")) return achievementTone.funded;
-  return href.includes("mitou-fukuoka.org") ? achievementTone.mitou : achievementTone.default;
-}
-
 export function Hero({ lang }: { lang: Lang }) {
   const t = dict[lang].hero;
   return (
-    <section className="relative px-4 pt-12 pb-4 sm:pt-16 sm:pb-6">
-      <div className="grid items-center gap-10 sm:grid-cols-[auto_1fr]">
-        <div className="fade-in-up fade-in-up-1 relative">
-          <div className="absolute inset-0 -z-10 translate-x-2 translate-y-2 rounded-2xl bg-gradient-to-br from-accent/40 via-purple/30 to-cyan/30 blur-xl" />
+    <section className="hero-section">
+      <div className="hero-topline fade-in-up fade-in-up-1">
+        <span>Portfolio · 2026</span>
+        <span>Kyushu University · Fukuoka, Japan</span>
+      </div>
+
+      <div className="hero-grid">
+        <div className="min-w-0">
+          <p className="hero-kicker fade-in-up fade-in-up-1">{t.greeting}</p>
+          <h1 className="hero-name fade-in-up fade-in-up-2">
+            {lang === "ja" ? (
+              <ruby>
+                {t.name}
+                <rt>{t.nameReading}</rt>
+              </ruby>
+            ) : (
+              t.name
+            )}
+          </h1>
+          {lang === "en" && (
+            <p className="hero-romaji fade-in-up fade-in-up-2">
+              {t.nameReadingRomaji} · {t.nameReading}
+            </p>
+          )}
+          <p className="hero-tagline fade-in-up fade-in-up-3">{t.tagline}</p>
+
+          <div className="hero-affiliation fade-in-up fade-in-up-3">
+            <a href={t.affiliationHref} target="_blank" rel="noreferrer">
+              {t.affiliation}
+            </a>
+            <span>{t.department}</span>
+          </div>
+
+          <div className="hero-keywords fade-in-up fade-in-up-3">
+            {t.keywords.map((keyword) => (
+              <span key={keyword}>{keyword}</span>
+            ))}
+          </div>
+
+          <div
+            className="hero-achievements fade-in-up fade-in-up-4"
+            aria-label={t.achievementLabel}
+          >
+            {t.achievements.map((achievement) => (
+              <a
+                key={achievement.label}
+                href={achievement.href}
+                target="_blank"
+                rel="noreferrer"
+                className="achievement-card"
+              >
+                <AwardIcon />
+                <span className="min-w-0">
+                  <strong>{achievement.label}</strong>
+                  <small>{achievement.detail}</small>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <figure className="hero-portrait fade-in-up fade-in-up-2">
           <img
             src="/profile.jpg"
             alt={t.name}
             width={1441}
             height={1921}
-            className="w-44 flex-none rounded-2xl border border-border-strong shadow-2xl sm:w-52"
           />
-        </div>
-        <div className="min-w-0">
-          <p className="fade-in-up fade-in-up-1 mb-2 font-mono text-xs uppercase tracking-[0.2em] text-muted">
-            {t.greeting}
-          </p>
-          <h1 className="fade-in-up fade-in-up-2 text-4xl font-bold tracking-tight sm:text-6xl">
-            {lang === "ja" ? (
-              <ruby className="text-gradient-accent">
-                {t.name}
-                <rt className="block text-[0.28em] font-medium tracking-[0.25em] text-muted">
-                  {t.nameReading}
-                </rt>
-              </ruby>
-            ) : (
-              <span className="text-gradient-accent">{t.name}</span>
-            )}
-          </h1>
-          {lang === "en" && (
-            <p className="fade-in-up fade-in-up-2 mt-2 font-mono text-xs uppercase tracking-[0.3em] text-muted">
-              {t.nameReadingRomaji} · {t.nameReading}
-            </p>
-          )}
-          <p className="fade-in-up fade-in-up-3 mt-5 max-w-2xl text-base text-muted-strong sm:text-lg">
-            {t.tagline}
-          </p>
-          <div className="fade-in-up fade-in-up-3 mt-4 flex flex-wrap gap-2">
-            {t.keywords.map((k) => (
-              <span
-                key={k}
-                className="rounded-full border border-border bg-card/60 px-3 py-1 text-xs font-medium text-muted-strong"
-              >
-                {k}
-              </span>
-            ))}
-          </div>
-          <div
-            className="fade-in-up fade-in-up-3 mt-4 flex flex-wrap gap-2"
-            aria-label={t.achievementLabel}
-          >
-            {t.achievements.map((a) => (
-              <a
-                key={a.label}
-                href={a.href}
-                target="_blank"
-                rel="noreferrer"
-                className={`group inline-flex max-w-full items-center gap-2 rounded-full border px-3 py-1.5 text-left hover:no-underline ${getAchievementTone(a.href)}`}
-              >
-                <AwardIcon className="h-3.5 w-3.5 flex-none" />
-                <span className="min-w-0">
-                  <span className="block truncate text-xs font-bold uppercase tracking-wider">
-                    {a.label}
-                  </span>
-                  <span className="block truncate text-[11px] font-medium text-muted-strong group-hover:text-foreground">
-                    {a.detail}
-                  </span>
-                </span>
-              </a>
-            ))}
-          </div>
-          <div className="fade-in-up fade-in-up-4 mt-5 flex flex-col gap-1 text-sm">
-            <a
-              href={t.affiliationHref}
-              target="_blank"
-              rel="noreferrer"
-              className="font-semibold text-foreground hover:text-accent"
-            >
-              {t.affiliation}
-            </a>
-            <span className="text-muted">{t.department}</span>
-          </div>
-        </div>
+          <figcaption>
+            <span>01 — Portrait</span>
+            <span>Amu Suemoto</span>
+          </figcaption>
+        </figure>
       </div>
+
       <Facts lang={lang} />
-      <div className="fade-in-up fade-in-up-4 mt-6">
+      <div className="stats-block fade-in-up fade-in-up-4">
         <Stats lang={lang} />
       </div>
     </section>
@@ -172,9 +150,7 @@ function Facts({ lang }: { lang: Lang }) {
   const bornDisplay = (
     <>
       {f.bornValue}
-      <span className="ml-1.5 rounded-full border border-border-strong bg-card-elev px-1.5 py-0.5 align-middle font-mono text-[10px] tracking-wider text-muted-strong">
-        {f.ageSuffix(age)}
-      </span>
+      <span className="age-note">/ {f.ageSuffix(age)}</span>
     </>
   );
   const items = [
@@ -184,17 +160,12 @@ function Facts({ lang }: { lang: Lang }) {
     { icon: <HeartPulseIcon />, label: f.hobbiesLabel, value: f.hobbiesValue, color: "text-orange" },
   ];
   return (
-    <dl className="fade-in-up fade-in-up-4 mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+    <dl className="facts-grid fade-in-up fade-in-up-4">
       {items.map((it) => (
-        <div
-          key={it.label}
-          className="surface-card flex items-baseline gap-3 px-4 py-2.5"
-        >
-          <span className={`flex-none ${it.color}`}>{it.icon}</span>
-          <dt className="font-mono text-[11px] uppercase tracking-wider text-muted sm:w-28 sm:flex-none">
-            {it.label}
-          </dt>
-          <dd className="text-sm font-medium text-foreground">{it.value}</dd>
+        <div key={it.label} className="fact-row">
+          <span className={it.color}>{it.icon}</span>
+          <dt>{it.label}</dt>
+          <dd>{it.value}</dd>
         </div>
       ))}
     </dl>

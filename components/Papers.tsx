@@ -40,7 +40,7 @@ const statusTone: Record<PaperStatus, string> = {
 };
 
 const badgeTone = {
-  award: "border-[rgba(255,210,30,0.72)] bg-[rgba(255,210,30,0.14)] text-[#FFD21E]",
+  award: "border-gold/50 bg-gold/10 text-gold",
 } as const;
 
 function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
@@ -190,9 +190,9 @@ export function Papers({ lang }: { lang: Lang }) {
       {journals.length > 0 && (
         <div>
           <h3 className="mb-4 flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-purple">
-            <span className="inline-block h-2 w-2 rounded-full bg-purple shadow-[0_0_12px_rgba(187,154,247,0.7)]" />
+            <span className="inline-block h-2 w-2 rounded-full bg-purple" />
             <span>{journalHeader}</span>
-            <span className="h-px flex-1 bg-gradient-to-r from-purple/40 to-transparent" />
+            <span className="h-px flex-1 bg-border" />
           </h3>
           <StatusGroups items={journals} lang={lang} />
         </div>
@@ -200,9 +200,9 @@ export function Papers({ lang }: { lang: Lang }) {
       {conferences.length > 0 && (
         <div>
           <h3 className="mb-4 flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-accent">
-            <span className="inline-block h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_rgba(122,162,247,0.7)]" />
+            <span className="inline-block h-2 w-2 rounded-full bg-accent" />
             <span>{conferenceHeader}</span>
-            <span className="h-px flex-1 bg-gradient-to-r from-accent/40 to-transparent" />
+            <span className="h-px flex-1 bg-border" />
           </h3>
           <StatusGroups items={conferences} lang={lang} />
         </div>

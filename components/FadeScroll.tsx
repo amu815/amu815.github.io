@@ -58,7 +58,7 @@ export function FadeScroll({
           aria-hidden
           className="pointer-events-none absolute inset-x-0 bottom-1 flex justify-center"
         >
-          <span className="inline-flex animate-bounce items-center gap-1 rounded-full border border-border-strong bg-background/80 px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-muted backdrop-blur">
+          <span className="inline-flex items-center gap-1 rounded-sm border border-border bg-card px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-muted">
             <svg viewBox="0 0 24 24" className="h-3 w-3" aria-hidden fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M6 9l6 6 6-6" />
             </svg>

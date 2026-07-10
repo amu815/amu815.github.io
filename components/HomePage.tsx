@@ -24,8 +24,15 @@ export function HomePage({ lang }: { lang: Lang }) {
   const s = dict[lang].sections;
   return (
     <>
+      <a href="#main-content" className="skip-link">
+        {lang === "ja" ? "本文へ移動" : "Skip to content"}
+      </a>
       <Header lang={lang} />
-      <main className="mx-auto w-full max-w-5xl flex-1">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="portfolio-main mx-auto w-full max-w-[1184px] flex-1"
+      >
         <Hero lang={lang} />
         {/* Latest */}
         <Section id="news" title={s.news}>
