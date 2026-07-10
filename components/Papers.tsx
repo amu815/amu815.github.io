@@ -133,7 +133,7 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
                     href={a.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-muted-strong underline-offset-2 hover:text-accent hover:underline"
+                    className="text-muted-strong underline decoration-border-strong underline-offset-2 hover:text-accent"
                   >
                     {name}
                   </a>

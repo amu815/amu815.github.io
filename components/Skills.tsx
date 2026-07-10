@@ -98,7 +98,7 @@ const backend: Icon[] = [
 const frontend: Icon[] = [
   { kind: "devicon", href: "https://www.typescriptlang.org/", alt: "TypeScript", path: "typescript/typescript-original.svg" },
   { kind: "devicon", href: "https://reactjs.org/", alt: "React", path: "react/react-original.svg" },
-  { kind: "devicon", href: "https://nextjs.org/", alt: "Next.js", path: "nextjs/nextjs-original.svg" },
+  { kind: "devicon", href: "https://nextjs.org/", alt: "Next.js", path: "nextjs/nextjs-original.svg", backplate: true },
   { kind: "devicon", href: "https://tailwindcss.com/", alt: "Tailwind CSS", path: "tailwindcss/tailwindcss-original.svg" },
   { kind: "devicon", href: "https://flutter.dev/", alt: "Flutter", path: "flutter/flutter-original.svg" },
   { kind: "devicon", href: "https://dart.dev/", alt: "Dart", path: "dart/dart-original.svg" },
@@ -158,16 +158,16 @@ function IconRow({ items }: { items: Icon[] }) {
 export function Skills({ lang }: { lang: Lang }) {
   const t = dict[lang].skills;
   const cols = [
-    { header: t.headers[0], items: aiml },
-    { header: t.headers[1], items: backend },
-    { header: t.headers[2], items: frontend },
-    { header: t.headers[3], items: infra },
+    { header: t.headers[0], items: aiml, tone: "skill-panel--purple" },
+    { header: t.headers[1], items: backend, tone: "skill-panel--green" },
+    { header: t.headers[2], items: frontend, tone: "skill-panel--cyan" },
+    { header: t.headers[3], items: infra, tone: "skill-panel--orange" },
   ];
   return (
     <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {cols.map((c) => (
-        <div key={c.header} className="skill-panel border border-border p-4">
-          <h3 className="mb-4 text-center text-sm font-semibold text-muted">{c.header}</h3>
+        <div key={c.header} className={`skill-panel ${c.tone} border p-4`}>
+          <h3 className="skill-panel__title mb-4 text-center text-sm font-semibold">{c.header}</h3>
           <IconRow items={c.items} />
         </div>
       ))}
