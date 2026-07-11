@@ -13,6 +13,32 @@ const badges = [
   { href: "https://ai.google.dev/gemma", label: "Gemma", color: "4285F4", logo: "google" },
   { href: "https://github.com/EleutherAI/pythia", label: "Pythia", color: "5F259F" },
   { href: "https://github.com/salesforce/BLIP", label: "BLIP", color: "00A1E0" },
+  {
+    href: "https://github.com/meta-llama/llama-models",
+    label: "Llama",
+    color: "0467DF",
+    logo: "meta",
+  },
+  { href: "https://github.com/openai/CLIP", label: "CLIP", color: "412991", logo: "openai" },
+  {
+    href: "https://github.com/google-research/big_vision/blob/main/big_vision/configs/proj/image_text/README_siglip2.md",
+    label: "SigLIP 2",
+    color: "34A853",
+    logo: "google",
+  },
+  {
+    href: "https://github.com/mlfoundations/open_clip",
+    label: "OpenCLIP",
+    color: "1F6FEB",
+    logo: "github",
+  },
+  { href: "https://flava-model.github.io/", label: "FLAVA", color: "1877F2", logo: "meta" },
+  {
+    href: "https://research.google/blog/align-scaling-up-visual-and-vision-language-representation-learning-with-noisy-text-supervision/",
+    label: "ALIGN",
+    color: "EA4335",
+    logo: "google",
+  },
 ];
 
 export function AI() {
