@@ -118,7 +118,11 @@ export function Timeline({ lang }: { lang: Lang }) {
         <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted">
           {t.past}
         </h3>
-        <FadeScroll maxHeight="20rem">
+        <FadeScroll
+          maxHeight="20rem"
+          label={lang === "ja" ? "過去の研究タイムライン" : "Past research timeline"}
+          scrollHint={lang === "ja" ? "続きを見る" : "More events"}
+        >
           <div className="flex flex-col gap-4 pr-1">
             {pastGroups.map((g) => (
               <div key={g.year}>

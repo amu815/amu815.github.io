@@ -237,7 +237,11 @@ export function QiitaPosts({ lang }: { lang: Lang }) {
           <span className="h-px flex-1 bg-border" />
           <span className="font-mono text-xs">{posts.length}</span>
         </h3>
-        <FadeScroll maxHeight="20rem">
+        <FadeScroll
+          maxHeight="20rem"
+          label={lang === "ja" ? "Qiita記事一覧" : "Qiita article list"}
+          scrollHint={lang === "ja" ? "続きを見る" : "More articles"}
+        >
           <ul className="flex flex-col gap-3 pr-1">
             {posts.map((p, i) => (
               <li

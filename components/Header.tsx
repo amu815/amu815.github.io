@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Lang } from "@/content/dict";
 import { dict } from "@/content/dict";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { SectionNavigator } from "./SectionNavigator";
 
 const SECTION_IDS = [
   "news",
@@ -238,12 +239,13 @@ export function Header({ lang }: { lang: Lang }) {
               <a
                 key={n.href}
                 href={n.href}
-                aria-current={ACTIVE_PRIMARY_ID[active] === n.id ? "true" : undefined}
+                aria-current={ACTIVE_PRIMARY_ID[active] === n.id ? "location" : undefined}
                 className="site-nav__link"
               >
                 {n.label}
               </a>
             ))}
+            <SectionNavigator lang={lang} items={navItems} />
             <span className="mx-2 h-4 w-px bg-border" />
             <Link
               href="/"
@@ -290,6 +292,7 @@ export function Header({ lang }: { lang: Lang }) {
               type="button"
               aria-label={lang === "ja" ? "ナビゲーションを開閉" : "Toggle navigation"}
               aria-expanded={open}
+              aria-controls="mobile-navigation"
               onClick={() => setOpen((v) => !v)}
               className="header-control ml-1 h-10 w-10 !px-0"
             >
@@ -313,6 +316,7 @@ export function Header({ lang }: { lang: Lang }) {
 
         {open && (
           <nav
+            id="mobile-navigation"
             className="mobile-nav lg:hidden"
             aria-label={lang === "ja" ? "全セクション" : "All sections"}
           >
@@ -322,7 +326,7 @@ export function Header({ lang }: { lang: Lang }) {
                   <a
                     href={n.href}
                     onClick={() => setOpen(false)}
-                    aria-current={active === n.id ? "true" : undefined}
+                    aria-current={active === n.id ? "location" : undefined}
                   >
                     {n.label}
                   </a>

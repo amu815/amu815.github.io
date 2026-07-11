@@ -14,13 +14,16 @@ export function Section({
   return (
     <section
       id={id}
+      aria-labelledby={id ? `${id}-heading` : undefined}
       className={`portfolio-section reveal ${
         id === "contact" ? "section-contact" : ""
       }`}
     >
       <header className="section-heading">
         <span className="section-number" aria-hidden />
-        <h2>{title}</h2>
+        <h2 id={id ? `${id}-heading` : undefined} tabIndex={id ? -1 : undefined}>
+          {title}
+        </h2>
         {subtitle && <p className="section-subtitle">{subtitle}</p>}
       </header>
       <div className="section-content">{children}</div>

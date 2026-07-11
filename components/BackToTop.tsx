@@ -16,7 +16,17 @@ export function BackToTop({ label }: { label: string }) {
     <button
       type="button"
       aria-label={label}
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-hidden={!visible}
+      tabIndex={visible ? 0 : -1}
+      onClick={() => {
+        window.scrollTo({
+          top: 0,
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "auto"
+            : "smooth",
+        });
+        document.getElementById("main-content")?.focus({ preventScroll: true });
+      }}
       className={`fixed bottom-6 right-6 z-40 inline-flex h-11 w-11 items-center justify-center rounded-sm border border-border-strong bg-card text-foreground shadow-sm transition-colors duration-200 hover:border-accent hover:text-accent ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
       }`}
