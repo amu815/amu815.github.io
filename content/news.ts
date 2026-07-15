@@ -106,9 +106,9 @@ const milestones: MilestoneNewsItem[] = [
     kind: "milestone",
     displayKind: "presented",
     textEn:
-      "Spoke at the Fukuoka Mitou 2026 Grow / Solve Course Information Session & Corporate Challenge Presentations at FGN as a selected Pro-course creator on the LabAgent team.",
+      "Spoke at the Fukuoka Mitou 2026 Grow / Solve Course Information Session & Corporate Challenge Presentations at FGN as a selected creator in the Fukuoka Mitou 2026 Pro course.",
     textJa:
-      "「【福岡未踏2026】Growコース / Solveコース 公募説明会 ＆ 企業課題発表会＠FGN」に、LabAgentチームのProコース採択クリエータとして登壇しました。",
+      "「【福岡未踏2026】Growコース / Solveコース 公募説明会 ＆ 企業課題発表会＠FGN」に、福岡未踏2026のProコース採択クリエータとして登壇しました。",
     href: "https://note.com/wildriver/n/na932724ec392",
   },
   {
