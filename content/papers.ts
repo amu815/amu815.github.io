@@ -52,6 +52,22 @@ export type PaperVenue = {
 
 export const papers: PaperVenue[] = [
   {
+    id: "dpsws-2026",
+    shortName: "DPSWS 2026",
+    fullName: "Distributed Processing System Workshop",
+    fullNameJa: "第34回マルチメディア通信と分散処理ワークショップ",
+    href: "https://www.dpsws.org/2026/",
+    type: "workshop",
+    tier: "domestic",
+    submissionDeadline: "2026-07-15",
+    notificationDate: "2026-09-04",
+    conferenceStart: "2026-11-04",
+    conferenceEnd: "2026-11-06",
+    location: "Hakodate, Japan",
+    status: "under_review",
+    statusDate: "2026-07-15",
+  },
+  {
     id: "cikm-2026",
     shortName: "CIKM 2026",
     fullName: "ACM International Conference on Information and Knowledge Management",
