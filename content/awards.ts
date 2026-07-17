@@ -20,7 +20,7 @@ export const awards: Award[] = [
     nameJa: "優秀プレゼンテーション賞",
     venue: "DICOMO 2026 Symposium",
     venueJa: "マルチメディア，分散，協調とモバイル (DICOMO) 2026 シンポジウム",
-    href: "https://dicomo.org/2026/",
+    href: "https://dicomo.org/commendation/",
     title:
       "GRoFA: ノイズゲート付きアダプタによる公平でロバストな顔画像埋め込みの学習",
     authors: ["末本歩夢", "荒川豊", "峯恒憲"],
