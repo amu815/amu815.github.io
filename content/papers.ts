@@ -52,6 +52,24 @@ export type PaperVenue = {
 
 export const papers: PaperVenue[] = [
   {
+    id: "kdd-2027-cycle-1",
+    shortName: "ACM KDD 2027 (Cycle 1)",
+    fullName:
+      "The 33rd ACM SIGKDD Conference on Knowledge Discovery and Data Mining — Cycle 1",
+    fullNameJa:
+      "第33回 ACM SIGKDD 知識発見・データマイニング国際会議 — Cycle 1",
+    href: "https://kdd2027.kdd.org/",
+    type: "conference",
+    tier: "core_a_star",
+    submissionDeadline: "2026-07-26",
+    notificationDate: "2026-11-14",
+    conferenceStart: "2027-08-01",
+    conferenceEnd: "2027-08-05",
+    location: "San Jose, CA, USA",
+    status: "under_review",
+    statusDate: "2026-07-26",
+  },
+  {
     id: "dpsws-2026",
     shortName: "DPSWS 2026",
     fullName: "Distributed Processing System Workshop",
