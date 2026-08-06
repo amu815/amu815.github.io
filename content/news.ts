@@ -156,9 +156,9 @@ const milestones: MilestoneNewsItem[] = [
     kind: "milestone",
     displayKind: "accepted",
     textEn:
-      "Submitted the camera-ready version of the DICOMO 2026 paper “GRoFA: ノイズゲート付きアダプタによる公平でロバストな顔画像埋め込みの学習”.",
+      "Submitted the camera-ready version of the IPSJ DICOMO 2026 paper “GRoFA: ノイズゲート付きアダプタによる公平でロバストな顔画像埋め込みの学習”.",
     textJa:
-      "DICOMO 2026 採択論文「GRoFA: ノイズゲート付きアダプタによる公平でロバストな顔画像埋め込みの学習」のカメラレディ版を提出しました。",
+      "情報処理学会 DICOMO 2026 採択論文「GRoFA: ノイズゲート付きアダプタによる公平でロバストな顔画像埋め込みの学習」のカメラレディ版を提出しました。",
     href: "https://dicomo.org/2026/",
   },
   {

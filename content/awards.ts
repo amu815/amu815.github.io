@@ -18,8 +18,8 @@ export const awards: Award[] = [
     date: "2026-06-26",
     name: "Excellent Presentation Award",
     nameJa: "優秀プレゼンテーション賞",
-    venue: "DICOMO 2026 Symposium",
-    venueJa: "マルチメディア，分散，協調とモバイル (DICOMO) 2026 シンポジウム",
+    venue: "IPSJ DICOMO 2026 Symposium",
+    venueJa: "情報処理学会 マルチメディア，分散，協調とモバイル (DICOMO) 2026 シンポジウム",
     href: "https://dicomo.org/commendation/",
     title:
       "GRoFA: ノイズゲート付きアダプタによる公平でロバストな顔画像埋め込みの学習",
@@ -32,8 +32,8 @@ export const awards: Award[] = [
     date: "2026-06-25",
     name: "1st Place, Night Technical Session",
     nameJa: "ナイトテクニカルセッション 優勝",
-    venue: "DICOMO 2026 Symposium",
-    venueJa: "マルチメディア，分散，協調とモバイル (DICOMO) 2026 シンポジウム",
+    venue: "IPSJ DICOMO 2026 Symposium",
+    venueJa: "情報処理学会 マルチメディア，分散，協調とモバイル (DICOMO) 2026 シンポジウム",
     href: "https://dicomo.org/commendation/",
     title: "研究室環境における娯楽活動検知システムに対する回避手法の提案と評価",
     authors: [
