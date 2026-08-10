@@ -98,8 +98,8 @@ export const papers: PaperVenue[] = [
     conferenceStart: "2026-11-07",
     conferenceEnd: "2026-11-11",
     location: "Rome, Italy",
-    status: "under_review",
-    statusDate: "2026-05-23",
+    status: "rejected",
+    statusDate: "2026-08-07",
   },
   {
     id: "neurips-2026",
