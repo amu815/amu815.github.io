@@ -5,7 +5,7 @@ import { NewsExplorer, type NewsDisplayItem } from "./NewsExplorer";
 const kindLabelEn: Record<NewsKind, string> = {
   submitted: "Submitted",
   accepted: "Accepted",
-  rejected: "Not accepted",
+  rejected: "Rejected",
   presented: "Presented",
   milestone: "Milestone",
   kaggle: "Kaggle",

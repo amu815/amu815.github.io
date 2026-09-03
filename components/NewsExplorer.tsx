@@ -45,7 +45,7 @@ const filterLabels: Record<Lang, Record<NewsKind, string>> = {
   en: {
     submitted: "Submitted",
     accepted: "Accepted",
-    rejected: "Not accepted",
+    rejected: "Rejected",
     presented: "Presented",
     milestone: "Milestones",
     kaggle: "Kaggle",

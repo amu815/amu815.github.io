@@ -1743,7 +1743,7 @@ a {
 
 .news-row {
   display: grid;
-  grid-template-columns: 112px 74px minmax(0, 1fr) auto;
+  grid-template-columns: 112px minmax(74px, max-content) minmax(0, 1fr) auto;
   align-items: center;
   gap: 16px;
   min-height: 58px;
@@ -1751,6 +1751,15 @@ a {
   border-bottom: 1px solid var(--border);
   color: var(--foreground);
   transition: background-color 160ms ease, padding-left 160ms ease;
+}
+
+.news-row > .tier-pill {
+  min-width: 0;
+  max-width: 100%;
+  justify-content: center;
+  overflow-wrap: anywhere;
+  text-align: center;
+  white-space: normal;
 }
 
 a:hover .news-row,
