@@ -16,6 +16,9 @@ export type PaperTier =
 
 export type PaperType = "conference" | "journal" | "workshop";
 
+export type PresentationFormat = "oral" | "poster";
+export type PresentationLanguage = "en" | "ja";
+
 export type Author = {
   name: string;
   nameJa?: string;
@@ -45,6 +48,8 @@ export type PaperVenue = {
   statusDate?: string;
   paperTitle?: string;
   paperTitleJa?: string;
+  presentationFormat?: PresentationFormat;
+  presentationLanguage?: PresentationLanguage;
   authors?: Author[];
   badges?: PaperBadge[];
   hideFromPublications?: boolean;
@@ -168,10 +173,12 @@ export const papers: PaperVenue[] = [
     conferenceStart: "2026-08-27",
     conferenceEnd: "2026-08-29",
     location: "Kuju/Aso, Japan",
-    status: "accepted",
-    statusDate: "2026-07-06",
+    status: "presented",
+    statusDate: "2026-08-28",
     paperTitle:
       "GRoFA: Noise-Gated Adapters for Learning Fair and Robust Face Embeddings",
+    presentationFormat: "oral",
+    presentationLanguage: "en",
   },
   {
     id: "icassp-2026",

@@ -49,6 +49,24 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
   const status = lang === "ja" ? statusLabelJa[p.status] : statusLabel[p.status];
   const fullName = lang === "ja" && p.fullNameJa ? p.fullNameJa : p.fullName;
   const paperTitle = paperDisplayTitle(p, lang);
+  const presentation =
+    p.presentationFormat === "oral"
+      ? lang === "ja"
+        ? p.presentationLanguage === "en"
+          ? "英語口頭発表"
+          : "口頭発表"
+        : p.presentationLanguage === "en"
+          ? "Oral Presentation (English)"
+          : "Oral Presentation"
+      : p.presentationFormat === "poster"
+        ? lang === "ja"
+          ? p.presentationLanguage === "en"
+            ? "英語ポスター発表"
+            : "ポスター発表"
+          : p.presentationLanguage === "en"
+            ? "Poster Presentation (English)"
+            : "Poster Presentation"
+        : undefined;
 
   const dateRows: { label: string; value: string }[] = [];
   if (p.submissionDeadline) {
@@ -87,6 +105,11 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
 
       <div className="flex flex-wrap gap-1.5">
         <span className={`tier-pill !lowercase ${statusTone[p.status]}`}>{status}</span>
+        {presentation && (
+          <span className="tier-pill !lowercase border-purple/40 bg-purple/10 text-purple">
+            {presentation}
+          </span>
+        )}
         {p.location && (
           <span className="tier-pill !lowercase border-border-strong bg-card-elev text-muted-strong">
             {p.location}

@@ -262,6 +262,14 @@ function paperNewsText(item: PaperNewsItem, lang: "en" | "ja"): string {
       case "presented": {
         const loc = item.paper.location ? `(${item.paper.location})` : "";
         const title = titleJa ? `「${titleJa}」` : "";
+        if (item.paper.presentationFormat === "oral") {
+          const language = item.paper.presentationLanguage === "en" ? "英語で" : "";
+          return `${v}${loc} にて${title ? `${title}を` : ""}${language}口頭発表しました。`;
+        }
+        if (item.paper.presentationFormat === "poster") {
+          const language = item.paper.presentationLanguage === "en" ? "英語で" : "";
+          return `${v}${loc} にて${title ? `${title}を` : ""}${language}ポスター発表しました。`;
+        }
         return `${v}${loc} にて発表${title}。`;
       }
     }
@@ -277,6 +285,14 @@ function paperNewsText(item: PaperNewsItem, lang: "en" | "ja"): string {
     case "presented": {
       const loc = item.paper.location ? ` (${item.paper.location})` : "";
       const title = titleEn ? ` — ${titleEn}` : "";
+      if (item.paper.presentationFormat === "oral") {
+        const language = item.paper.presentationLanguage === "en" ? " in English" : "";
+        return `Gave an oral presentation${language} at ${v}${loc}${title}.`;
+      }
+      if (item.paper.presentationFormat === "poster") {
+        const language = item.paper.presentationLanguage === "en" ? " in English" : "";
+        return `Gave a poster presentation${language} at ${v}${loc}${title}.`;
+      }
       return `Presented at ${v}${loc}${title}.`;
     }
   }
