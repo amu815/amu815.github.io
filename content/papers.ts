@@ -87,8 +87,14 @@ export const papers: PaperVenue[] = [
     conferenceStart: "2026-11-04",
     conferenceEnd: "2026-11-06",
     location: "Hakodate, Japan",
-    status: "under_review",
-    statusDate: "2026-07-15",
+    status: "accepted",
+    statusDate: "2026-09-04",
+    badges: [
+      {
+        label: "General Paper",
+        labelJa: "一般論文",
+      },
+    ],
   },
   {
     id: "cikm-2026",
