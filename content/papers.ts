@@ -57,6 +57,19 @@ export type PaperVenue = {
 
 export const papers: PaperVenue[] = [
   {
+    id: "icwsm-2027",
+    shortName: "AAAI ICWSM 2027",
+    fullName: "International AAAI Conference on Web and Social Media",
+    fullNameJa: "AAAI ウェブ・ソーシャルメディア国際会議",
+    href: "https://www.icwsm.org/2027/",
+    type: "conference",
+    tier: "core_a",
+    submissionDeadline: "2026-09-15",
+    location: "Edinburgh, Scotland",
+    status: "under_review",
+    statusDate: "2026-09-15",
+  },
+  {
     id: "kdd-2027-cycle-1",
     shortName: "ACM KDD 2027 (Cycle 1)",
     fullName:

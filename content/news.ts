@@ -102,6 +102,16 @@ const applications: ApplicationNewsItem[] = [
 
 const milestones: MilestoneNewsItem[] = [
   {
+    date: "2026-09-15",
+    kind: "milestone",
+    displayKind: "submitted",
+    textEn:
+      "Submitted the camera-ready version of the IPSJ DPSWS 2026 paper.",
+    textJa:
+      "IPSJ DPSWS 2026 採択論文のカメラレディ版を提出しました。",
+    href: "https://www.dpsws.org/2026/",
+  },
+  {
     date: "2026-07-12",
     kind: "milestone",
     displayKind: "presented",
