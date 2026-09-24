@@ -33,7 +33,7 @@ export function buildTimeline(today = new Date()): TimelineEvent[] {
         events.push({ date: p.notificationDate, kind: decision, paper: p });
       }
     }
-    if (p.conferenceStart && p.status !== "rejected") {
+    if (p.conferenceStart && p.status !== "rejected" && p.status !== "withdrawn") {
       const kind: TimelineEventKind =
         p.status === "presented" ? "presented" : "conference";
       const date = p.status === "presented" ? p.statusDate ?? p.conferenceStart : p.conferenceStart;

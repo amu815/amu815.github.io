@@ -18,6 +18,7 @@ const STATUS_ORDER: PaperStatus[] = [
   "presented",
   "accepted",
   "rejected",
+  "withdrawn",
   "submitted",
 ];
 
@@ -35,6 +36,7 @@ const statusTone: Record<PaperStatus, string> = {
   under_review: "text-orange border-orange/40 bg-orange/10",
   accepted: "text-cyan border-cyan/40 bg-cyan/10",
   rejected: "text-red border-red/40 bg-red/10",
+  withdrawn: "text-muted-strong border-border-strong bg-card-elev",
   presented: "text-purple border-purple/40 bg-purple/10",
   submitted: "text-muted-strong border-border-strong bg-card-elev",
 };

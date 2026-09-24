@@ -2,6 +2,7 @@ export type PaperStatus =
   | "under_review"
   | "accepted"
   | "rejected"
+  | "withdrawn"
   | "presented"
   | "submitted";
 
@@ -138,8 +139,7 @@ export const papers: PaperVenue[] = [
     conferenceStart: "2026-12-06",
     conferenceEnd: "2026-12-12",
     location: "Sydney, Australia",
-    status: "under_review",
-    statusDate: "2026-05-01",
+    status: "withdrawn",
   },
   {
     id: "ijcai-2026",
@@ -386,6 +386,7 @@ export const statusLabel: Record<PaperStatus, string> = {
   under_review: "Under Review",
   accepted: "Accepted",
   rejected: "Rejected",
+  withdrawn: "Withdrawn",
   presented: "Presented",
   submitted: "Submitted",
 };
@@ -394,6 +395,7 @@ export const statusLabelJa: Record<PaperStatus, string> = {
   under_review: "査読中",
   accepted: "採択",
   rejected: "不採択",
+  withdrawn: "取り下げ",
   presented: "発表済",
   submitted: "投稿済",
 };

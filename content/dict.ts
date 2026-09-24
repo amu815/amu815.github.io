@@ -118,6 +118,7 @@ type Dict = {
       under_review: string;
       accepted: string;
       rejected: string;
+      withdrawn: string;
       presented: string;
       submitted: string;
     };
@@ -288,6 +289,7 @@ export const dict: Record<Lang, Dict> = {
         under_review: "Under Review",
         accepted: "Accepted",
         rejected: "Decisions",
+        withdrawn: "Withdrawn",
         presented: "Presented",
         submitted: "Submitted",
       },
@@ -457,6 +459,7 @@ export const dict: Record<Lang, Dict> = {
         under_review: "査読中",
         accepted: "採択",
         rejected: "不採択",
+        withdrawn: "取り下げ",
         presented: "発表済",
         submitted: "投稿済",
       },
