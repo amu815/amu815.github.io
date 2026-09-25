@@ -72,6 +72,15 @@ const KIND_PRIORITY: Record<NewsKind, number> = {
 
 const applications: ApplicationNewsItem[] = [
   {
+    date: "2026-09-25",
+    kind: "application",
+    textEn:
+      "Submitted an application to the IPA MITOU Advanced Program.",
+    textJa:
+      "IPA 未踏アドバンスト事業に申請しました。",
+    href: "https://www.ipa.go.jp/jinzai/mitou/advanced/",
+  },
+  {
     date: "2026-06-05",
     kind: "application",
     textEn:
