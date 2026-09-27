@@ -58,6 +58,21 @@ export type PaperVenue = {
 
 export const papers: PaperVenue[] = [
   {
+    id: "iclr-2027",
+    shortName: "ICLR 2027",
+    fullName: "International Conference on Learning Representations",
+    fullNameJa: "学習表現国際会議",
+    href: "https://iclr.cc/Conferences/2027",
+    type: "conference",
+    tier: "core_a_star",
+    submissionDeadline: "2026-09-26",
+    notificationDate: "2026-12-16",
+    conferenceStart: "2027-04-26",
+    conferenceEnd: "2027-04-30",
+    status: "under_review",
+    statusDate: "2026-09-26",
+  },
+  {
     id: "icwsm-2027",
     shortName: "AAAI ICWSM 2027",
     fullName: "International AAAI Conference on Web and Social Media",
