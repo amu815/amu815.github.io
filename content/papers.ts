@@ -187,7 +187,7 @@ export const papers: PaperVenue[] = [
     fullNameJa: "ACM マルチモーダルインタラクション国際会議",
     // The official ICMI site describes the conference as the premier international forum in this field.
     venueDescription: "a premier international conference in multimodal interaction",
-    venueDescriptionJa: "マルチモーダルインタラクション分野のトップカンファレンス",
+    venueDescriptionJa: "マルチモーダルインタラクションの分野トップカンファレンス",
     href: "https://icmi.acm.org/2026/",
     type: "conference",
     tier: "core_b",

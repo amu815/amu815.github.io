@@ -1,5 +1,5 @@
 import type { Lang } from "@/content/dict";
-import { papers } from "@/content/papers";
+import { papers, tierLabel } from "@/content/papers";
 import { formatDate } from "@/lib/date";
 import { PaperLinks } from "./PaperLinks";
 
@@ -17,6 +17,11 @@ export function OpenSourcePapers({ lang }: { lang: Lang }) {
             <a href={paper.href} target="_blank" rel="noreferrer" className="tier-pill border-accent/40 bg-accent/10 text-accent">
               {paper.shortName}
             </a>
+            {paper.tier.startsWith("core_") && (
+              <span className="tier-pill border-accent/40 bg-accent/10 text-accent">
+                {tierLabel[paper.tier]}
+              </span>
+            )}
             <span className="tier-pill border-purple/40 bg-purple/10 text-purple">
               {lang === "ja" ? "発表済・公開コードあり" : "Presented · Code available"}
             </span>
