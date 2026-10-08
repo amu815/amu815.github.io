@@ -269,7 +269,11 @@ function NewsRow({
         {item.kindLabel}
       </span>
       <p>
-        {item.text}
+        {hasLinks && item.href ? (
+          <a href={item.href} target="_blank" rel="noreferrer" className="news-row__headline">
+            {item.text}<span className="sr-only"> — {newTabLabel}</span>
+          </a>
+        ) : item.text}
         {hasLinks && (
           <span className="news-row__links">
             {item.links?.map((link) => (
@@ -283,7 +287,7 @@ function NewsRow({
       </p>
       <span className="news-row__trail">
         {item.highlight && <span className="news-latest">{latestLabel}</span>}
-        {item.href && !hasLinks && <ArrowUpRightIcon />}
+        {item.href && <ArrowUpRightIcon />}
       </span>
     </div>
   );

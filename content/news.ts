@@ -133,7 +133,8 @@ const milestones: MilestoneNewsItem[] = [
   {
     date: "2026-10-01",
     kind: "milestone",
-    displayKind: "presented",
+    labelEn: "Visit & exchange",
+    labelJa: "訪問・交流",
     textEn:
       "Presented my research and held a research meeting with Prof. Dr. Günter Neumann at the German Research Center for Artificial Intelligence (DFKI) on the Saarland University campus.",
     textJa:
