@@ -49,6 +49,12 @@ export type PaperVenue = {
   statusDate?: string;
   paperTitle?: string;
   paperTitleJa?: string;
+  doi?: string;
+  programHref?: string;
+  codeHref?: string;
+  summary?: string;
+  summaryJa?: string;
+  session?: string;
   presentationFormat?: PresentationFormat;
   presentationLanguage?: PresentationLanguage;
   authors?: Author[];
@@ -177,7 +183,7 @@ export const papers: PaperVenue[] = [
     shortName: "ACM ICMI 2026",
     fullName: "ACM International Conference on Multimodal Interaction",
     fullNameJa: "ACM マルチモーダルインタラクション国際会議",
-    href: "https://icmi.acm.org/",
+    href: "https://icmi.acm.org/2026/",
     type: "conference",
     tier: "core_b",
     submissionDeadline: "2026-04-22",
@@ -185,10 +191,25 @@ export const papers: PaperVenue[] = [
     conferenceStart: "2026-10-05",
     conferenceEnd: "2026-10-09",
     location: "Naples, Italy",
-    status: "accepted",
-    statusDate: "2026-07-02",
+    status: "presented",
+    statusDate: "2026-10-07",
     paperTitle:
       "GRoFA: Noise-Gated Adapters for Jointly Fair and Robust Face Embeddings",
+    doi: "10.1145/3776574.3831174",
+    programHref: "https://icmi.acm.org/2026/sessions/#poster-session-3",
+    codeHref: "https://github.com/amu815/ICMI2026_GRoFA_Amu_Suemoto",
+    summary:
+      "GRoFA uses noise-gated adapters to improve both demographic fairness and noise robustness in face embeddings. It adapts frozen BLIP, CLIP, and DINOv2 encoders with a small number of trainable parameters. The official repository includes training and evaluation code, experimental logs, and a supplementary appendix.",
+    summaryJa:
+      "顔画像の特徴表現における、属性間の公平性と画像ノイズへの頑健性の両立を目指す研究です。BLIP・CLIP・DINOv2の画像エンコーダを固定し、ノイズの程度に応じて働きを調整するアダプタを少数のパラメータで学習します。公式リポジトリでは、学習・評価コード、実験ログ、補足資料を公開しています。",
+    presentationFormat: "poster",
+    presentationLanguage: "en",
+    session: "15:00–16:30 · Poster Session #3 · Panel 17",
+    authors: [
+      { name: "Amu Suemoto", nameJa: "末本 歩夢" },
+      { name: "Yutaka Arakawa", nameJa: "荒川 豊", href: "https://researchmap.jp/yutaka.arakawa" },
+      { name: "Tsunenori Mine", nameJa: "峯 恒憲", href: "https://researchmap.jp/read0046263/" },
+    ],
     badges: [
       {
         label: "Long Paper",
@@ -255,8 +276,9 @@ export const papers: PaperVenue[] = [
     type: "journal",
     tier: "journal",
     submissionDeadline: "2026-03-28",
-    status: "under_review",
-    statusDate: "2026-03-28",
+    notificationDate: "2026-10-08",
+    status: "rejected",
+    statusDate: "2026-10-08",
   },
   {
     id: "dicomo-2026",
@@ -367,6 +389,20 @@ export const papers: PaperVenue[] = [
     ],
   },
 ];
+
+export function paperResources(paper: PaperVenue, lang: "en" | "ja") {
+  const links: { href: string; label: string }[] = [];
+  if (paper.doi) {
+    links.push({ href: `https://dl.acm.org/doi/full/${paper.doi}`, label: `DOI: ${paper.doi}` });
+  }
+  if (paper.programHref) {
+    links.push({ href: paper.programHref, label: lang === "ja" ? "発表プログラム" : "Presentation program" });
+  }
+  if (paper.codeHref) {
+    links.push({ href: paper.codeHref, label: lang === "ja" ? "公開コード（GitHub）" : "Source code (GitHub)" });
+  }
+  return links;
+}
 
 export function paperDisplayTitle(
   paper: PaperVenue,

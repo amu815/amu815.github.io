@@ -1,5 +1,5 @@
 import type { Lang } from "@/content/dict";
-import { news, newsHref, newsText, type NewsKind } from "@/content/news";
+import { news, newsHref, newsLinks, newsText, type NewsKind } from "@/content/news";
 import { NewsExplorer, type NewsDisplayItem } from "./NewsExplorer";
 
 const kindLabelEn: Record<NewsKind, string> = {
@@ -42,10 +42,13 @@ export function News({ lang }: { lang: Lang }) {
     return {
       id: itemKey(item),
       date: item.date,
+      dateEnd: item.kind === "milestone" ? item.dateEnd : undefined,
       kind,
-      kindLabel: lang === "ja" ? kindLabelJa[kind] : kindLabelEn[kind],
+      kindLabel: (item.kind === "milestone" ? (lang === "ja" ? item.labelJa : item.labelEn) : undefined)
+        ?? (lang === "ja" ? kindLabelJa[kind] : kindLabelEn[kind]),
       text: newsText(item, lang),
       href: newsHref(item),
+      links: newsLinks(item, lang),
       highlight: Boolean(item.highlight),
     };
   });

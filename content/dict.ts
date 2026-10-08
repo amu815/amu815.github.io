@@ -37,6 +37,7 @@ type Dict = {
   };
   sections: {
     news: string;
+    openSourcePapers: string;
     publications: string;
     awards: string;
     fundedProjects: string;
@@ -203,6 +204,7 @@ export const dict: Record<Lang, Dict> = {
     },
     sections: {
       news: "News",
+      openSourcePapers: "Open-source Papers",
       publications: "Publications",
       awards: "Awards",
       fundedProjects: "Funded Projects",
@@ -373,6 +375,7 @@ export const dict: Record<Lang, Dict> = {
     },
     sections: {
       news: "ニュース",
+      openSourcePapers: "オープンソース論文",
       publications: "論文・発表",
       awards: "表彰",
       fundedProjects: "有償プロジェクト",

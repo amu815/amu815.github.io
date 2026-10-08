@@ -9,10 +9,12 @@ import { FadeScroll } from "./FadeScroll";
 export type NewsDisplayItem = {
   id: string;
   date: string;
+  dateEnd?: string;
   kind: NewsKind;
   kindLabel: string;
   text: string;
   href?: string;
+  links?: { href: string; label: string }[];
   highlight: boolean;
 };
 
@@ -256,13 +258,33 @@ function NewsRow({
   latestLabel: string;
   newTabLabel: string;
 }) {
+  const hasLinks = Boolean(item.links?.length);
   const inner = (
     <div className={`news-row ${item.highlight ? "is-highlight" : ""}`}>
-      <time dateTime={item.date}>{item.date.slice(5).replace("-", ".")}</time>
+      <span className="news-row__date">
+        <time dateTime={item.date}>{item.date.slice(5).replace("-", ".")}</time>
+        {item.dateEnd && <>–<time dateTime={item.dateEnd}>{item.dateEnd.slice(5).replace("-", ".")}</time></>}
+      </span>
       <span className={`tier-pill !lowercase ${kindTone[item.kind]}`}>
         {item.kindLabel}
       </span>
-      <p>{item.text}</p>
+      <p>
+        {hasLinks && item.href ? (
+          <a href={item.href} target="_blank" rel="noreferrer">
+            {item.text}<span className="sr-only"> — {newTabLabel}</span>
+          </a>
+        ) : item.text}
+        {hasLinks && (
+          <span className="news-row__links">
+            {item.links?.map((link) => (
+              <a key={link.href} href={link.href} target="_blank" rel="noreferrer">
+                {link.label} <span aria-hidden>↗</span>
+                <span className="sr-only"> — {newTabLabel}</span>
+              </a>
+            ))}
+          </span>
+        )}
+      </p>
       <span className="news-row__trail">
         {item.highlight && <span className="news-latest">{latestLabel}</span>}
         {item.href && <ArrowUpRightIcon />}
@@ -275,7 +297,7 @@ function NewsRow({
       className="fade-in-up"
       style={{ animationDelay: `${Math.min(index * 40, 280)}ms` }}
     >
-      {item.href ? (
+      {item.href && !hasLinks ? (
         <a href={item.href} target="_blank" rel="noreferrer" className="block hover:no-underline">
           {inner}
           <span className="sr-only"> — {newTabLabel}</span>

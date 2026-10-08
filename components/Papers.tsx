@@ -12,6 +12,7 @@ import {
   type PaperVenue,
 } from "@/content/papers";
 import { formatDate, formatDateRange } from "@/lib/date";
+import { PaperLinks } from "./PaperLinks";
 
 const STATUS_ORDER: PaperStatus[] = [
   "under_review",
@@ -82,6 +83,9 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
       label: t.conference,
       value: formatDateRange(p.conferenceStart, p.conferenceEnd, lang),
     });
+  }
+  if (p.status === "presented" && p.statusDate) {
+    dateRows.push({ label: lang === "ja" ? "発表" : "Presented", value: formatDate(p.statusDate, lang) });
   }
 
   const authorSep = lang === "ja" ? "、" : ", ";
@@ -171,6 +175,7 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
           })}
         </p>
       )}
+      <PaperLinks paper={p} lang={lang} />
     </article>
   );
 }

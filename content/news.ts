@@ -1,4 +1,4 @@
-import { paperDisplayTitle, papers, tierLabel, type PaperVenue } from "./papers";
+import { paperDisplayTitle, paperResources, papers, tierLabel, type PaperVenue } from "./papers";
 import { kaggleEntries, percentile, type KaggleEntry } from "./kaggle";
 import { awards, type Award } from "./awards";
 
@@ -20,12 +20,16 @@ export type PaperNewsItem = {
 
 export type MilestoneNewsItem = {
   date: string;
+  dateEnd?: string;
   kind: "milestone";
   textEn: string;
   textJa: string;
   href?: string;
   highlight?: boolean;
   displayKind?: NewsKind;
+  labelEn?: string;
+  labelJa?: string;
+  links?: { href: string; label: string; labelJa?: string }[];
 };
 
 export type ApplicationNewsItem = {
@@ -110,6 +114,36 @@ const applications: ApplicationNewsItem[] = [
 ];
 
 const milestones: MilestoneNewsItem[] = [
+  {
+    date: "2026-10-03",
+    dateEnd: "2026-10-04",
+    kind: "milestone",
+    labelEn: "Visit & exchange",
+    labelJa: "訪問・交流",
+    textEn:
+      "On October 3–4, visited Hochschule Darmstadt (University of Applied Sciences) with Prof. Dr. Melanie Siegel and joined the Deidesheimer Jazzwanderung, the annual vineyard jazz festival held on German Unity Day (October 3).",
+    textJa:
+      "10月3〜4日、Prof. Dr. Melanie Siegel先生とダルムシュタット応用科学大学（Hochschule Darmstadt）を訪問し、ドイツ統一記念日（10月3日）恒例の、ワインとジャズを楽しむお祭り「Deidesheimer Jazzwanderung」に参加しました。",
+    links: [
+      { href: "https://melaniesiegel.de/", label: "Prof. Dr. Melanie Siegel" },
+      { href: "https://h-da.de/", label: "Hochschule Darmstadt" },
+      { href: "https://deidesheimer-jazzwanderung.de/", label: "Deidesheimer Jazzwanderung" },
+    ],
+  },
+  {
+    date: "2026-10-01",
+    kind: "milestone",
+    displayKind: "presented",
+    textEn:
+      "Presented my research and held a research meeting with Prof. Dr. Günter Neumann at the German Research Center for Artificial Intelligence (DFKI) on the Saarland University campus.",
+    textJa:
+      "ザールラント大学（Saarland University）構内のドイツ人工知能研究センター（DFKI）にて、Prof. Dr. Günter Neumann先生に研究内容を発表し、研究ミーティングを行いました。",
+    links: [
+      { href: "https://www.dfki.de/web/ueber-uns/mitarbeiter/person/gune00", label: "Prof. Dr. Günter Neumann" },
+      { href: "https://www.dfki.de/", label: "DFKI" },
+      { href: "https://www.uni-saarland.de/en/home.html", label: "Saarland University", labelJa: "ザールラント大学" },
+    ],
+  },
   {
     date: "2026-09-15",
     kind: "milestone",
@@ -349,4 +383,15 @@ export function newsHref(item: NewsItem): string | undefined {
   if (item.kind === "kaggle") return item.entry.href;
   if (item.kind === "award") return item.award.href;
   return item.paper.href;
+}
+
+export function newsLinks(item: NewsItem, lang: "en" | "ja") {
+  if (item.kind === "milestone") {
+    return item.links?.map((link) => ({
+      href: link.href,
+      label: lang === "ja" ? link.labelJa ?? link.label : link.label,
+    }));
+  }
+  if (item.kind === "presented") return paperResources(item.paper, lang);
+  return undefined;
 }

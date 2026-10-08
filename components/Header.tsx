@@ -9,6 +9,7 @@ import { SectionNavigator } from "./SectionNavigator";
 
 const SECTION_IDS = [
   "news",
+  "open-source-papers",
   "publications",
   "awards",
   "funded-projects",
@@ -26,6 +27,7 @@ const SECTION_IDS = [
 
 const PRIMARY_SECTION_IDS = new Set([
   "news",
+  "open-source-papers",
   "publications",
   "funded-projects",
   "education",
@@ -36,6 +38,7 @@ const PRIMARY_SECTION_IDS = new Set([
 
 const ACTIVE_PRIMARY_ID: Record<string, string> = {
   news: "news",
+  "open-source-papers": "open-source-papers",
   publications: "publications",
   awards: "publications",
   "funded-projects": "funded-projects",
@@ -90,6 +93,7 @@ export function Header({ lang }: { lang: Lang }) {
 
   const navItems: { id: string; href: string; label: string }[] = [
     { id: "news", href: "#news", label: t.sections.news },
+    { id: "open-source-papers", href: "#open-source-papers", label: t.sections.openSourcePapers },
     { id: "publications", href: "#publications", label: t.sections.publications },
     { id: "awards", href: "#awards", label: t.sections.awards },
     { id: "funded-projects", href: "#funded-projects", label: t.sections.fundedProjects },

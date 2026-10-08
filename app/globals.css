@@ -1772,11 +1772,26 @@ a:focus-visible .news-row {
   border-left: 2px solid var(--accent);
 }
 
-.news-row time {
+.news-row__date {
   color: var(--muted);
   font-family: var(--font-mono), monospace;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
+}
+
+.news-row__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 8px;
+  font-size: 0.76rem;
+}
+
+.news-row__links a {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .news-row p {
@@ -1950,8 +1965,12 @@ a:focus-visible .news-link-icon {
 }
 
 @media (max-width: 1180px) {
+  .site-header__inner {
+    gap: 16px;
+  }
+
   .site-nav__link {
-    padding-inline: 6px;
+    padding-inline: 4px;
     font-size: 0.68rem;
   }
 
