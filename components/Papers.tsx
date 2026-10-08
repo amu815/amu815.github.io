@@ -105,6 +105,11 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
             </a>
           </h3>
           <p className="mt-0.5 text-xs leading-snug text-muted">{fullName}</p>
+          {p.venueDescription && (
+            <p className="mt-1 text-xs leading-snug text-muted">
+              {lang === "ja" ? p.venueDescriptionJa ?? p.venueDescription : p.venueDescription}
+            </p>
+          )}
         </div>
         <span className={`tier-pill ${tierTone[p.tier]}`}>{tier}</span>
       </div>

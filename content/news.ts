@@ -314,17 +314,20 @@ function paperNewsText(item: PaperNewsItem, lang: "en" | "ja"): string {
       case "rejected":
         return `${v} の査読結果が通知されました(不採択)。`;
       case "presented": {
+        const venue = item.paper.venueDescriptionJa
+          ? `${item.paper.venueDescriptionJa}である${v}`
+          : v;
         const loc = item.paper.location ? `(${item.paper.location})` : "";
         const title = titleJa ? `「${titleJa}」` : "";
         if (item.paper.presentationFormat === "oral") {
           const language = item.paper.presentationLanguage === "en" ? "英語で" : "";
-          return `${v}${loc} にて${title ? `${title}を` : ""}${language}口頭発表しました。`;
+          return `${venue}${loc} にて${title ? `${title}を` : ""}${language}口頭発表しました。`;
         }
         if (item.paper.presentationFormat === "poster") {
           const language = item.paper.presentationLanguage === "en" ? "英語で" : "";
-          return `${v}${loc} にて${title ? `${title}を` : ""}${language}ポスター発表しました。`;
+          return `${venue}${loc} にて${title ? `${title}を` : ""}${language}ポスター発表しました。`;
         }
-        return `${v}${loc} にて発表${title}。`;
+        return `${venue}${loc} にて発表${title}。`;
       }
     }
   }
@@ -338,16 +341,19 @@ function paperNewsText(item: PaperNewsItem, lang: "en" | "ja"): string {
       return `${v} — paper not accepted.`;
     case "presented": {
       const loc = item.paper.location ? ` (${item.paper.location})` : "";
+      const venue = item.paper.venueDescription
+        ? `${v}${loc}, ${item.paper.venueDescription}`
+        : `${v}${loc}`;
       const title = titleEn ? ` — ${titleEn}` : "";
       if (item.paper.presentationFormat === "oral") {
         const language = item.paper.presentationLanguage === "en" ? " in English" : "";
-        return `Gave an oral presentation${language} at ${v}${loc}${title}.`;
+        return `Gave an oral presentation${language} at ${venue}${title}.`;
       }
       if (item.paper.presentationFormat === "poster") {
         const language = item.paper.presentationLanguage === "en" ? " in English" : "";
-        return `Gave a poster presentation${language} at ${v}${loc}${title}.`;
+        return `Gave a poster presentation${language} at ${venue}${title}.`;
       }
-      return `Presented at ${v}${loc}${title}.`;
+      return `Presented at ${venue}${title}.`;
     }
   }
 }

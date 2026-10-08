@@ -37,6 +37,8 @@ export type PaperVenue = {
   shortName: string;
   fullName: string;
   fullNameJa?: string;
+  venueDescription?: string;
+  venueDescriptionJa?: string;
   href: string;
   type: PaperType;
   tier: PaperTier;
@@ -183,6 +185,9 @@ export const papers: PaperVenue[] = [
     shortName: "ACM ICMI 2026",
     fullName: "ACM International Conference on Multimodal Interaction",
     fullNameJa: "ACM マルチモーダルインタラクション国際会議",
+    // The official ICMI site describes the conference as the premier international forum in this field.
+    venueDescription: "a premier international conference in multimodal interaction",
+    venueDescriptionJa: "マルチモーダルインタラクション分野のトップカンファレンス",
     href: "https://icmi.acm.org/2026/",
     type: "conference",
     tier: "core_b",

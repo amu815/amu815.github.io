@@ -21,6 +21,11 @@ export function OpenSourcePapers({ lang }: { lang: Lang }) {
               {lang === "ja" ? "発表済・公開コードあり" : "Presented · Code available"}
             </span>
           </div>
+          {paper.venueDescription && (
+            <p className="mb-3 text-sm leading-relaxed text-muted-strong">
+              {lang === "ja" ? paper.venueDescriptionJa ?? paper.venueDescription : paper.venueDescription}
+            </p>
+          )}
           <h3 className="max-w-3xl text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
             {paper.paperTitle}
           </h3>
