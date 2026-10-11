@@ -115,6 +115,20 @@ const applications: ApplicationNewsItem[] = [
 
 const milestones: MilestoneNewsItem[] = [
   {
+    date: "2026-10-11",
+    kind: "milestone",
+    labelEn: "Visit & exchange",
+    labelJa: "訪問・交流",
+    textEn:
+      "Met with Dr. Jonathan H. Chan of King Mongkut's University of Technology Thonburi (KMUTT) in Bangkok, Thailand, and introduced my research.",
+    textJa:
+      "タイ・バンコクにて、KMUTT（King Mongkut’s University of Technology Thonburi）のJonathan H. Chan先生と交流し、研究内容を紹介しました。",
+    links: [
+      { href: "https://ic2.sit.kmutt.ac.th/about-us/", label: "Dr. Jonathan H. Chan" },
+      { href: "https://www.kmutt.ac.th/en/", label: "KMUTT" },
+    ],
+  },
+  {
     date: "2026-10-03",
     dateEnd: "2026-10-04",
     kind: "milestone",
