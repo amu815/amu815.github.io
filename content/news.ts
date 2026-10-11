@@ -149,9 +149,9 @@ const milestones: MilestoneNewsItem[] = [
     labelEn: "Visit & exchange",
     labelJa: "訪問・交流",
     textEn:
-      "Joined Prof. Dr. Melanie Siegel and Nico at the Deidesheimer Jazzwanderung, the annual vineyard jazz festival held on German Unity Day (October 3).",
+      "Joined Prof. Dr. Melanie Siegel and Nico Niegisch at the Deidesheimer Jazzwanderung, the annual vineyard jazz festival held on German Unity Day (October 3).",
     textJa:
-      "Prof. Dr. Melanie Siegel先生、Nicoさんと、ドイツ統一記念日（10月3日）恒例の、ワインとジャズを楽しむお祭り「Deidesheimer Jazzwanderung」に参加しました。",
+      "Prof. Dr. Melanie Siegel先生、Nico Niegisch先生と、ドイツ統一記念日（10月3日）恒例の、ワインとジャズを楽しむお祭り「Deidesheimer Jazzwanderung」に参加しました。",
     links: [
       { href: "https://melaniesiegel.de/", label: "Prof. Dr. Melanie Siegel" },
       { href: "https://www.bandmix.de/melanie345092/", label: "Band profile", labelJa: "バンド紹介" },
