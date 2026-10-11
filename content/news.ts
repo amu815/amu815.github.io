@@ -120,11 +120,11 @@ const milestones: MilestoneNewsItem[] = [
     labelEn: "Visit & exchange",
     labelJa: "訪問・交流",
     textEn:
-      "Met with Dr. Jonathan H. Chan of King Mongkut's University of Technology Thonburi (KMUTT) in Bangkok, Thailand, and introduced my research.",
+      "Met with Assoc. Prof. Dr. Jonathan Hoyin Chan of King Mongkut's University of Technology Thonburi (KMUTT) in Bangkok, Thailand, and introduced my research.",
     textJa:
-      "タイ・バンコクにて、KMUTT（King Mongkut’s University of Technology Thonburi）のJonathan H. Chan先生と交流し、研究内容を紹介しました。",
+      "タイ・バンコクにて、KMUTT（King Mongkut’s University of Technology Thonburi）のAssoc. Prof. Dr. Jonathan Hoyin Chan先生と交流し、研究内容を紹介しました。",
     links: [
-      { href: "https://ic2.sit.kmutt.ac.th/about-us/", label: "Dr. Jonathan H. Chan" },
+      { href: "https://ic2.sit.kmutt.ac.th/about-us/", label: "Assoc. Prof. Dr. Jonathan Hoyin Chan" },
       { href: "https://www.kmutt.ac.th/en/", label: "KMUTT" },
     ],
   },
