@@ -115,7 +115,7 @@ const applications: ApplicationNewsItem[] = [
 
 const milestones: MilestoneNewsItem[] = [
   {
-    date: "2026-10-11",
+    date: "2026-10-10",
     kind: "milestone",
     labelEn: "Visit & exchange",
     labelJa: "訪問・交流",
