@@ -145,18 +145,30 @@ const milestones: MilestoneNewsItem[] = [
   },
   {
     date: "2026-10-03",
-    dateEnd: "2026-10-04",
     kind: "milestone",
     labelEn: "Visit & exchange",
     labelJa: "訪問・交流",
     textEn:
-      "On October 3–4, visited Hochschule Darmstadt (University of Applied Sciences) with Prof. Dr. Melanie Siegel and joined the Deidesheimer Jazzwanderung, the annual vineyard jazz festival held on German Unity Day (October 3).",
+      "Joined Prof. Dr. Melanie Siegel at the Deidesheimer Jazzwanderung, the annual vineyard jazz festival held on German Unity Day (October 3).",
     textJa:
-      "10月3〜4日、Prof. Dr. Melanie Siegel先生とダルムシュタット応用科学大学（Hochschule Darmstadt）を訪問し、ドイツ統一記念日（10月3日）恒例の、ワインとジャズを楽しむお祭り「Deidesheimer Jazzwanderung」に参加しました。",
+      "Prof. Dr. Melanie Siegel先生らと、ドイツ統一記念日（10月3日）恒例の、ワインとジャズを楽しむお祭り「Deidesheimer Jazzwanderung」に参加しました。",
+    links: [
+      { href: "https://melaniesiegel.de/", label: "Prof. Dr. Melanie Siegel" },
+      { href: "https://deidesheimer-jazzwanderung.de/", label: "Deidesheimer Jazzwanderung" },
+    ],
+  },
+  {
+    date: "2026-10-02",
+    kind: "milestone",
+    labelEn: "Visit & exchange",
+    labelJa: "訪問・交流",
+    textEn:
+      "Visited Hochschule Darmstadt (University of Applied Sciences) with Prof. Dr. Melanie Siegel.",
+    textJa:
+      "Prof. Dr. Melanie Siegel先生とダルムシュタット応用科学大学（Hochschule Darmstadt）を訪問しました。",
     links: [
       { href: "https://melaniesiegel.de/", label: "Prof. Dr. Melanie Siegel" },
       { href: "https://h-da.de/", label: "Hochschule Darmstadt" },
-      { href: "https://deidesheimer-jazzwanderung.de/", label: "Deidesheimer Jazzwanderung" },
     ],
   },
   {
