@@ -124,9 +124,9 @@ const milestones: MilestoneNewsItem[] = [
     textJa:
       "タイ・バンコクにて、Assoc. Prof. Dr. Jonathan Hoyin Chan先生、Dr. Teema Leangarun先生、Dr. Wutipong Preechaphonkul先生との夕食会に参加しました。",
     links: [
-      { href: "https://ic2.sit.kmutt.ac.th/about-us/", label: "Assoc. Prof. Dr. Jonathan Hoyin Chan" },
-      { href: "https://inc.kmutt.ac.th/home/page/th/people", label: "Dr. Teema Leangarun" },
-      { href: "https://research.tu.ac.th/postdoc", label: "Dr. Wutipong Preechaphonkul" },
+      { href: "https://www.sit.kmutt.ac.th/en/showprofile/?empid=155", label: "Assoc. Prof. Dr. Jonathan Hoyin Chan" },
+      { href: "https://kirim.kmutt.ac.th/converis/portal/detail/Person/942396137?lang=en_GB", label: "Dr. Teema Leangarun" },
+      { href: "https://kirim.kmutt.ac.th/converis/portal/detail/Person/1511417847?lang=en_GB", label: "Dr. Wutipong Preechaphonkul" },
     ],
   },
   {
@@ -139,7 +139,7 @@ const milestones: MilestoneNewsItem[] = [
     textJa:
       "タイ・バンコクにて、KMUTT（King Mongkut’s University of Technology Thonburi）のAssoc. Prof. Dr. Jonathan Hoyin Chan先生と交流し、研究内容を紹介しました。",
     links: [
-      { href: "https://ic2.sit.kmutt.ac.th/about-us/", label: "Assoc. Prof. Dr. Jonathan Hoyin Chan" },
+      { href: "https://www.sit.kmutt.ac.th/en/showprofile/?empid=155", label: "Assoc. Prof. Dr. Jonathan Hoyin Chan" },
       { href: "https://www.kmutt.ac.th/en/", label: "KMUTT" },
     ],
   },
