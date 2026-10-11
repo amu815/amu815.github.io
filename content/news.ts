@@ -120,6 +120,21 @@ const milestones: MilestoneNewsItem[] = [
     labelEn: "Visit & exchange",
     labelJa: "訪問・交流",
     textEn:
+      "Joined Assoc. Prof. Dr. Jonathan Hoyin Chan, Dr. Teema Leangarun, and Dr. Wutipong Preechaphonkul for dinner in Bangkok, Thailand.",
+    textJa:
+      "タイ・バンコクにて、Assoc. Prof. Dr. Jonathan Hoyin Chan先生、Dr. Teema Leangarun先生、Dr. Wutipong Preechaphonkul先生との夕食会に参加しました。",
+    links: [
+      { href: "https://ic2.sit.kmutt.ac.th/about-us/", label: "Assoc. Prof. Dr. Jonathan Hoyin Chan" },
+      { href: "https://inc.kmutt.ac.th/home/page/th/people", label: "Dr. Teema Leangarun" },
+      { href: "https://research.tu.ac.th/postdoc", label: "Dr. Wutipong Preechaphonkul" },
+    ],
+  },
+  {
+    date: "2026-10-10",
+    kind: "milestone",
+    labelEn: "Visit & exchange",
+    labelJa: "訪問・交流",
+    textEn:
       "Met with Assoc. Prof. Dr. Jonathan Hoyin Chan of King Mongkut's University of Technology Thonburi (KMUTT) in Bangkok, Thailand, and introduced my research.",
     textJa:
       "タイ・バンコクにて、KMUTT（King Mongkut’s University of Technology Thonburi）のAssoc. Prof. Dr. Jonathan Hoyin Chan先生と交流し、研究内容を紹介しました。",
