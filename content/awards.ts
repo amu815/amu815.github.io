@@ -14,6 +14,21 @@ export type Award = {
 
 export const awards: Award[] = [
   {
+    id: "dicomo-2026-best-paper",
+    // Date the paper awards were announced on the official commendation page.
+    date: "2026-10-13",
+    name: "Best Paper Award",
+    nameJa: "最優秀論文賞",
+    venue: "IPSJ DICOMO 2026 Symposium",
+    venueJa: "情報処理学会 マルチメディア，分散，協調とモバイル (DICOMO) 2026 シンポジウム",
+    href: "https://dicomo.org/commendation/",
+    title:
+      "GRoFA: ノイズゲート付きアダプタによる公平でロバストな顔画像埋め込みの学習",
+    authors: ["末本歩夢", "荒川豊", "峯恒憲"],
+    affiliation: "Kyushu University Arakawa, Mine & Fukushima Laboratory",
+    affiliationJa: "九州大学 荒川・峯・福嶋研究室",
+  },
+  {
     id: "dicomo-2026-excellent-presentation",
     date: "2026-06-26",
     name: "Excellent Presentation Award",

@@ -319,6 +319,11 @@ export const papers: PaperVenue[] = [
     ],
     badges: [
       {
+        label: "Best Paper Award",
+        labelJa: "最優秀論文賞",
+        tone: "award",
+      },
+      {
         label: "1st Place, Night Technical Session",
         labelJa: "ナイトテクニカルセッション 優勝",
         tone: "award",
