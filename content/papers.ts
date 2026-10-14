@@ -29,7 +29,7 @@ export type Author = {
 export type PaperBadge = {
   label: string;
   labelJa?: string;
-  tone?: "award";
+  tone?: "neutral" | "award";
 };
 
 export type PaperVenue = {

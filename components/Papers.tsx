@@ -43,6 +43,7 @@ const statusTone: Record<PaperStatus, string> = {
 };
 
 const badgeTone = {
+  neutral: "border-border-strong bg-card-elev text-muted-strong",
   award: "border-gold/50 bg-gold/10 text-gold",
 } as const;
 
@@ -129,7 +130,7 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
         {p.badges?.map((badge) => (
           <span
             key={badge.label}
-            className={`tier-pill !lowercase ${badgeTone[badge.tone ?? "award"]}`}
+            className={`tier-pill !lowercase ${badgeTone[badge.tone ?? "neutral"]}`}
           >
             {lang === "ja" && badge.labelJa ? badge.labelJa : badge.label}
           </span>
