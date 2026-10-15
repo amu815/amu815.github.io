@@ -94,6 +94,28 @@ export const papers: PaperVenue[] = [
     statusDate: "2026-09-15",
   },
   {
+    id: "wsdm-2027",
+    shortName: "ACM WSDM 2027",
+    fullName: "The 20th ACM International Conference on Web Search and Data Mining",
+    fullNameJa: "第20回 ACM ウェブ検索・データマイニング国際会議",
+    href: "https://www.wsdm-conference.org/2027/",
+    type: "conference",
+    tier: "core_a",
+    submissionDeadline: "2026-08-23",
+    notificationDate: "2026-11-02",
+    conferenceStart: "2027-02-15",
+    conferenceEnd: "2027-02-19",
+    location: "Hong Kong, China",
+    status: "under_review",
+    statusDate: "2026-08-23",
+    badges: [
+      {
+        label: "Full Paper",
+        labelJa: "Full Paper",
+      },
+    ],
+  },
+  {
     id: "kdd-2027-cycle-1",
     shortName: "ACM KDD 2027 (Cycle 1)",
     fullName:
