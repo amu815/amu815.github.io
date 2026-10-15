@@ -77,6 +77,7 @@ export const papers: PaperVenue[] = [
     notificationDate: "2026-12-16",
     conferenceStart: "2027-04-26",
     conferenceEnd: "2027-04-30",
+    location: "California, USA",
     status: "under_review",
     statusDate: "2026-09-26",
   },
