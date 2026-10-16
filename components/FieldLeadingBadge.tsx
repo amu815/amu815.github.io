@@ -1,6 +1,6 @@
 import type { Lang } from "@/content/dict";
 import type { PaperVenue } from "@/content/papers";
-import { fieldLeadingConference } from "@/content/conferences";
+import { conferenceBadgePolicyUrl, fieldLeadingConference } from "@/content/conferences";
 
 export function FieldLeadingBadge({ paper, lang }: { paper: PaperVenue; lang: Lang }) {
   const conference = fieldLeadingConference(paper);
@@ -9,12 +9,12 @@ export function FieldLeadingBadge({ paper, lang }: { paper: PaperVenue; lang: La
   const label = lang === "ja" ? "分野トップカンファレンス" : "Leading Conference in the Field";
   const field = lang === "ja" ? conference.fieldJa : conference.field;
   const detail = lang === "ja"
-    ? `${field} — 公式紹介に基づく位置づけ（COREランクとは別基準）`
-    : `${field} — based on the official conference description, independently of CORE rank`;
+    ? `${field} — 複数の学術機関の資料に基づくサイト独自の分類（COREとは別基準）。判断基準と出典を開く`
+    : `${field} — site classification supported by multiple academic institutions, separate from CORE. View criteria and sources`;
 
   return (
     <a
-      href={conference.source}
+      href={`${conferenceBadgePolicyUrl}#${paper.conferenceSeries}`}
       target="_blank"
       rel="noreferrer"
       title={detail}
