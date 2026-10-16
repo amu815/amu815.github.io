@@ -356,6 +356,19 @@ a {
   flex-shrink: 0;
 }
 
+.tier-pill.core-a-star-badge {
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.tier-pill.field-leading-badge {
+  max-width: 100%;
+  white-space: normal;
+  text-transform: none;
+}
+
 /* Masthead */
 .site-header {
   position: sticky;

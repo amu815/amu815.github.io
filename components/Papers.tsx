@@ -13,6 +13,7 @@ import {
 } from "@/content/papers";
 import { formatDate, formatDateRange } from "@/lib/date";
 import { PaperLinks } from "./PaperLinks";
+import { FieldLeadingBadge } from "./FieldLeadingBadge";
 
 const STATUS_ORDER: PaperStatus[] = [
   "under_review",
@@ -112,10 +113,11 @@ function PaperCard({ p, lang }: { p: PaperVenue; lang: Lang }) {
             </p>
           )}
         </div>
-        <span className={`tier-pill ${tierTone[p.tier]}`}>{tier}</span>
+        <span className={`tier-pill ${p.tier === "core_a_star" ? "core-a-star-badge" : ""} ${tierTone[p.tier]}`}>{tier}</span>
       </div>
 
       <div className="flex flex-wrap gap-1.5">
+        <FieldLeadingBadge paper={p} lang={lang} />
         <span className={`tier-pill !lowercase ${statusTone[p.status]}`}>{status}</span>
         {presentation && (
           <span className="tier-pill !lowercase border-purple/40 bg-purple/10 text-purple">

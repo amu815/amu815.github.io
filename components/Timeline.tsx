@@ -4,6 +4,7 @@ import { timeline, type TimelineEvent, type TimelineEventKind } from "@/content/
 import { tierLabel, tierLabelJa, type PaperTier } from "@/content/papers";
 import { formatDate, parseIsoDate } from "@/lib/date";
 import { FadeScroll } from "./FadeScroll";
+import { FieldLeadingBadge } from "./FieldLeadingBadge";
 
 const kindTone: Record<TimelineEventKind, { dot: string; ring: string; text: string }> = {
   submitted: {
@@ -191,7 +192,8 @@ function TimelineList({
                 </a>
               </p>
               <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
-                <span className={`tier-pill ${tierBadgeTone[e.paper.tier]}`}>{tier}</span>
+                <span className={`tier-pill ${e.paper.tier === "core_a_star" ? "core-a-star-badge" : ""} ${tierBadgeTone[e.paper.tier]}`}>{tier}</span>
+                <FieldLeadingBadge paper={e.paper} lang={lang} />
                 {e.paper.location && <span>{e.paper.location}</span>}
               </div>
             </div>

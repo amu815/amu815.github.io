@@ -2,6 +2,7 @@ import type { Lang } from "@/content/dict";
 import { papers, tierLabel } from "@/content/papers";
 import { formatDate } from "@/lib/date";
 import { PaperLinks } from "./PaperLinks";
+import { FieldLeadingBadge } from "./FieldLeadingBadge";
 
 export function OpenSourcePapers({ lang }: { lang: Lang }) {
   return (
@@ -18,10 +19,11 @@ export function OpenSourcePapers({ lang }: { lang: Lang }) {
               {paper.shortName}
             </a>
             {paper.tier.startsWith("core_") && (
-              <span className="tier-pill border-accent/40 bg-accent/10 text-accent">
+              <span className={`tier-pill ${paper.tier === "core_a_star" ? "core-a-star-badge" : ""} border-accent/40 bg-accent/10 text-accent`}>
                 {tierLabel[paper.tier]}
               </span>
             )}
+            <FieldLeadingBadge paper={paper} lang={lang} />
             <span className="tier-pill border-purple/40 bg-purple/10 text-purple">
               {lang === "ja" ? "発表済・公開コードあり" : "Presented · Code available"}
             </span>

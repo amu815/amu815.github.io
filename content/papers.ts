@@ -1,3 +1,5 @@
+import type { ConferenceSeries } from "./conferences";
+
 export type PaperStatus =
   | "under_review"
   | "accepted"
@@ -42,6 +44,7 @@ export type PaperVenue = {
   href: string;
   type: PaperType;
   tier: PaperTier;
+  conferenceSeries?: ConferenceSeries;
   submissionDeadline?: string;
   notificationDate?: string;
   conferenceStart?: string;
@@ -83,6 +86,7 @@ export const papers: PaperVenue[] = [
   },
   {
     id: "icwsm-2027",
+    conferenceSeries: "icwsm",
     shortName: "AAAI ICWSM 2027",
     fullName: "International AAAI Conference on Web and Social Media",
     fullNameJa: "AAAI ウェブ・ソーシャルメディア国際会議",
@@ -96,6 +100,7 @@ export const papers: PaperVenue[] = [
   },
   {
     id: "wsdm-2027",
+    conferenceSeries: "wsdm",
     shortName: "ACM WSDM 2027",
     fullName: "The 20th ACM International Conference on Web Search and Data Mining",
     fullNameJa: "第20回 ACM ウェブ検索・データマイニング国際会議",
@@ -158,6 +163,7 @@ export const papers: PaperVenue[] = [
   },
   {
     id: "cikm-2026",
+    conferenceSeries: "cikm",
     shortName: "ACM CIKM 2026",
     fullName: "ACM International Conference on Information and Knowledge Management",
     fullNameJa: "ACM 情報・知識管理国際会議",
@@ -205,6 +211,7 @@ export const papers: PaperVenue[] = [
   },
   {
     id: "icmi-2026",
+    conferenceSeries: "icmi",
     shortName: "ACM ICMI 2026",
     fullName: "ACM International Conference on Multimodal Interaction",
     fullNameJa: "ACM マルチモーダルインタラクション国際会議",
@@ -265,6 +272,7 @@ export const papers: PaperVenue[] = [
   },
   {
     id: "icassp-2026",
+    conferenceSeries: "icassp",
     shortName: "IEEE ICASSP 2026",
     fullName: "IEEE International Conference on Acoustics, Speech and Signal Processing",
     fullNameJa: "IEEE 音響・音声・信号処理国際会議",
@@ -281,6 +289,7 @@ export const papers: PaperVenue[] = [
   },
   {
     id: "rcis-2026",
+    conferenceSeries: "rcis",
     shortName: "RCIS 2026",
     fullName: "Research Challenges in Information Science",
     fullNameJa: "情報科学研究課題国際会議",
