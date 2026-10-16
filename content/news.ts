@@ -149,9 +149,9 @@ const milestones: MilestoneNewsItem[] = [
     labelEn: "Visit & exchange",
     labelJa: "訪問・交流",
     textEn:
-      "Joined Prof. Dr. Melanie Siegel and Nico Niegisch at the Deidesheimer Jazzwanderung, the annual vineyard jazz festival held on German Unity Day (October 3).",
+      "Joined Prof. Dr. Melanie Siegel and Nico Niegisch at the Deidesheimer Jazzwanderung in Deidesheim, Germany, the annual vineyard jazz festival held on German Unity Day (October 3).",
     textJa:
-      "Prof. Dr. Melanie Siegel先生、Nico Niegisch先生と、ドイツ統一記念日（10月3日）恒例の、ワインとジャズを楽しむお祭り「Deidesheimer Jazzwanderung」に参加しました。",
+      "ドイツ・ダイデスハイムにて、Prof. Dr. Melanie Siegel先生、Nico Niegisch先生と、ドイツ統一記念日（10月3日）恒例の、ワインとジャズを楽しむお祭り「Deidesheimer Jazzwanderung」に参加しました。",
     links: [
       { href: "https://melaniesiegel.de/", label: "Prof. Dr. Melanie Siegel" },
       { href: "https://www.bandmix.de/melanie345092/", label: "Band profile", labelJa: "バンド紹介" },
@@ -164,9 +164,9 @@ const milestones: MilestoneNewsItem[] = [
     labelEn: "Visit & exchange",
     labelJa: "訪問・交流",
     textEn:
-      "Visited Hochschule Darmstadt (University of Applied Sciences) with Prof. Dr. Melanie Siegel.",
+      "Visited Hochschule Darmstadt (University of Applied Sciences) in Darmstadt, Germany, with Prof. Dr. Melanie Siegel.",
     textJa:
-      "Prof. Dr. Melanie Siegel先生とダルムシュタット応用科学大学（Hochschule Darmstadt）を訪問しました。",
+      "ドイツ・ダルムシュタットにて、Prof. Dr. Melanie Siegel先生とダルムシュタット応用科学大学（Hochschule Darmstadt）を訪問しました。",
     links: [
       { href: "https://melaniesiegel.de/", label: "Prof. Dr. Melanie Siegel" },
       { href: "https://h-da.de/", label: "Hochschule Darmstadt" },
@@ -178,9 +178,9 @@ const milestones: MilestoneNewsItem[] = [
     labelEn: "Visit & exchange",
     labelJa: "訪問・交流",
     textEn:
-      "Presented my research and held a research meeting with Prof. Dr. Günter Neumann at the German Research Center for Artificial Intelligence (DFKI) on the Saarland University campus.",
+      "Presented my research and held a research meeting with Prof. Dr. Günter Neumann at the German Research Center for Artificial Intelligence (DFKI) on the Saarland University campus in Saarbrücken, Germany.",
     textJa:
-      "ザールラント大学（Saarland University）構内のドイツ人工知能研究センター（DFKI）にて、Prof. Dr. Günter Neumann先生に研究内容を発表し、研究ミーティングを行いました。",
+      "ドイツ・ザールブリュッケンにて、ザールラント大学（Saarland University）構内のドイツ人工知能研究センター（DFKI）を訪問し、Prof. Dr. Günter Neumann先生に研究内容を発表して研究ミーティングを行いました。",
     links: [
       { href: "https://www.dfki.de/web/ueber-uns/mitarbeiter/person/gune00", label: "Prof. Dr. Günter Neumann" },
       { href: "https://www.dfki.de/", label: "DFKI" },
@@ -360,16 +360,19 @@ function paperNewsText(item: PaperNewsItem, lang: "en" | "ja"): string {
           ? `${item.paper.venueDescriptionJa}である${v}`
           : v;
         const loc = item.paper.location ? `(${item.paper.location})` : "";
+        const venueWithLocation = item.paper.locationJa
+          ? `${item.paper.locationJa}にて、${venue}で`
+          : `${venue}${loc} にて`;
         const title = titleJa ? `「${titleJa}」` : "";
         if (item.paper.presentationFormat === "oral") {
           const language = item.paper.presentationLanguage === "en" ? "英語で" : "";
-          return `${venue}${loc} にて${title ? `${title}を` : ""}${language}口頭発表しました。`;
+          return `${venueWithLocation}${title ? `${title}を` : ""}${language}口頭発表しました。`;
         }
         if (item.paper.presentationFormat === "poster") {
           const language = item.paper.presentationLanguage === "en" ? "英語で" : "";
-          return `${venue}${loc} にて${title ? `${title}を` : ""}${language}ポスター発表しました。`;
+          return `${venueWithLocation}${title ? `${title}を` : ""}${language}ポスター発表しました。`;
         }
-        return `${venue}${loc} にて発表${title}。`;
+        return `${venueWithLocation}発表${title}。`;
       }
     }
   }

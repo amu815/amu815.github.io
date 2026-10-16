@@ -50,6 +50,7 @@ export type PaperVenue = {
   conferenceStart?: string;
   conferenceEnd?: string;
   location?: string;
+  locationJa?: string;
   status: PaperStatus;
   statusDate?: string;
   paperTitle?: string;
@@ -226,6 +227,7 @@ export const papers: PaperVenue[] = [
     conferenceStart: "2026-10-05",
     conferenceEnd: "2026-10-09",
     location: "Naples, Italy",
+    locationJa: "イタリア・ナポリ",
     status: "presented",
     statusDate: "2026-10-07",
     paperTitle:
