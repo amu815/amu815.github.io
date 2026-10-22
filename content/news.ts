@@ -120,9 +120,9 @@ const milestones: MilestoneNewsItem[] = [
     labelEn: "Meeting",
     labelJa: "会議",
     textEn:
-      "Attended a double-degree meeting at Kyushu University with Toshiki Hayashida (a second-year doctoral student in my laboratory), Yutaka Arakawa, and Danila Mamontov (M.Sc., Research Assistant) and Prof. Dr. Dr.-Ing. Wolfgang Minker of the Institute of Communications Engineering, Ulm University, Germany. I also explained my research, GRoFA, during the meeting. Hayashida plans to study at Ulm University for one year from November 2026 toward a double degree.",
+      "Attended a double-degree meeting at Kyushu University with Toshiki Hayashida (a second-year doctoral student in my laboratory), Yutaka Arakawa, and Danila Mamontov (M.Sc., Research Assistant) and Prof. Dr. Dr.-Ing. Wolfgang Minker of the Institute of Communications Engineering, Ulm University, Germany. I also explained my research, GRoFA, during the meeting.",
     textJa:
-      "九州大学にて、林田 宗樹さん（同研究室・D2）、荒川 豊先生、ドイツ・ウルム大学（Ulm University）の Institute of Communications Engineering に所属する Danila Mamontov 氏（M.Sc., Research Assistant）、Wolfgang Minker 教授（Prof. Dr. Dr.-Ing.）と、ダブルディグリーに関する会議に参加しました。会議では、私の研究「GRoFA」についても説明しました。林田さんはダブルディグリー取得に向け、2026年11月から1年間ウルム大学に留学する予定です。",
+      "九州大学にて、林田 宗樹さん（同研究室・D2）、荒川 豊先生、ドイツ・ウルム大学（Ulm University）の Institute of Communications Engineering に所属する Danila Mamontov 氏（M.Sc., Research Assistant）、Wolfgang Minker 教授（Prof. Dr. Dr.-Ing.）と、ダブルディグリーに関する会議に参加しました。会議では、私の研究「GRoFA」についても説明しました。",
     links: [
       { href: "https://app.ait.kyushu-u.ac.jp/people/c40c9800/", label: "Toshiki Hayashida", labelJa: "林田 宗樹" },
       { href: "https://hyoka.ofc.kyushu-u.ac.jp/html/100021352_en.html", label: "Yutaka Arakawa", labelJa: "荒川 豊先生" },
