@@ -115,6 +115,22 @@ const applications: ApplicationNewsItem[] = [
 
 const milestones: MilestoneNewsItem[] = [
   {
+    date: "2026-10-22",
+    kind: "milestone",
+    labelEn: "Meeting",
+    labelJa: "会議",
+    textEn:
+      "Attended a double-degree meeting at Kyushu University with Toshiki Hayashida (a second-year doctoral student in the Arakawa Laboratory), Prof. Yutaka Arakawa (Faculty of Information Science and Electrical Engineering, Kyushu University), and Danila Mamontov (M.Sc., Research Assistant) and Prof. Dr. Dr.-Ing. Wolfgang Minker of the Institute of Communications Engineering, Ulm University, Germany. Hayashida plans to study at Ulm University for one year from November 2026 toward a double degree.",
+    textJa:
+      "九州大学にて、同大学の林田 宗樹さん（荒川研究室・博士課程2年）、荒川 豊教授（大学院システム情報科学研究院）、ドイツ・ウルム大学（Ulm University）の Institute of Communications Engineering に所属する Danila Mamontov 氏（M.Sc., Research Assistant）、Wolfgang Minker 教授（Prof. Dr. Dr.-Ing.）と、ダブルディグリーに関する会議に参加しました。林田さんはダブルディグリー取得に向け、2026年11月から1年間ウルム大学に留学する予定です。",
+    links: [
+      { href: "https://app.ait.kyushu-u.ac.jp/people/c40c9800/", label: "Toshiki Hayashida", labelJa: "林田 宗樹" },
+      { href: "https://hyoka.ofc.kyushu-u.ac.jp/html/100021352_en.html", label: "Prof. Yutaka Arakawa", labelJa: "荒川 豊教授" },
+      { href: "https://www.uni-ulm.de/nt/staff/research-assistants/mamontov/", label: "Danila Mamontov (M.Sc., Research Assistant)" },
+      { href: "https://www.uni-ulm.de/nt/staff/professors/wolfgang-minker/", label: "Prof. Dr. Dr.-Ing. Wolfgang Minker" },
+    ],
+  },
+  {
     date: "2026-10-10",
     kind: "milestone",
     labelEn: "Visit & exchange",
