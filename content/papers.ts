@@ -109,12 +109,12 @@ export const papers: PaperVenue[] = [
     type: "conference",
     tier: "core_a",
     submissionDeadline: "2026-08-23",
-    notificationDate: "2026-11-02",
+    notificationDate: "2026-11-03",
     conferenceStart: "2027-02-15",
     conferenceEnd: "2027-02-19",
     location: "Hong Kong, China",
-    status: "under_review",
-    statusDate: "2026-08-23",
+    status: "rejected",
+    statusDate: "2026-11-03",
     badges: [
       {
         label: "Full Paper",
@@ -155,10 +155,36 @@ export const papers: PaperVenue[] = [
     location: "Hakodate, Japan",
     status: "accepted",
     statusDate: "2026-09-04",
+    paperTitleJa:
+      "FRoFA: 事前学習済みビジョンエンコーダにおける公平性とロバスト性を両立する空間-周波数ハイブリッド適応",
+    programHref: "https://www.dpsws.org/2026/?Program",
+    authors: [
+      { name: "Amu Suemoto", nameJa: "末本 歩夢" },
+      {
+        name: "Yutaka Arakawa",
+        nameJa: "荒川 豊",
+        href: "https://researchmap.jp/yutaka.arakawa",
+      },
+      {
+        name: "Tsunenori Mine",
+        nameJa: "峯 恒憲",
+        href: "https://researchmap.jp/read0046263/",
+      },
+    ],
     badges: [
       {
         label: "General Paper",
         labelJa: "一般論文",
+      },
+      {
+        label: "Encouragement Award (Paper)",
+        labelJa: "奨励賞（論文）",
+        tone: "award",
+      },
+      {
+        label: "Excellent Presentation Award",
+        labelJa: "優秀プレゼンテーション賞",
+        tone: "award",
       },
     ],
   },

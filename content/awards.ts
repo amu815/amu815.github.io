@@ -14,6 +14,34 @@ export type Award = {
 
 export const awards: Award[] = [
   {
+    id: "dpsws-2026-excellent-presentation",
+    date: "2026-11-06",
+    name: "Excellent Presentation Award",
+    nameJa: "優秀プレゼンテーション賞",
+    venue: "IPSJ DPSWS 2026",
+    venueJa: "情報処理学会 第34回マルチメディア通信と分散処理ワークショップ (DPSWS 2026)",
+    href: "https://www.dpsws.org/2026/",
+    title:
+      "FRoFA: 事前学習済みビジョンエンコーダにおける公平性とロバスト性を両立する空間-周波数ハイブリッド適応",
+    authors: ["末本歩夢", "荒川豊", "峯恒憲"],
+    affiliation: "Kyushu University Arakawa, Mine & Fukushima Laboratory",
+    affiliationJa: "九州大学 荒川・峯・福嶋研究室",
+  },
+  {
+    id: "dpsws-2026-encouragement-paper",
+    date: "2026-11-05",
+    name: "Encouragement Award (Paper)",
+    nameJa: "奨励賞（論文）",
+    venue: "IPSJ DPSWS 2026",
+    venueJa: "情報処理学会 第34回マルチメディア通信と分散処理ワークショップ (DPSWS 2026)",
+    href: "https://www.dpsws.org/2026/",
+    title:
+      "FRoFA: 事前学習済みビジョンエンコーダにおける公平性とロバスト性を両立する空間-周波数ハイブリッド適応",
+    authors: ["末本歩夢", "荒川豊", "峯恒憲"],
+    affiliation: "Kyushu University Arakawa, Mine & Fukushima Laboratory",
+    affiliationJa: "九州大学 荒川・峯・福嶋研究室",
+  },
+  {
     id: "dicomo-2026-best-paper",
     // Date the paper awards were announced on the official commendation page.
     date: "2026-10-13",
