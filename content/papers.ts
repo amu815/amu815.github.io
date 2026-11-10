@@ -153,8 +153,8 @@ export const papers: PaperVenue[] = [
     conferenceStart: "2026-11-04",
     conferenceEnd: "2026-11-06",
     location: "Hakodate, Japan",
-    status: "accepted",
-    statusDate: "2026-09-04",
+    status: "presented",
+    statusDate: "2026-11-04",
     paperTitleJa:
       "FRoFA: 事前学習済みビジョンエンコーダにおける公平性とロバスト性を両立する空間-周波数ハイブリッド適応",
     programHref: "https://www.dpsws.org/2026/?Program",
